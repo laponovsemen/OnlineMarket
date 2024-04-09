@@ -7,7 +7,7 @@ import {buildDevServer} from "./buildDevServer";
 
 export function buildWebpackConfig(options: BuildOptions): webpack.Configuration {
 
-	const {mode, paths} = options
+	const {mode, paths, isDev} = options
 
 	return {
 		mode: mode,
@@ -19,10 +19,10 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
 		},
 		plugins: buildPlugins(options),
 		module: {
-			rules: buildLoaders(),
+			rules: buildLoaders(options),
 		},
 		resolve: buildResolvers(),
-		devtool: 'inline-source-map',
-		devServer: buildDevServer(options),
+		devtool: isDev ? 'inline-source-map' : undefined, // создание сорс карт или же сорс мапов для отлавливания ошибок в дев режиме
+		devServer: isDev ? buildDevServer(options): undefined, // запуск дев сервера только в дев режиме
 	}
 }
