@@ -4,6 +4,21 @@ import {BuildOptions} from "./types/config";
 
 export function buildLoaders (options: BuildOptions) : webpack.RuleSetRule[]{
 	const {isDev} = options
+
+	const svgLoader = {
+		test: /\.svg$/,
+		use: ['@svgr/webpack'],
+	}
+
+	const fileLoader = {
+		test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+		use: [
+			{
+				loader: 'file-loader',
+			}
+		]
+	}
+
 	const cssLoader = {
 		test: /\.s[ac]ss$/i,
 		use: [
@@ -35,6 +50,8 @@ export function buildLoaders (options: BuildOptions) : webpack.RuleSetRule[]{
 	}
 
 	return [ // одно из самых важных полей в конфиге здесь мы указываем какие лоадеры будем использовать
+		fileLoader,
+		svgLoader,
 		typescriptLoader,
 		cssLoader
 	]
