@@ -17,6 +17,7 @@ export function buildPlugins({paths, isDev}: BuildOptions): webpack.WebpackPlugi
 		}), // для раздельной компиляции сисс фалой и джс
 		new webpack.DefinePlugin({
 			__IS_DEV__: JSON.stringify(isDev)
-		})
+		}),
+		new webpack.HotModuleReplacementPlugin(), // для обновления изменений в проекте без перезагрузки страницы в браузере
 	]
 }
