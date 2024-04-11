@@ -34,5 +34,6 @@
     "compilerOptions": {
       "module": "CommonJS"
     }
-  }
+  },
+  "includes": ["./.eslintrc.js", "./src/app/types/global.d.ts"]
 }

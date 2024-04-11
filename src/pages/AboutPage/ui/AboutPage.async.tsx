@@ -5,10 +5,10 @@ import {lazy} from "react";
 
 
 export const AboutPageAsync = lazy(() => new Promise(resolve => {
-	// ТАК В РЕАЛЬНОСТИ НЕ ДЕЛАЕМ!!! ДЕЛАТЬ ДЛЯ ПРОВЕРКИ РАБОТЫ ПОДГРУЗКИ ЧАНКОВ
+    // ТАК В РЕАЛЬНОСТИ НЕ ДЕЛАЕМ!!! ДЕЛАТЬ ДЛЯ ПРОВЕРКИ РАБОТЫ ПОДГРУЗКИ ЧАНКОВ
 
-	setTimeout(() =>
-	// @ts-ignore
-	resolve(import('./AboutPage'))
-	,1500) // <= НЕ ЗАБУДЬ ДОБАВИТЬ ТАЙМАУТ А ТО НЕ БУДЕТ АСИНХРОННОСТИ
-}))
+    setTimeout(() =>
+    // @ts-ignore
+        resolve(import("./AboutPage"))
+    ,1500); // <= НЕ ЗАБУДЬ ДОБАВИТЬ ТАЙМАУТ А ТО НЕ БУДЕТ АСИНХРОННОСТИ
+}));
