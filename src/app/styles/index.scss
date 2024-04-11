@@ -3,16 +3,12 @@
 @import "themes/normal";
 @import "themes/dark";
 
-
-/*глобальные стили*/
-
+/* глобальные стили */
 
 .app {
 	font: var(--font-m);
-
 	background: var(--bg-color);
 	color: var(--primary-color);
-
 	min-height: 100vh;
 }
 
