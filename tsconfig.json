@@ -35,5 +35,10 @@
       "module": "CommonJS"
     }
   },
-  "includes": ["./.eslintrc.js", "./src/app/types/global.d.ts"]
+
+  "includes": [
+    "./.eslintrc.js",
+    "./src/app/types/global.d.ts",
+    "./config/jest/setupTests.ts"
+  ]
 }
