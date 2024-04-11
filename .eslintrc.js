@@ -65,7 +65,8 @@ module.exports = {
         "react/react-in-jsx-scope": "off",
         "react/jsx-props-no-spreading": "warn",
         "no-underscore-dangle": "off",
-        "i18next/no-literal-string": ["error", {markupOnly: true}]
+        "i18next/no-literal-string": ["error", {markupOnly: true}],
+        "max-len": ["error", {"ignoreComments": true}]
     },
     globals: {
         __IS_DEV__: true
