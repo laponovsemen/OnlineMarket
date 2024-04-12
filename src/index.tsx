@@ -1,5 +1,5 @@
+// eslint-disable-next-line react/no-deprecated
 import { render } from "react-dom";
-import { Counter } from "./shared/ui/Counter/Counter";
 import { App } from "./app/App";
 import { BrowserRouter } from "react-router-dom";
 import ThemeProvider from "./app/providers/ThemeProvider/ui/ThemeProvider";

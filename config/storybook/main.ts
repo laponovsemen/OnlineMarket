@@ -18,7 +18,8 @@ const config: StorybookConfig = {
     docs: {
         autodocs: "tag",
     },
-    swc: (config : any, options: any) => ({
+    // eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars
+    swc: (config : unknown, options: unknown) => ({
         jsc: {
             transform: {
                 react: {

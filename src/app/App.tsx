@@ -1,4 +1,4 @@
-import React, {Suspense, useEffect} from "react";
+import React, {Suspense} from "react";
 import "./styles/index.scss";
 import { useTheme } from "./providers/ThemeProvider";
 import { classNames } from "../shared/lib/classNames/classNames";
@@ -14,6 +14,7 @@ export const App = () => {
     // });
     return (
         <div className={classNames("app", {}, [theme])}>
+            {/* eslint-disable-next-line i18next/no-literal-string */}
             <Suspense fallback={"Loading"}>
 
                 <Navbar/>

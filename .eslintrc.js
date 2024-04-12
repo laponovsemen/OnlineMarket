@@ -66,11 +66,14 @@ module.exports = {
         "react/no-unresolved": "off",
         "import/prefer-default-export": "off",
         "no-unused-vars": "warn",
+        "@typescript-eslint/no-unused-vars": "warn",
         "react/require-default-props": "off",
         "react/react-in-jsx-scope": "off",
         "react/jsx-props-no-spreading": "warn",
         "no-underscore-dangle": "off",
-
+        "@typescript-eslint/no-explicit-any": "warn",
+        "@typescript-eslint/ban-ts-comment": "warn",
+        "react/display-name": "warn",
         "i18next/no-literal-string": [
             "error",
             {

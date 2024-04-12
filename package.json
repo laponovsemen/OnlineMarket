@@ -14,6 +14,7 @@
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix\n",
     "lint:scss": "npx stylelint \"**/*.scss\"",
+    "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static",
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build ./config/storybook"

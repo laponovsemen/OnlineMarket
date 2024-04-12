@@ -11,6 +11,11 @@ export const Counter = () => {
         <button
             className={classes.button}
             onClick={increment}
-        >increment {count}</button>
+
+        >
+            {/* eslint-disable-next-line i18next/no-literal-string */}
+            {/* eslint-disable-next-line i18next/no-literal-string */}
+            increment {count}
+        </button>
     </div>);
 };
