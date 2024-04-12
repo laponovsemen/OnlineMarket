@@ -11,6 +11,6 @@ describe("Button test cases", function () {
     test("test to habe class when theme is provided", () => {
         render(<Button theme={ButtonTheme.CLEAR}>TEST</Button>);
         expect(screen.getByText("TEST")).toHaveClass("clear");
-        screen.debug();
+        //screen.debug();
     });
 });
