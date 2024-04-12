@@ -3,7 +3,8 @@ import {classNames} from "../../../../shared/lib/classNames/classNames";
 import {useState} from "react";
 import {ThemeSwitcher} from "../../../ThemeSwitcher";
 import {LangSwitcher} from "../../../LangSwitcher/LangSwitcher";
-import {Button} from "../../../../shared/ui/Button/Button";
+import {Button, ButtonTheme} from "../../../../shared/ui/Button/Button";
+
 interface SidebarProps {
     className? :string
 }
@@ -24,7 +25,12 @@ export const Sidebar = ({className} : SidebarProps) => {
             <Button
                 data-testid="sidebar-toggle"
                 onClick={onToggle}
-            ></Button>
+                className={classes.collapseBtn}
+                theme={ButtonTheme.BACKGROUND_INVERTED}
+                square
+            >
+                {collapsed ? ">" : "<"}
+            </Button>
             <div className={classes.switchers}>
                 <ThemeSwitcher/>
                 <LangSwitcher className={classes.lang}/>
