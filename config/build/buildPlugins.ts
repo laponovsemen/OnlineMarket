@@ -6,7 +6,7 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import {BundleAnalyzerPlugin} from "webpack-bundle-analyzer";
 
 export function buildPlugins({paths, isDev}: BuildOptions): webpack.WebpackPluginInstance[] {
-    return [ // порядок плагинов не важен в отличие от лоадеров
+    const plugins = [ // порядок плагинов не важен в отличие от лоадеров
         new HTMLWebpackPlugin({
             template: paths.html // для использования нашего собственного хтмл фала как шаблона вместо дефолтного пустого который сам создает вебпак
         }), // для подключения хтмл файлов к сборке
@@ -19,9 +19,14 @@ export function buildPlugins({paths, isDev}: BuildOptions): webpack.WebpackPlugi
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev)
         }),
-        new webpack.HotModuleReplacementPlugin(), // для обновления изменений в проекте без перезагрузки страницы в браузере
-        new BundleAnalyzerPlugin({
-            openAnalyzer: false
-        })
+
     ];
+    if(isDev){
+        plugins.push(new webpack.HotModuleReplacementPlugin()); // для обновления изменений в проекте без перезагрузки страницы в браузере;
+        plugins.push(new BundleAnalyzerPlugin({
+            openAnalyzer: false
+        }));
+    }
+
+    return plugins;
 }
