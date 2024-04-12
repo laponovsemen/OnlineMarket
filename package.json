@@ -96,6 +96,9 @@
     }
   },
   "loki": {
+    "looks-same": {
+      "ignoreCaret": true
+    },
     "configurations": {
       "chrome.laptop": {
         "target": "chrome.docker",
