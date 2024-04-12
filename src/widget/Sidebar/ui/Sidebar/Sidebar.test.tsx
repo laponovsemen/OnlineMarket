@@ -4,17 +4,18 @@ import {withTranslation} from "react-i18next";
 import {
     renderWithTranslation
 } from "../../../../shared/lib/tests/renderWithTranslation/renderWithTranslation";
+import {componentRender} from "../../../../shared/lib/tests/componentRender/componentRender";
 
 
 describe("Sidebar test cases", function () {
     test("test render", () => {
         const SideBarWithTranslation = withTranslation()(Sidebar);
-        renderWithTranslation(<SideBarWithTranslation/>);
+        componentRender(<SideBarWithTranslation/>);
         expect(screen.getByTestId("sidebar")).toBeInTheDocument();
     });
     test("test toggle", () => {
         const SideBarWithTranslation = withTranslation()(Sidebar);
-        renderWithTranslation(<SideBarWithTranslation/>);
+        componentRender(<SideBarWithTranslation/>);
         const toggleBtn = screen.getByTestId("sidebar-toggle");
         expect(screen.getByTestId("sidebar")).toBeInTheDocument();
         fireEvent.click(toggleBtn);
