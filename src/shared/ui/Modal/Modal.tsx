@@ -3,6 +3,7 @@ import classes from "./Modal.module.scss";
 import {classNames} from "../../lib/classNames/classNames";
 import React, {ReactNode, useCallback, useEffect, useRef, useState} from "react";
 import {Portal} from "../Portal/Portal";
+import {useTheme} from "../../../app/providers/ThemeProvider";
 
 interface ModalProps {
     className? :string
@@ -20,6 +21,8 @@ export const Modal = (props : ModalProps) => {
         className,
         onClose
     } = props;
+
+    const {theme} = useTheme();
 
     const [isClosing, setIsClosing] = useState(false);
 
