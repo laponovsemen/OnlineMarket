@@ -21,13 +21,14 @@ module.exports = {
             },
             "files": [
                 ".eslintrc.{js,cjs}",
-                "**/src/**/*.test.{ts,tsx}"
+                "**/src/**/*.{test,stories}.{ts,tsx}"
             ],
             "parserOptions": {
                 "sourceType": "script"
             },
             rules: {
-                "i18next/no-literal-string": "off"
+                "i18next/no-literal-string": "off",
+                "max-len": "off"
             }
         }
     ],
@@ -39,7 +40,8 @@ module.exports = {
     "plugins": [
         "@typescript-eslint",
         "react",
-        "i18next"
+        "i18next",
+        "react-hooks"
     ],
     "rules": {
         "indent": [
@@ -74,6 +76,8 @@ module.exports = {
         "@typescript-eslint/no-explicit-any": "warn",
         "@typescript-eslint/ban-ts-comment": "warn",
         "react/display-name": "warn",
+        "react-hooks/rules-of-hooks": "error", // checks rules of hooks
+        "react-hooks/exhaustive-deps": "error", // checks effect dependencies
         "i18next/no-literal-string": [
             "error",
             {
