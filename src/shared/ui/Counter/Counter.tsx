@@ -1,7 +1,7 @@
 import {useState} from "react";
 import classes from "./Counter.module.scss";
 
-export const Counter = () => {
+export const CustomCounter = () => {
     const [count, setCount] = useState(0);
     const increment = () => {
         setCount(count + 1);
