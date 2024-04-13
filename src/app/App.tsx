@@ -1,14 +1,14 @@
-import React, {Suspense} from "react";
-import "./styles/index.scss";
+import React, {Suspense, useState} from "react";
+
 import { useTheme } from "./providers/ThemeProvider";
 import { classNames } from "../shared/lib/classNames/classNames";
 import { AppRouter } from "./providers/router";
 import { Navbar } from "../widget/NavBar";
 import { Sidebar } from "../widget/Sidebar";
+import {Modal} from "../shared/ui/Modal/Modal";
 
 export const App = () => {
     const { theme } = useTheme();
-
     // useEffect(() => {
     //     throw new Error();
     // });
