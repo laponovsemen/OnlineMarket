@@ -12,7 +12,7 @@ const MainPage = () => {
             <BugButton/>
             {t("Главная страница")}
             <Input
-                placeholder={"Введите текст"}
+                placeholder={t("Введите текст")}
                 value={value}
                 onChange={setValue}
             />

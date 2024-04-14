@@ -141,6 +141,14 @@ export const SquareSizeXL: Story = {
     },
 };
 
+export const Disabled: Story = {
+    args: {
+        theme: ButtonTheme.OUTLINE,
+        children: ">",
+        disabled: true
+    },
+};
+
 export const SquareDark: Story = {
     args: {
         theme: ButtonTheme.BACKGROUND,

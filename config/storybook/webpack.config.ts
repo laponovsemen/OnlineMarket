@@ -25,6 +25,9 @@ export default ({config}: {config: webpack.Configuration}) => {
     });
     config.module.rules.push(buildCssLoaders(true));
     config.module.rules.push(buildSVGLoaders());
+    config.plugins.push(new webpack.DefinePlugin({
+        __IS_DEV__: true,
+    }));
 
     return config;
 };
