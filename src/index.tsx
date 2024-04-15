@@ -12,15 +12,15 @@ import {StoreProvider} from "./app/providers/StoreProvider";
 // import React from "react"; в 17 версии реакта по дефолту импорт реакта не нужен решение в тс конфиге
 // <BrowserRouter/> // для навигации по странице в спа
 render(
-    <StoreProvider>
-        <BrowserRouter>
+    <BrowserRouter>
+        <StoreProvider>
             <ErrorBoundary>
                 <ThemeProvider>
                     <App/>
                 </ThemeProvider>
             </ErrorBoundary>
-        </BrowserRouter>
-    </StoreProvider>
+        </StoreProvider>
+    </BrowserRouter>
     ,
     document.getElementById("root")
 );

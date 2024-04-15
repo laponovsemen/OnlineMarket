@@ -4,7 +4,7 @@ import {BuildOptions} from "./types/config";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import {BundleAnalyzerPlugin} from "webpack-bundle-analyzer";
 
-export function buildPlugins({paths, isDev}: BuildOptions): webpack.WebpackPluginInstance[] {
+export function buildPlugins({paths, isDev, apiUrl}: BuildOptions): webpack.WebpackPluginInstance[] {
     const plugins = [ // порядок плагинов не важен в отличие от лоадеров
         new HTMLWebpackPlugin({
             template: paths.html // для использования нашего собственного хтмл фала как шаблона вместо дефолтного пустого который сам создает вебпак
@@ -16,7 +16,8 @@ export function buildPlugins({paths, isDev}: BuildOptions): webpack.WebpackPlugi
 
         }), // для раздельной компиляции сисс фалой и джс
         new webpack.DefinePlugin({
-            __IS_DEV__: JSON.stringify(isDev)
+            __IS_DEV__: JSON.stringify(isDev),
+            __API__: JSON.stringify(apiUrl)
         }),
 
     ];

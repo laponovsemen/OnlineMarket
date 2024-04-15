@@ -1,6 +1,7 @@
 import {StoreProvider} from "./ui/StoreProvider";
 import {createReduxStore, AppDispatch} from "./config/store";
 import type {StateSchema, ReduxStoreWithManager} from "./config/StateSchema";
+import {ThunkConfig} from "./config/StateSchema";
 
 
 // для того чтобы редакс работал все
@@ -12,5 +13,6 @@ export {
     createReduxStore,
     StateSchema,
     ReduxStoreWithManager,
-    AppDispatch
+    AppDispatch,
+    ThunkConfig
 };
