@@ -1,5 +1,4 @@
 import {LoginSchema} from "../types/loginSchema";
-import {DeepPartial} from "@reduxjs/toolkit";
 import {loginActions, loginReducer} from "./loginSlice";
 import {StateSchema} from "../../../../app/providers/StoreProvider";
 

@@ -12,8 +12,11 @@ export default ({config}: {config: webpack.Configuration}) => {
         entry: "",
         src: path.resolve(__dirname, "..", "..", "src")
     };
+    // @ts-ignore
     config.resolve.modules.push(paths.src);
+    // @ts-ignore
     config.resolve.extensions.push(".ts", ".tsx");
+    // @ts-ignore
     config.module.rules = config.module.rules.map((rule: webpack.RuleSetRule) => {
         if (/svg/.test(rule.test as string)) {
             return {
@@ -23,8 +26,11 @@ export default ({config}: {config: webpack.Configuration}) => {
         }
         return rule;
     });
+    // @ts-ignore
     config.module.rules.push(buildCssLoaders(true));
+    // @ts-ignore
     config.module.rules.push(buildSVGLoaders());
+    // @ts-ignore
     config.plugins.push(new webpack.DefinePlugin({
         __IS_DEV__: JSON.stringify(true),
         __API__: JSON.stringify("")

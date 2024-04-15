@@ -6,5 +6,6 @@ export {
     LoginModal,
     LoginSchema,
     loginActions,
-    loginReducer
+    loginReducer,
+
 };

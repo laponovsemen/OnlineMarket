@@ -66,6 +66,7 @@ module.exports = {
             { extensions: [".js", ".jsx", ".tsx"]}
         ],
         "react/no-unresolved": "off",
+        "no-undef": "off",
         "import/prefer-default-export": "off",
         "no-unused-vars": "warn",
         "@typescript-eslint/no-unused-vars": "warn",
