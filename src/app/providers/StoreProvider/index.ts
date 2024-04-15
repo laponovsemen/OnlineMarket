@@ -1,6 +1,6 @@
 import {StoreProvider} from "./ui/StoreProvider";
 import {createReduxStore} from "./config/store";
-import type {StateSchema} from "./config/StateSchema";
+import type {StateSchema, ReduxStoreWithManager} from "./config/StateSchema";
 // для того чтобы редакс работал все
 // приложение нужно обернуть в провайдер
 // провайдеры глобально мы создаем на уровне провайдерс апп
@@ -8,5 +8,6 @@ import type {StateSchema} from "./config/StateSchema";
 export {
     StoreProvider,
     createReduxStore,
-    StateSchema
+    StateSchema,
+    ReduxStoreWithManager
 };

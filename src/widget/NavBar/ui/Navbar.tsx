@@ -63,10 +63,10 @@ export const Navbar = ({className}: NavbarProps) => {
                  eslint-disable-next-line i18next/no-literal-string,max-len
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis cupiditate eaque error illo nisi optio provident quam repudiandae similique, ullam voluptatibus. Dignissimos laborum necessitatibus nostrum quos totam voluptate.
             </Modal>*/}
-            <LoginModal
+            {isAuthModal && <LoginModal
                 isOpen={isAuthModal}
                 onClose={onCloseModal}
-            />
+            />}
         </div>
     );
 };
