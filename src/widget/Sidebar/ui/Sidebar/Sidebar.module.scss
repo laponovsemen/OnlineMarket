@@ -31,22 +31,6 @@
 	margin-left: 30px;
 }
 
-.item {
-	margin-top: 10px;
-	display: flex;
-	align-items: center;
-}
-
-.link {
-	margin-left: 10px;
-	transition: opacity 0.2s ease-in-out;
-	opacity: 1;
-}
-
-.icon {
-	fill: var(--inverted-primary-color);
-}
-
 .collapsed {
 	width: var(--sidebar-width-collapsed);
 
@@ -59,8 +43,4 @@
 		margin: 0;
 	}
 
-	.link {
-		opacity: 0;
-		width: 0;
-	}
 }
