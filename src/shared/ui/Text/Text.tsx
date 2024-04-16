@@ -1,5 +1,5 @@
 import classes from "./Text.module.scss";
-import {classNames} from "../../lib/classNames/classNames";
+import {classNames, Mods} from "../../lib/classNames/classNames";
 import {memo} from "react";
 
 export enum TextTheme {
@@ -7,11 +7,19 @@ export enum TextTheme {
     ERROR = "error"
 }
 
+export enum TextAlign {
+    RIGHT = "right",
+    LEFT = "left",
+    CENTER = "center"
+}
+
+
 interface TextProps {
     className? :string
 	title? : string;
 	text? : string;
-    theme? : TextTheme
+    theme? : TextTheme;
+    align? :TextAlign
 }
 
 export const Text = memo((props : TextProps) => {
@@ -19,11 +27,13 @@ export const Text = memo((props : TextProps) => {
         className,
         title,
         text,
-        theme = TextTheme.PRIMARY
+        theme = TextTheme.PRIMARY,
+        align = TextAlign.LEFT
     } = props;
 
-    const mods: Record<string, boolean> = {
-        [classes[theme]]: true
+    const mods: Mods = {
+        [classes[theme]]: true,
+        [classes[align]]: true
     };
 
     return (

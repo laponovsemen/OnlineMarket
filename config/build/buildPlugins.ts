@@ -20,6 +20,7 @@ export function buildPlugins({paths, isDev, apiUrl}: BuildOptions): webpack.Webp
             __API__: JSON.stringify(apiUrl)
         }),
 
+
     ];
     if(isDev){
         plugins.push(new webpack.HotModuleReplacementPlugin()); // для обновления изменений в проекте без перезагрузки страницы в браузере;

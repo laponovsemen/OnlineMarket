@@ -1,16 +1,17 @@
 
 import classes from "./Input.module.scss";
-import {classNames} from "../../lib/classNames/classNames";
+import {classNames, Mods} from "../../lib/classNames/classNames";
 import React, {InputHTMLAttributes, memo, useEffect, useRef, useState} from "react";
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "value" | "onChange">
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "value" | "onChange" | "readonly">
 interface InputProps extends HTMLInputProps {
     className? :string
-	value? : string
+	value? : string | number
 	onChange? : (value: string) => void
 	type?: string
     placeholder?: string
     autofocus? : boolean
+    readonly? : boolean
 
 }
 
@@ -22,14 +23,14 @@ export const Input = memo((props : InputProps) => {
         type = "text",
         placeholder,
         autofocus,
-
+        readonly,
         ...otherProps
     } = props;
 
     const [isFocused, setIsFocused] = useState(false);
     const [caretPosition, setCaretPosition] = useState(0);
-
     const ref = useRef<HTMLInputElement>(null);
+    const isCaretVisible = isFocused && !readonly;
 
     useEffect(() => {
         if (autofocus){
@@ -55,6 +56,10 @@ export const Input = memo((props : InputProps) => {
         setCaretPosition(e?.target?.selectionStart || 0);
     };
 
+    const mods: Mods = {
+        [classes.readonly] : readonly
+    };
+
     return (
         <div
             className={
@@ -72,6 +77,7 @@ export const Input = memo((props : InputProps) => {
                     ref={ref}
                     type={type}
                     value={value}
+                    readOnly={readonly}
                     onChange={onChangeHandler}
                     className={classes.input}
                     onFocus={onFocus}
@@ -80,7 +86,7 @@ export const Input = memo((props : InputProps) => {
 
                     {...otherProps}
                 />
-                {isFocused && <span
+                {isCaretVisible && <span
                     className={classes.caret}
                     style={{left: `${caretPosition * 9}px`}}
                 />}

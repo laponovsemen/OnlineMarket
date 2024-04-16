@@ -39,5 +39,6 @@ export interface ThunkExtraArg {
 export interface ThunkConfig<T> {
 	rejectValue: T;
 	extra: ThunkExtraArg;
-	dispatch: Dispatch
+	dispatch: Dispatch;
+	state: StateSchema // добавляется в дженерик в санку чтобы функция getState не возвращала unknown а StateSchema
 }
