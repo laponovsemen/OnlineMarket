@@ -18,7 +18,11 @@ export const fetchProfileData = createAsyncThunk<Profile, void, ThunkConfig<stri
         try {
 
             const response = await extra.api.get<Profile>("/profile");
+            if(!response.data) {
+                throw new Error();
+            }
             return response.data; // по умолчанию оборачивается в fullfilWithValue()
+
         }catch (e) {
             console.log(e);
             return rejectWithValue(i18n.t("Вы ввели неверный логин или пароль"));

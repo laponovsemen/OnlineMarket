@@ -4,6 +4,8 @@ import  ProfilePage from "./ProfilePage";
 import {ThemeDecorator} from "../../../shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import {Theme} from "../../../app/providers/ThemeProvider";
 import {StoreDecorator} from "../../../shared/config/storybook/StoreDecorator/StoreDecorator";
+import {Country} from "../../../entities/Country";
+import {Currency} from "../../../entities/Currency";
 
 const meta = {
     title: "pages/ProfilePage",
@@ -17,7 +19,20 @@ const meta = {
     },
     args: {
 
-    }
+    },
+    decorators: [StoreDecorator({
+        profile: {
+            form :{
+                username: "volodia",
+                age: 99,
+                country: Country.UKRAINE,
+                lastname: "poltoratskiy",
+                first: "bahaha",
+                city: "Toronto",
+                currency: Currency.USD
+            }
+        }
+    })]
 } satisfies Meta<typeof ProfilePage>;
 
 export default meta;
@@ -26,13 +41,11 @@ type Story = StoryObj<typeof meta>;
 export const Normal: Story = {
     args: {},
     decorators: [
-        StoreDecorator({})
     ]
 };
 export const Dark: Story = {
     args: {},
     decorators: [
         ThemeDecorator(Theme.DARK),
-        StoreDecorator({})
     ]
 };

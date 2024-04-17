@@ -1,6 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {USER_LOCALSTORAGE_KEY} from "../../../../shared/const/localStorage";
-import {Profile, ProfileSchema} from "../types/profile";
+import {Profile, ProfileSchema, ValidateProfileError} from "../types/profile";
 import {fetchProfileData} from "../services/fetchProfileData/fetchProfileData";
 import {updateProfileData} from "../services/updateProfileData/updateProfileData";
 
@@ -23,10 +23,11 @@ const profileSlice = createSlice({
         cancelEdit: (state) => {
             state.readonly = true;
             state.form = state.data;
+            state.validateError = undefined;
         },
         updateProfile: (state, action: PayloadAction<Profile>) => {
             state.form = {
-                ...state.data,
+                ...state.form,
                 ...action.payload
             };
         },
@@ -57,7 +58,7 @@ const profileSlice = createSlice({
             .addCase(updateProfileData.pending, (
                 state
             ) => {
-                state.error = undefined;
+                state.validateError = undefined;
                 state.isLoading = true;
             })
             .addCase(updateProfileData.fulfilled, (
@@ -68,13 +69,14 @@ const profileSlice = createSlice({
                 state.data = action.payload;
                 state.form = action.payload;
                 state.readonly = true;
+                state.validateError = undefined;
             })
             .addCase(updateProfileData.rejected, (
                 state,
-                action: PayloadAction<string | undefined>
+                action: PayloadAction<ValidateProfileError[] | undefined>
             ) => {
                 state.isLoading = false;
-                state.error = action.payload;
+                state.validateError = action.payload;
             });
 
     }

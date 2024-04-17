@@ -41,13 +41,11 @@ module.exports = {
         "@typescript-eslint",
         "react",
         "i18next",
-        "react-hooks"
+        "react-hooks",
+        "@stylistic/js"
     ],
     "rules": {
-        "indent": [
-            "error",
-            4
-        ],
+        "@stylistic/js/indent": ["error", 4],
         "linebreak-style": [
             "error",
             "windows"
@@ -60,6 +58,7 @@ module.exports = {
             "error",
             "always"
         ],
+        "no-mixed-spaces-and-tabs": 0,
         "react/jsx-indent": [2, 4],
         "react/jsx-filename-extension": [
             2,
@@ -93,7 +92,8 @@ module.exports = {
     },
     globals: {
         __IS_DEV__: true,
-        __API__: true
+        __API__: true,
+        __PROJECT__: true
     },
 
 };
