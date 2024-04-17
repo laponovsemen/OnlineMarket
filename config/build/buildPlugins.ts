@@ -3,6 +3,7 @@ import webpack from "webpack";
 import {BuildOptions} from "./types/config";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import {BundleAnalyzerPlugin} from "webpack-bundle-analyzer";
+import ReactRefreshPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 
 export function buildPlugins({paths, isDev, apiUrl, project}: BuildOptions): webpack.WebpackPluginInstance[] {
     const plugins = [ // порядок плагинов не важен в отличие от лоадеров
@@ -24,6 +25,7 @@ export function buildPlugins({paths, isDev, apiUrl, project}: BuildOptions): web
 
     ];
     if(isDev){
+        plugins.push(new ReactRefreshPlugin());
         plugins.push(new webpack.HotModuleReplacementPlugin()); // для обновления изменений в проекте без перезагрузки страницы в браузере;
         plugins.push(new BundleAnalyzerPlugin({
             openAnalyzer: false
