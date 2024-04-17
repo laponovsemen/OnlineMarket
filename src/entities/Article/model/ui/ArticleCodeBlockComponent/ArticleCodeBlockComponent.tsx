@@ -1,0 +1,24 @@
+import classes from "./ArticleCodeBlockComponent.module.scss";
+import {useTranslation} from "react-i18next";
+import {classNames} from "../../../../../shared/lib/classNames/classNames";
+import {memo} from "react";
+
+interface ArticleCodeBlockComponentProps {
+	className?: string
+}
+
+export const ArticleCodeBlockComponent = memo((props: ArticleCodeBlockComponentProps) => {
+
+    const {
+        className
+    } = props;
+
+    const {t} = useTranslation();
+
+    return (
+        <div className={classNames(classes.ArticleCodeBlockComponent, {}, [className])}>
+            ArticleCodeBlockComponent
+        </div>
+    );
+});
+

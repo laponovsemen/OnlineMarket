@@ -1,5 +1,5 @@
 import type {Meta, StoryObj} from "@storybook/react";
-import {Text, TextTheme} from "./Text";
+import {Text, TextSize, TextTheme} from "./Text";
 import {ThemeDecorator} from "../../config/storybook/ThemeDecorator/ThemeDecorator";
 import {Theme} from "../../../app/providers/ThemeProvider";
 
@@ -21,6 +21,22 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
     args: {
+        title: "Title lorem ipsum",
+        text: "Description Description DescriptionDescription Description Description "
+    },
+};
+
+export const PrimaryL: Story = {
+    args: {
+        size: TextSize.L,
+        title: "Title lorem ipsum",
+        text: "Description Description DescriptionDescription Description Description "
+    },
+};
+
+export const PrimaryXL: Story = {
+    args: {
+        size: TextSize.XL,
         title: "Title lorem ipsum",
         text: "Description Description DescriptionDescription Description Description "
     },
