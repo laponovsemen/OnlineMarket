@@ -15,7 +15,8 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
         output: {
             filename: "[name].[contenthash].js", // файл сборки куда все полетит,
             path: paths.build , //папка билд,
-            clean: true // для зачистки старых фалов в папке билд
+            clean: true, // для зачистки старых фалов в папке билд
+            publicPath: "/" // для того чтобы поддерживать ури параметры в роутинге http://localhost:3000/articles/1
         },
         plugins: buildPlugins(options),
         module: {
