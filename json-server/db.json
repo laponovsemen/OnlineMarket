@@ -19,7 +19,9 @@
       "img": "https://www.training-dev.fr/Img/Category/Js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -100,6 +102,42 @@
       "text": "some comment 3 тс лучше чем джс",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "asasssa",
+      "id": "2YeP6if"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "sdssd",
+      "id": "sSVgNa9"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "sdsdsds",
+      "id": "6vv3T2r"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "zczxczxczxc",
+      "id": "CuKWzSZ"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "hui",
+      "id": "dTFtSLB"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "Введите текст комментария>",
+      "id": "UquAM4O"
     }
   ],
   "users": [
@@ -109,7 +147,6 @@
       "password": "123",
       "role": "ADMIN",
       "avatar": "https://static.sobaka.ru/images/image/00/80/54/85/_normal.jpg?v=1485945088"
-
     },
     {
       "id": "2",
@@ -117,17 +154,30 @@
       "password": "123",
       "role": "USER",
       "avatar": "https://img2.akspic.ru/crops/3/5/5/2/22553/22553-gornyj_hrebet-gornyj_relef-gora-pejzazhi_gor-oblako-3840x2160.jpg"
-
     }
   ],
-  "profile": {
-    "first": "jgh",
-    "lastname": "asf",
-    "age": 465,
-    "currency": "RUB",
-    "country": "Belarus",
-    "city": "Moscow",
-    "username": "admin213",
-    "avatar": "https://img2.akspic.ru/crops/3/5/5/2/22553/22553-gornyj_hrebet-gornyj_relef-gora-pejzazhi_gor-oblako-3840x2160.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Semen",
+      "lastname": "Laponov",
+      "age": 22,
+      "currency": "RUB",
+      "country": "UKRAINE",
+      "city": "Henichesk",
+      "username": "admin213",
+      "avatar": "https://img2.akspic.ru/crops/3/5/5/2/22553/22553-gornyj_hrebet-gornyj_relef-gora-pejzazhi_gor-oblako-3840x2160.jpg"
+    },
+    {
+      "id": "2",
+      "first": "Anastasia",
+      "lastname": "Sakevich",
+      "age": 21,
+      "currency": "UAH",
+      "country": "UKRAINE",
+      "city": "Henichesk",
+      "username": "admin2134",
+      "avatar": "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcTIbvbOurBZr7rl7dXgYa08yXBtRwpFACM5ukOaXtGwOacxgE-d4JW_3bMmOjiYwIwSQ4mVBxpOY3gjlMaDmEd3F3cRikE5VfwFB335vg"
+    }
+  ]
 }

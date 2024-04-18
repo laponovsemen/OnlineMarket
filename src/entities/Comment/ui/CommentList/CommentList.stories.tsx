@@ -22,6 +22,19 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
-    args: {},
+    args: {
+        comments:[
+            {
+                id: "1",
+                text: "hello world",
+                user :{ id: "1", username: "Vasya"}
+            },
+            {
+                id: "2",
+                text: "Comment2 ",
+                user :{ id: "2", username: "Petia"}
+            },
+        ]
+    },
 
 };

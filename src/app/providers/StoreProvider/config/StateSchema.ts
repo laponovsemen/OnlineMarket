@@ -7,6 +7,8 @@ import {AxiosInstance} from "axios";
 import {NavigateOptions, To} from "react-router-dom";
 import {ArticleDetailsSchema} from "../../../../entities/Article";
 import {ArticleDetailsCommentsSchema} from "../../../../pages/ArticleDetailsPage";
+import {AddCommentFormSchema} from "../../../../features/addCommentForm";
+import {AppDispatch} from "./store";
 
 
 
@@ -19,6 +21,7 @@ export interface StateSchema {
 	profile?: ProfileSchema
 	articleDetails? : ArticleDetailsSchema
 	articleDetailsComments? :ArticleDetailsCommentsSchema
+	addCommentForm? : AddCommentFormSchema
 }
 
 export type StateSchemaKey = keyof StateSchema
@@ -43,6 +46,6 @@ export interface ThunkExtraArg {
 export interface ThunkConfig<T> {
 	rejectValue: T;
 	extra: ThunkExtraArg;
-	dispatch: Dispatch;
+	dispatch: AppDispatch;
 	state: StateSchema // добавляется в дженерик в санку чтобы функция getState не возвращала unknown а StateSchema
 }

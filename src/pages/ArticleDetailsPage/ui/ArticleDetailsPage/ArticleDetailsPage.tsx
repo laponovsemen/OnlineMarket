@@ -1,7 +1,7 @@
 import classes from "./ArticleDetailsPage.module.scss";
 import {classNames} from "../../../../shared/lib/classNames/classNames";
 import {useTranslation} from "react-i18next";
-import React, {memo} from "react";
+import React, {memo, useCallback} from "react";
 import {ArticleDetails} from "../../../../entities/Article";
 import {useParams} from "react-router-dom";
 import {Text} from "../../../../shared/ui/Text/Text";
@@ -10,12 +10,19 @@ import {
     DynamicModuleLoader,
     ReducersList
 } from "../../../../shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import {articleDetailsCommentsReducer, getArticleComments} from "../../model/slices/articleDetailsCommentsSlice";
+import {
+    articleDetailsCommentsReducer,
+    getArticleComments
+} from "../../model/slices/articleDetailsCommentsSlice";
 import {useSelector} from "react-redux";
 import {getArticleCommentsIsLoading} from "../../model/selectors/comments";
 import {useInitialEffect} from "../../../../shared/lib/hooks/useInitialEffect/useInitialEffect";
 import {useAppDispatch} from "../../../../shared/lib/hooks/useAppDispatch/useAppDispatch";
-import {fetchCommentsByArticleId} from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
+import {
+    fetchCommentsByArticleId
+} from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
+import AddCommentForm from "../../../../features/addCommentForm/ui/AddCommentForm";
+import {addCommentForArticle} from "../../model/services/addCommentForArticle/addCommentForArticle";
 
 // todo для того чтобы i18next extract plugin работал нужно создать помимо файлов в названии которых есть неймспейс прокидываемый в юзТранслейшн но и этот файл уже должен содержать пустой джсон обьект
 interface ArticleDetailsPageProps {
@@ -36,6 +43,9 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     useInitialEffect(() => dispatch(fetchCommentsByArticleId(id)));
 
+    const onSendComment = useCallback((text: string) => {
+        dispatch(addCommentForArticle(text));
+    }, [dispatch]);
 
     if(!id) {
         return (
@@ -58,6 +68,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                     className={classes.commentTitle}
                     title={t("Комментарии")}
                 />
+                <AddCommentForm onSendComment={onSendComment}/>
                 <CommentList
                     isLoading={isLoading}
                     comments={comments}

@@ -7,6 +7,7 @@ import {ValidateProfileError} from "../../types/profile";
 // todo валятся импорты если импортировать каунтри из паблик апи Володя помоги
 
 const data = {
+    id: "1",
     username: "volodia",
     age: 99,
     country: Country.UKRAINE,
