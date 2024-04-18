@@ -1,9 +1,9 @@
 import classes from "./ArticleTextBlockComponent.module.scss";
 import {useTranslation} from "react-i18next";
-import {classNames} from "../../../../../shared/lib/classNames/classNames";
+import {classNames} from "../../../../shared/lib/classNames/classNames";
 import {memo} from "react";
-import {ArticleTextBlock} from "../../types/article";
-import {Text} from "../../../../../shared/ui/Text/Text";
+import {ArticleTextBlock} from "../../model/types/article";
+import {Text} from "../../../../shared/ui/Text/Text";
 interface ArticleTextBlockComponentProps {
 	className?: string
     block: ArticleTextBlock

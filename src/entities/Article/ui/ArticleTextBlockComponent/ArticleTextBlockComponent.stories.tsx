@@ -1,11 +1,11 @@
 import type {Meta, StoryObj} from "@storybook/react";
 
 import {ArticleTextBlockComponent} from "./ArticleTextBlockComponent";
-import {StoreDecorator} from "../../../../../shared/config/storybook/StoreDecorator/StoreDecorator";
-import {ArticleBlockType} from "../../types/article";
+import {StoreDecorator} from "../../../../shared/config/storybook/StoreDecorator/StoreDecorator";
+import {ArticleBlockType} from "../../model/types/article";
 
 const meta = {
-    title: "/ArticleTextBlockComponent",
+    title: "entities/ArticleTextBlockComponent",
     component: ArticleTextBlockComponent,
     parameters: {
         layout: "centered",
