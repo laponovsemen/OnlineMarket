@@ -14,6 +14,11 @@ const article: Article = {
     "views": 1022,
     "createdAt": "26.02.2022",
     "type": [ArticleType.IT],
+    user: {
+        id: "1",
+        username: "some username",
+        avatar: "https://musicart.xboxlive.com/7/4d4d6500-0000-0000-0000-000000000002/504/image.jpg?w=1920&h=1080"
+    },
     "blocks": [
         {
             "id": "1",

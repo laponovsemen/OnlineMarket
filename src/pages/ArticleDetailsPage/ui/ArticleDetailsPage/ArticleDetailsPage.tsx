@@ -3,7 +3,7 @@ import {classNames} from "../../../../shared/lib/classNames/classNames";
 import {useTranslation} from "react-i18next";
 import React, {memo, useCallback} from "react";
 import {ArticleDetails} from "../../../../entities/Article";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {Text} from "../../../../shared/ui/Text/Text";
 import {CommentList} from "../../../../entities/Comment";
 import {
@@ -23,6 +23,8 @@ import {
 } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import AddCommentForm from "../../../../features/addCommentForm/ui/AddCommentForm";
 import {addCommentForArticle} from "../../model/services/addCommentForArticle/addCommentForArticle";
+import {Button, ButtonTheme} from "../../../../shared/ui/Button/Button";
+import {RoutePath} from "../../../../shared/config/routeConfig/routeConfig";
 
 // todo для того чтобы i18next extract plugin работал нужно создать помимо файлов в названии которых есть неймспейс прокидываемый в юзТранслейшн но и этот файл уже должен содержать пустой джсон обьект
 interface ArticleDetailsPageProps {
@@ -40,6 +42,10 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const {id} = useParams<{id: string}>(); // шоб взять айди из урла
     const comments = useSelector(getArticleComments.selectAll);
     const isLoading = useSelector(getArticleCommentsIsLoading);
+    const navigate = useNavigate();
+    const onBackToList = useCallback(() => {
+        navigate(RoutePath.articles);
+    }, [navigate]);
 
     useInitialEffect(() => dispatch(fetchCommentsByArticleId(id)));
 
@@ -61,6 +67,12 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
             removeAfterUnmount // чтобы после ухода со страницы участок стейта также удалялся
         >
             <div className={classNames(classes.ArticleDetailsPage, {}, [className])}>
+                <Button
+                    onClick={onBackToList}
+                    theme={ButtonTheme.OUTLINE}
+                >
+                    {t("назад к списку")}
+                </Button>
                 <ArticleDetails
                     id={id}
                 />
