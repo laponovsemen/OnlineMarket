@@ -25,6 +25,7 @@ import AddCommentForm from "../../../../features/addCommentForm/ui/AddCommentFor
 import {addCommentForArticle} from "../../model/services/addCommentForArticle/addCommentForArticle";
 import {Button, ButtonTheme} from "../../../../shared/ui/Button/Button";
 import {RoutePath} from "../../../../shared/config/routeConfig/routeConfig";
+import {Page} from "../../../../shared/ui/Page/Page";
 
 // todo для того чтобы i18next extract plugin работал нужно создать помимо файлов в названии которых есть неймспейс прокидываемый в юзТранслейшн но и этот файл уже должен содержать пустой джсон обьект
 interface ArticleDetailsPageProps {
@@ -55,9 +56,9 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     if(!id) {
         return (
-            <div className={classNames(classes.ArticleDetailsPage, {}, [className])}>
+            <Page className={classNames(classes.ArticleDetailsPage, {}, [className])}>
                 {t("Статья не найдена")}
-            </div>
+            </Page>
         );
     }
 
@@ -66,7 +67,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
             reducers={reducers}
             removeAfterUnmount // чтобы после ухода со страницы участок стейта также удалялся
         >
-            <div className={classNames(classes.ArticleDetailsPage, {}, [className])}>
+            <Page className={classNames(classes.ArticleDetailsPage, {}, [className])}>
                 <Button
                     onClick={onBackToList}
                     theme={ButtonTheme.OUTLINE}
@@ -85,7 +86,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                     isLoading={isLoading}
                     comments={comments}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };

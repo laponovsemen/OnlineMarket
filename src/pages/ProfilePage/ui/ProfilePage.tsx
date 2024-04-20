@@ -26,6 +26,7 @@ import {TextTheme} from "../../../shared/ui/Text/Text";
 import {Text} from "../../../shared/ui/Text/Text";
 import {useInitialEffect} from "../../../shared/lib/hooks/useInitialEffect/useInitialEffect";
 import {useParams} from "react-router-dom";
+import {Page} from "../../../shared/ui/Page/Page";
 const reducers: ReducersList = {
     profile: profileReducer
 };
@@ -99,7 +100,7 @@ const ProfilePage = ({className} : ProfilePageProps) => {
             reducers={reducers}
             removeAfterUnmount
         >
-            <div className={classNames(classes.ProfilePage, {} , [className])}>
+            <Page className={classNames(classes.ProfilePage, {} , [className])}>
                 {t("PROFILE PAGE")}
 
                 {/*для каждого поля формы свой отдельный
@@ -128,7 +129,7 @@ const ProfilePage = ({className} : ProfilePageProps) => {
                     onChangeCurrency={onChangeCurrency}
                     onChangeCountry={onChangeCountry}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
 
     );

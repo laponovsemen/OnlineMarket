@@ -2,19 +2,32 @@ import {createAsyncThunk} from "@reduxjs/toolkit";
 import {ThunkConfig} from "../../../../../app/providers/StoreProvider";
 import i18n from "../../../../../shared/config/i18n/i18n";
 import {Article} from "../../../../../entities/Article";
+import {getArticlesPageLimit} from "../../selectors/articlePageSelectors";
+
+interface FetchArticlesListProps {
+    page? :number
+
+}
 
 export const fetchArticlesList = createAsyncThunk<
 	Article[],
-	void,
+    FetchArticlesListProps,
 	ThunkConfig<string>
 >(
     "articlesPage/fetchArticlesList",
-    async (_, thunkAPI) => {
+    async (props, thunkAPI) => {
         const {
             dispatch,
             extra,
-            rejectWithValue
+            rejectWithValue,
+            getState
         } = thunkAPI;
+
+        const {
+            page = 1,
+        } = props;
+
+        const limit = getArticlesPageLimit(getState());
 
         /*if(!articleId) {
             return rejectWithValue("no article id was provided");
@@ -24,7 +37,9 @@ export const fetchArticlesList = createAsyncThunk<
 
             const response = await extra.api.get<Article[]>("/articles", {
                 params: {
-                    _expand: "user"
+                    _expand: "user",
+                    _limit: limit,
+                    _page: page
                 }
             });
             if(!response.data) {

@@ -1,7 +1,8 @@
 .notSelected {
-	fill: var(--inverted-bg-color);
+	fill: var(--card-bg);
+
 }
 
 .selected {
-	fill: var(--primary-color);
+	fill: var(--inverted-bg-color);
 }
