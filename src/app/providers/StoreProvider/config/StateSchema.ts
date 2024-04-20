@@ -9,6 +9,7 @@ import {ArticleDetailsSchema} from "../../../../entities/Article";
 import {ArticleDetailsCommentsSchema} from "../../../../pages/ArticleDetailsPage";
 import {AddCommentFormSchema} from "../../../../features/addCommentForm";
 import {AppDispatch} from "./store";
+import {ArticlePageSchema} from "../../../../pages/ArticlesPage";
 
 
 
@@ -22,6 +23,7 @@ export interface StateSchema {
 	articleDetails? : ArticleDetailsSchema
 	articleDetailsComments? :ArticleDetailsCommentsSchema
 	addCommentForm? : AddCommentFormSchema
+	articlesPage? : ArticlePageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema
