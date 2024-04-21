@@ -4,7 +4,7 @@ import {BuildOptions} from "./types/config";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import {BundleAnalyzerPlugin} from "webpack-bundle-analyzer";
 import ReactRefreshPlugin from "@pmmmwh/react-refresh-webpack-plugin";
-
+import CopyPlugin from "copy-webpack-plugin";
 export function buildPlugins({paths, isDev, apiUrl, project}: BuildOptions): webpack.WebpackPluginInstance[] {
     const plugins = [ // порядок плагинов не важен в отличие от лоадеров
         new HTMLWebpackPlugin({
@@ -21,7 +21,11 @@ export function buildPlugins({paths, isDev, apiUrl, project}: BuildOptions): web
             __API__: JSON.stringify(apiUrl),
             __PROJECT__ : JSON.stringify(project)
         }),
-
+        new CopyPlugin({
+            patterns: [
+                {from: paths.locales, to: paths.buildLocales}
+            ]
+        })
 
     ];
     if(isDev){
