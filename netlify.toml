@@ -1,0 +1,7 @@
+[[redirects]]
+    from = "/*"
+    to = "/index.html"
+    status = 200
+    # force = false
+    # query = {path = ":path"} # apply this rule for /old-path?path=example
+    # conditions = {language = ["en", "es"], Country = ["US"]}
