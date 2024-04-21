@@ -6,7 +6,11 @@ import {ProfileSchema} from "../../../../entities/Profile";
 import {AxiosInstance} from "axios";
 import {NavigateOptions, To} from "react-router-dom";
 import {ArticleDetailsSchema} from "../../../../entities/Article";
-import {ArticleDetailsCommentsSchema} from "../../../../pages/ArticleDetailsPage";
+import {
+    ArticleDetailsCommentsSchema,
+    ArticleDetailsPageSchema,
+    ArticleDetailsReccomendationsSchema
+} from "../../../../pages/ArticleDetailsPage";
 import {AddCommentFormSchema} from "../../../../features/addCommentForm";
 import {AppDispatch} from "./store";
 import {ArticlePageSchema} from "../../../../pages/ArticlesPage";
@@ -24,9 +28,9 @@ export interface StateSchema {
 	loginForm? : LoginSchema
 	profile?: ProfileSchema
 	articleDetails? : ArticleDetailsSchema
-	articleDetailsComments? :ArticleDetailsCommentsSchema
 	addCommentForm? : AddCommentFormSchema
 	articlesPage? : ArticlePageSchema;
+	articleDetailsPage? : ArticleDetailsPageSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

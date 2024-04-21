@@ -4,9 +4,7 @@ import {profileReducer} from "../../../../entities/Profile";
 import {ReducersList} from "../../../lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import {articleDetailsReducer} from "../../../../entities/Article/model/slice/articleDetailsSlice";
 import {addCommentFormReducer} from "../../../../features/addCommentForm/model/slices/addCommentFormSlice";
-import {
-    articleDetailsCommentsReducer
-} from "../../../../pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice";
+import {articteDetailsPageReducer} from "../../../../pages/ArticleDetailsPage/model/slices";
 
 
 const defaultAsybcReducers: ReducersList = {  //DeepPartial<ReducersMapObject<StateSchema>>
@@ -14,7 +12,7 @@ const defaultAsybcReducers: ReducersList = {  //DeepPartial<ReducersMapObject<St
     profile: profileReducer,
     articleDetails: articleDetailsReducer,
     addCommentForm: addCommentFormReducer,
-    articleDetailsComments: articleDetailsCommentsReducer,
+    articleDetailsPage: articteDetailsPageReducer,
 
 };
 

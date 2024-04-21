@@ -8,6 +8,7 @@ import {Reducer} from "@reduxjs/toolkit";
 
 export type ReducersList = {
     [name in StateSchemaKey]? : Reducer
+    // [name in StateSchemaKey]? : Reducer<NonNullable<StateSchema>[name]>
 }
 
 type ReducersListEntry = [StateSchemaKey, Reducer]

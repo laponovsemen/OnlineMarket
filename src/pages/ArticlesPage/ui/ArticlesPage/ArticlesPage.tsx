@@ -21,6 +21,8 @@ import {ArticleViewSelector} from "../../../../entities/Article/ui/ArticleViewSe
 import {Page} from "../../../../widget/Page/Page";
 import {fetchNextArticlesPage} from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
 import {initArticlesPage} from "../../model/services/initArticlesPage/initArticlesPage";
+import {ArticlePageFilter} from "../ArticlePageFilter/ArticlePageFilter";
+import { useSearchParams } from "react-router-dom";
 
 interface ArticlesPageProps {
 	className?: string
@@ -42,22 +44,20 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const dispatch = useAppDispatch();
     const articles = useSelector(getArticles.selectAll);
     const page = useSelector(getArticlesPageNum);
-    const view = useSelector(getArticlesPageView);
     const hasMore = useSelector(getArticlesPageHasMore);
     const error = useSelector(getArticlesPageError);
     const isLoading = useSelector(getArticlesPageIsLoading);
     const inited = useSelector(getArticlesPageInited);
+    const view = useSelector(getArticlesPageView);
+    const [searchParams, setSearchParams] = useSearchParams();
 
-    const onChangeView = useCallback((view: ArticleView) => {
-        dispatch(articlesPageActions.setView(view));
-    }, [dispatch]);
 
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchNextArticlesPage());
     }, [dispatch]);
 
     useInitialEffect(() => {
-        dispatch(initArticlesPage());
+        dispatch(initArticlesPage(searchParams));
     });
 
 
@@ -78,14 +78,13 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                         {},
                         [className])}
             >
-                <ArticleViewSelector
-                    view={view}
-                    onViewClick={onChangeView}
-                />
+                <ArticlePageFilter/>
                 <ArticleList
                     isLoading={isLoading}
                     view={view}
-                    articles={articles}/>
+                    articles={articles}
+                    className={classes.list}
+                />
             </Page>
         </DynamicModuleLoader>
     );

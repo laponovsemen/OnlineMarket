@@ -7,7 +7,7 @@ const initialState : ScrollRestorationSchema = {
 };
 
 export const scrollRestorationSlice = createSlice({
-    name: "",
+    name: "scrollRestorationSlice",
     initialState,
     reducers: {
         setScrollPosition: (state, action: PayloadAction<{path: string, position: number}>) => {
