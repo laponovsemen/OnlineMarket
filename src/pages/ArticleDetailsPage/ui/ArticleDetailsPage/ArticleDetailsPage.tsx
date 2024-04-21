@@ -25,7 +25,7 @@ import AddCommentForm from "../../../../features/addCommentForm/ui/AddCommentFor
 import {addCommentForArticle} from "../../model/services/addCommentForArticle/addCommentForArticle";
 import {Button, ButtonTheme} from "../../../../shared/ui/Button/Button";
 import {RoutePath} from "../../../../shared/config/routeConfig/routeConfig";
-import {Page} from "../../../../shared/ui/Page/Page";
+import {Page} from "../../../../widget/Page/Page";
 
 // todo для того чтобы i18next extract plugin работал нужно создать помимо файлов в названии которых есть неймспейс прокидываемый в юзТранслейшн но и этот файл уже должен содержать пустой джсон обьект
 interface ArticleDetailsPageProps {

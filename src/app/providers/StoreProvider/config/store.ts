@@ -5,6 +5,7 @@ import {userReducer} from "../../../../entities/User";
 import {createReducerManager} from "./reducerManager";
 import {$api} from "../../../../shared/api/api";
 import {NavigateOptions, To } from "react-router-dom";
+import {scrollRestorationReducer} from "../../../../features/scrollRestoration";
 
 export function createReduxStore(
     initialState?: StateSchema,
@@ -16,7 +17,7 @@ export function createReduxStore(
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
-
+        scrollRestoration: scrollRestorationReducer
     };
 
     const reducerManager = createReducerManager(rootReducers);

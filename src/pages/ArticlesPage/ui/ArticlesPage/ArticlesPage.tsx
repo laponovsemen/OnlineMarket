@@ -18,7 +18,7 @@ import {
     getArticlesPageView
 } from "../../model/selectors/articlePageSelectors";
 import {ArticleViewSelector} from "../../../../entities/Article/ui/ArticleViewSelector/ArticleViewSelector";
-import {Page} from "../../../../shared/ui/Page/Page";
+import {Page} from "../../../../widget/Page/Page";
 import {fetchNextArticlesPage} from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
 import {initArticlesPage} from "../../model/services/initArticlesPage/initArticlesPage";
 

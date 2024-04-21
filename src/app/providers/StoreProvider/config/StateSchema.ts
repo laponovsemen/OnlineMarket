@@ -11,12 +11,14 @@ import {AddCommentFormSchema} from "../../../../features/addCommentForm";
 import {AppDispatch} from "./store";
 import {ArticlePageSchema} from "../../../../pages/ArticlesPage";
 import {ReducersList} from "../../../../shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import {ScrollRestorationSchema} from "../../../../features/scrollRestoration";
 
 
 
 export interface StateSchema {
 	counter: CounterSchema
 	user: UserSchema
+	scrollRestoration: ScrollRestorationSchema
 
 	// Асинхронные редьюсеры
 	loginForm? : LoginSchema
