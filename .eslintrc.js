@@ -76,6 +76,7 @@ module.exports = {
         "@typescript-eslint/no-explicit-any": "warn",
         "@typescript-eslint/ban-ts-comment": "warn",
         "react/display-name": "warn",
+        "errow-body-style": "off",
         "react-hooks/rules-of-hooks": "error", // checks rules of hooks
         "react-hooks/exhaustive-deps": "error", // checks effect dependencies
         "i18next/no-literal-string": [
@@ -84,7 +85,8 @@ module.exports = {
                 markupOnly: true,
                 ignoreAttribute:[
                     "data-testid",
-                    "to"
+                    "to",
+                    "target"
                 ]
             }
         ],

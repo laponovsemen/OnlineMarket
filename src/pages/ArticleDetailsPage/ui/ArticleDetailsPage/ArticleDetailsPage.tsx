@@ -30,6 +30,7 @@ import {
     fetchArticleRecommendations
 } from "../../model/services/fetchArticleRecommendations/fetchArticleRecommendations";
 import {articteDetailsPageReducer} from "../../model/slices";
+import {ArticleDetailsPageHeader} from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
 
 
 // todo для того чтобы i18next extract plugin работал нужно создать помимо файлов в названии которых есть неймспейс прокидываемый в юзТранслейшн но и этот файл уже должен содержать пустой джсон обьект
@@ -51,10 +52,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
     const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
 
-    const navigate = useNavigate();
-    const onBackToList = useCallback(() => {
-        navigate(RoutePath.articles);
-    }, [navigate]);
+
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
@@ -79,12 +77,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
             removeAfterUnmount // чтобы после ухода со страницы участок стейта также удалялся
         >
             <Page className={classNames(classes.ArticleDetailsPage, {}, [className])}>
-                <Button
-                    onClick={onBackToList}
-                    theme={ButtonTheme.OUTLINE}
-                >
-                    {t("назад к списку")}
-                </Button>
+                <ArticleDetailsPageHeader/>
                 <ArticleDetails
                     id={id}
                 />
