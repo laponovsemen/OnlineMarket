@@ -17,6 +17,8 @@ interface PageProps {
     onScrollEnd? : () => void
 }
 
+export const PAGE__ID = "PAGE__ID";
+
 export const Page = memo((props: PageProps) => {
 
     const {
@@ -58,6 +60,7 @@ export const Page = memo((props: PageProps) => {
                     classes.Page,
                     {},
                     [className])}
+            id={PAGE__ID}
         >
             {children}
             {onScrollEnd
