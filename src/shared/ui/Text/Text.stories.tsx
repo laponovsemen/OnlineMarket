@@ -26,6 +26,14 @@ export const Primary: Story = {
     },
 };
 
+export const PrimaryS: Story = {
+    args: {
+        size: TextSize.S,
+        title: "Title lorem ipsum",
+        text: "Description Description DescriptionDescription Description Description "
+    },
+};
+
 export const PrimaryL: Story = {
     args: {
         size: TextSize.L,

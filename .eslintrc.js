@@ -93,7 +93,8 @@ module.exports = {
                     "align",
                     "justify",
                     "direction",
-                    "gap"
+                    "gap",
+                    "role"
                 ]
             }
         ],
