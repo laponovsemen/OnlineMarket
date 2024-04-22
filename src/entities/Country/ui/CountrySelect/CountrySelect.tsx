@@ -4,6 +4,7 @@ import {memo, useCallback} from "react";
 import {Country} from "../../model/types/country";
 import {Select} from "../../../../shared/ui/Select/Select";
 import {classNames} from "../../../../shared/lib/classNames/classNames";
+import {ListBox} from "../../../../shared/ui/ListBox/ListBox";
 
 interface CountrySelectProps {
 	className? :string
@@ -37,20 +38,35 @@ export const CountrySelect = memo((props : CountrySelectProps) => {
     }, [onChange]);
 
     return (
-        <Select
+        <ListBox
             className={
                 classNames(
                     classes.CurrencySelect,
                     {} ,
                     [className])
             }
-            label={t("Укажите страну")}
-            options={options}
+            defaultValue={t("Укажите страну")}
+            items={options}
             value={value}
+            label={t("Укажите страну")}
             onChange={onChangeHandler}
             readonly={readonly}
-        />
+            direction={"top"}
+        />);
 
-
-    );
+    // return (
+    //     <Select
+    //         className={
+    //             classNames(
+    //                 classes.CurrencySelect,
+    //                 {} ,
+    //                 [className])
+    //         }
+    //         label={t("Укажите страну")}
+    //         options={options}
+    //         value={value}
+    //         onChange={onChangeHandler}
+    //         readonly={readonly}
+    //     />
+    // );
 });

@@ -44,7 +44,7 @@ export interface FlexProps extends DivProps{
     max?: boolean
 }
 
-export const Flex = memo((props: FlexProps) => {
+export const Flex = (props: FlexProps) => {
 
     const {
         className,
@@ -53,7 +53,8 @@ export const Flex = memo((props: FlexProps) => {
         direction = "row",
         align = "center",
         gap,
-        max
+        max,
+        ...otherProps
     } = props;
 
     const additionalClasses = [
@@ -75,9 +76,10 @@ export const Flex = memo((props: FlexProps) => {
                 classes.Flex,
                 mods,
                 additionalClasses)}
+        {...otherProps}
         >
             {children}
         </div>
     );
-});
+};
 
