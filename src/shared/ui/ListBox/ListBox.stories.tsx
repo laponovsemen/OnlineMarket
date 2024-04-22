@@ -4,6 +4,7 @@ import {ListBox} from "./ListBox";
 import {ThemeDecorator} from "../../../shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import {Theme} from "../../../app/providers/ThemeProvider";
 import {StoreDecorator} from "../../../shared/config/storybook/StoreDecorator/StoreDecorator";
+import {action} from "@storybook/addon-actions";
 
 const meta = {
     title: "shared/ListBox",
@@ -16,14 +17,71 @@ const meta = {
         //backgroundColor: { control: "color" },
     },
     decorators: [
-        StoreDecorator({})
+        StoreDecorator({}),
+        Story => <div style={{padding: 100}}><Story/></div>
     ]
 } satisfies Meta<typeof ListBox>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-/*export const Light: Story = {
-    args: {},
+export const Normal: Story = {
+    args: {
+        items: [
+            {content: "ksdfjkasdkla", value: "123"},
+            {content: "ksdf", value: "1234"},
+        ],
+        onChange: action("onChangeAction")
+    },
+};
 
-};*/
+export const TopLeft: Story = {
+    args: {
+        direction: "top left",
+        value: "OPEN",
+
+        items: [
+            {content: "ksdfjkasdkla", value: "123"},
+            {content: "ksdf", value: "1234"},
+        ],
+        onChange: action("onChangeAction")
+    },
+};
+
+export const TopRight: Story = {
+    args: {
+        direction: "top right",
+        value: "OPEN",
+
+        items: [
+            {content: "ksdfjkasdkla", value: "123"},
+            {content: "ksdf", value: "1234"},
+        ],
+        onChange: action("onChangeAction")
+    },
+};
+
+export const BottomLeft: Story = {
+    args: {
+        direction: "bottom left",
+        value: "OPEN",
+
+        items: [
+            {content: "ksdfjkasdkla", value: "123"},
+            {content: "ksdf", value: "1234"},
+        ],
+        onChange: action("onChangeAction")
+    },
+};
+
+export const BottomRight: Story = {
+    args: {
+        direction: "bottom right",
+        value: "OPEN",
+        items: [
+            {content: "ksdfjkasdkla", value: "123"},
+            {content: "ksdf", value: "1234"},
+        ],
+        onChange: action("onChangeAction")
+    },
+};
