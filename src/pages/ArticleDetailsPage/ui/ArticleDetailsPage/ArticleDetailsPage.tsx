@@ -31,6 +31,7 @@ import {
 } from "../../model/services/fetchArticleRecommendations/fetchArticleRecommendations";
 import {articteDetailsPageReducer} from "../../model/slices";
 import {ArticleDetailsPageHeader} from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
+import {VStack} from "../../../../shared/ui/Stack";
 
 
 // todo для того чтобы i18next extract plugin работал нужно создать помимо файлов в названии которых есть неймспейс прокидываемый в юзТранслейшн но и этот файл уже должен содержать пустой джсон обьект
@@ -77,31 +78,37 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
             removeAfterUnmount // чтобы после ухода со страницы участок стейта также удалялся
         >
             <Page className={classNames(classes.ArticleDetailsPage, {}, [className])}>
-                <ArticleDetailsPageHeader/>
-                <ArticleDetails
-                    id={id}
-                />
-                <Text
-                    size={TextSize.L}
-                    className={classes.recommendationsTitle}
-                    title={t("Рекомендуем")}
-                />
-                <ArticleList
-                    target="_blank"
-                    className={classes.recommendations}
-                    articles={recommendations}
-                    isLoading={recommendationsIsLoading}
-                />
-                <Text
-                    size={TextSize.L}
-                    className={classes.commentTitle}
-                    title={t("Комментарии")}
-                />
-                <AddCommentForm onSendComment={onSendComment}/>
-                <CommentList
-                    isLoading={commentsIsLoading}
-                    comments={comments}
-                />
+                <VStack
+                    gap={"16"}
+                    max
+                >
+                    <ArticleDetailsPageHeader/>
+                    <ArticleDetails
+                        id={id}
+                    />
+                    <Text
+                        size={TextSize.L}
+                        className={classes.recommendationsTitle}
+                        title={t("Рекомендуем")}
+                    />
+                    <ArticleList
+                        target="_blank"
+                        className={classes.recommendations}
+                        articles={recommendations}
+                        isLoading={recommendationsIsLoading}
+                    />
+                    <Text
+                        size={TextSize.L}
+                        className={classes.commentTitle}
+                        title={t("Комментарии")}
+                    />
+                    <AddCommentForm onSendComment={onSendComment}/>
+                    <CommentList
+                        isLoading={commentsIsLoading}
+                        comments={comments}
+                    />
+                </VStack>
+
             </Page>
         </DynamicModuleLoader>
     );

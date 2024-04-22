@@ -27,6 +27,7 @@ import {Text} from "../../../shared/ui/Text/Text";
 import {useInitialEffect} from "../../../shared/lib/hooks/useInitialEffect/useInitialEffect";
 import {useParams} from "react-router-dom";
 import {Page} from "../../../widget/Page/Page";
+import {VStack} from "../../../shared/ui/Stack/VStack/VStack";
 const reducers: ReducersList = {
     profile: profileReducer
 };
@@ -107,28 +108,35 @@ const ProfilePage = ({className} : ProfilePageProps) => {
                 онченджхендлер это нормально так как нужны
                 будут доп функции по типу валидации*/}
                 {/*если два раза оборачивать комментарии литералом обьекта то все идет нахуй в ЕррорБаундери*/}
-                <ProfilePageHeader/>
-                {validateErrors?.length && validateErrors.map(error => (
-                    <Text
-                        theme={TextTheme.ERROR}
-                        text={validateErrorTranslates[error]}
-                        key={error}
+                <VStack
+                    max
+                    gap={"16"}
+                >
+                    <ProfilePageHeader/>
+                    {validateErrors?.length && validateErrors.map(error => (
+                        <Text
+                            theme={TextTheme.ERROR}
+                            text={validateErrorTranslates[error]}
+                            key={error}
+                        />
+                    ))}
+                    <ProfileCard
+                        data={formData}
+                        isLoading={isLoading}
+                        error={error}
+                        readonly={readonly}
+                        onChangeFirstName={onChangeFirstName}
+                        onChangeLastName={onChangeLastName}
+                        onChangeCity={onChangeCity}
+                        onChangeAge={onChangeAge}
+                        onChangeUsername={onChangeUsername}
+                        onChangeAvatar={onChangeAvatar}
+                        onChangeCurrency={onChangeCurrency}
+                        onChangeCountry={onChangeCountry}
                     />
-                ))}
-                <ProfileCard
-                    data={formData}
-                    isLoading={isLoading}
-                    error={error}
-                    readonly={readonly}
-                    onChangeFirstName={onChangeFirstName}
-                    onChangeLastName={onChangeLastName}
-                    onChangeCity={onChangeCity}
-                    onChangeAge={onChangeAge}
-                    onChangeUsername={onChangeUsername}
-                    onChangeAvatar={onChangeAvatar}
-                    onChangeCurrency={onChangeCurrency}
-                    onChangeCountry={onChangeCountry}
-                />
+                </VStack>
+
+
             </Page>
         </DynamicModuleLoader>
 

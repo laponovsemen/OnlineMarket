@@ -8,6 +8,7 @@ import {useTranslation} from "react-i18next";
 import {SidebarItem} from "../SidebarItem/SidebarItem";
 import {useSelector} from "react-redux";
 import {getSidebarItems} from "../../model/selectors/getSidebarItems";
+import {VStack} from "../../../../shared/ui/Stack/VStack/VStack";
 
 //18 00
 interface SidebarProps {
@@ -54,10 +55,13 @@ export const Sidebar = memo(({className} : SidebarProps) => {
             >
                 {collapsed ? ">" : "<"}
             </Button>
-            <div className={classes.items}>
+            <VStack
+                gap={"8"}
+                className={classes.items}
+            >
                 {itemsList}
 
-            </div>
+            </VStack>
             <div className={classes.switchers}>
                 <ThemeSwitcher/>
                 <LangSwitcher

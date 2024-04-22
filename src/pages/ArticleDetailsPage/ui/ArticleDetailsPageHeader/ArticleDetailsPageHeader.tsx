@@ -1,4 +1,3 @@
-import classes from "./ArticleDetailsPageHeader.module.scss";
 import {useTranslation} from "react-i18next";
 import React, {memo, useCallback} from "react";
 import {useNavigate} from "react-router-dom";
@@ -9,6 +8,7 @@ import {useSelector} from "react-redux";
 import {getUserAuthData} from "../../../../entities/User";
 import {getArticleDetailsData} from "../../../../entities/Article";
 import {getCanEditArticle} from "../../model/selectors/article";
+import {HStack} from "../../../../shared/ui/Stack";
 
 interface ArticleDetailsPageHeaderProps {
 	className?: string
@@ -35,7 +35,14 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
     }, [article?.id, navigate]);
 
     return (
-        <div className={classNames(classes.ArticleDetailsPageHeader, {}, [className])}>
+        <HStack
+            max
+            justify={"between"}
+            className={
+                classNames(
+                    "",
+                    {}, [className])}
+        >
             <Button
 		        onClick={onBackToList}
 		        theme={ButtonTheme.OUTLINE}
@@ -43,14 +50,13 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
                 {t("назад к списку")}
             </Button>
             {canEdit && <Button
-	            className={classes.editBtn}
 		        onClick={onEditArticle}
 		        theme={ButtonTheme.OUTLINE}
 	        >
                 {t("Редактировать")}
             </Button>
 	        }
-        </div>
+        </HStack>
     );
 });
 

@@ -12,6 +12,7 @@ import {Currency} from "../../../Currency/model/types/currency";
 import {CurrencySelect} from "../../../Currency/ui/CurrencySelect/CurrencySelect";
 import {Country} from "../../../Country/model/types/country";
 import {CountrySelect} from "../../../Country";
+import {HStack, VStack} from "../../../../shared/ui/Stack";
 
 interface ProfileCardProps {
     className? :string
@@ -54,23 +55,29 @@ export const ProfileCard = (props : ProfileCardProps) => {
 
     if(isLoading) {
         return (
-            <div className={
-                classNames(
-                    classes.ProfileCard,
-                    {[classes.loading]: true} ,
-                    [className])}
+            <HStack
+                justify={"center"}
+                max
+                className={
+                    classNames(
+                        classes.ProfileCard,
+                        {[classes.loading]: true} ,
+                        [className])}
             >
                 <Loader/>
-            </div>
+            </HStack>
         );
     }
     if(error) {
         return (
-            <div className={
-                classNames(
-                    classes.ProfileCard,
-                    {} ,
-                    [className, classes.error])}
+            <HStack
+                justify={"center"}
+                max
+                className={
+                    classNames(
+                        classes.ProfileCard,
+                        {} ,
+                        [className, classes.error])}
             >
                 <Text
                     theme={TextTheme.ERROR}
@@ -78,7 +85,7 @@ export const ProfileCard = (props : ProfileCardProps) => {
                     text={t("Попробуйте обновить страницу")}
                     align={TextAlign.CENTER}
                 />
-            </div>
+            </HStack>
         );
     }
 
@@ -86,66 +93,78 @@ export const ProfileCard = (props : ProfileCardProps) => {
         [classes.editing]: !readonly
     };
     return (
-        <div className={classNames(classes.ProfileCard, mods , [className])}>
+        <VStack
+            gap={"16"}
+            max
+            className={
+                classNames(
+                    classes.ProfileCard,
+                    mods ,
+                    [className])}
+        >
 
-            <div className={classes.data}>
-                {data?.avatar && <div className={classes.avatarWrapper}>
+            {data?.avatar &&
+                <HStack
+                    justify={"center"}
+                    max
+                    className={classes.avatarWrapper}
+                >
                     <Avatar
                         size={400}
                         src={data?.avatar}
                         alt={"Здесь должен быть Ваш аватар"}
                     />
-                </div>}
-                <Input
-                    value={data?.first}
-                    placeholder={t("Ваше имя")}
-                    className={classes.input}
-                    onChange={onChangeFirstName}
-                    readonly={readonly}
-                />
-                <Input
-                    value={data?.username}
-                    placeholder={t("Введите имя пользователя")}
-                    className={classes.input}
-                    onChange={onChangeUsername}
-                    readonly={readonly}
-                />
-                <Input
-                    value={data?.avatar}
-                    placeholder={t("Введите ссылку на аватар")}
-                    className={classes.input}
-                    onChange={onChangeAvatar}
-                    readonly={readonly}
-                />
-                <Input
-                    value={data?.lastname}
-                    placeholder={t("Ваше фамилия")}
-                    className={classes.input}
-                    onChange={onChangeLastName}
-                    readonly={readonly}
-                />
-                <Input
-                    value={data?.age}
-                    placeholder={t("Ваш возраст")}
-                    className={classes.input}
-                    onChange={onChangeAge}
-                    readonly={readonly}
-                />
-                <Input
-                    value={data?.country}
-                    placeholder={t("Ваша страна")}
-                    className={classes.input}
-                    onChange={onChangeCity}
-                    readonly={readonly}
-                />
-                <Input
-                    value={data?.city}
-                    placeholder={t("Ваш город")}
-                    className={classes.input}
-                    onChange={onChangeCity}
-                    readonly={readonly}
-                />
-                {/*<Input
+                </HStack>}
+            <Input
+                value={data?.first}
+                placeholder={t("Ваше имя")}
+                className={classes.input}
+                onChange={onChangeFirstName}
+                readonly={readonly}
+            />
+            <Input
+                value={data?.username}
+                placeholder={t("Введите имя пользователя")}
+                className={classes.input}
+                onChange={onChangeUsername}
+                readonly={readonly}
+            />
+            <Input
+                value={data?.avatar}
+                placeholder={t("Введите ссылку на аватар")}
+                className={classes.input}
+                onChange={onChangeAvatar}
+                readonly={readonly}
+            />
+            <Input
+                value={data?.lastname}
+                placeholder={t("Ваше фамилия")}
+                className={classes.input}
+                onChange={onChangeLastName}
+                readonly={readonly}
+            />
+            <Input
+                value={data?.age}
+                placeholder={t("Ваш возраст")}
+                className={classes.input}
+                onChange={onChangeAge}
+                readonly={readonly}
+            />
+            <Input
+                value={data?.country}
+                placeholder={t("Ваша страна")}
+                className={classes.input}
+                onChange={onChangeCity}
+                readonly={readonly}
+            />
+            <Input
+                value={data?.city}
+                placeholder={t("Ваш город")}
+                className={classes.input}
+                onChange={onChangeCity}
+                readonly={readonly}
+            />
+            {/*<Input
                     value={data?.currency}
                     placeholder={t("Ваша валюта")}
                     className={classes.input}
@@ -153,20 +172,19 @@ export const ProfileCard = (props : ProfileCardProps) => {
                     readonly={readonly}
                 />*/}
 
-                <CurrencySelect
-                    className={classes.input}
-                    value={data?.currency}
-                    onChange={onChangeCurrency}
-                    readonly={readonly}
-                />
-                <CountrySelect
-                    className={classes.input}
-                    value={data?.country}
-                    onChange={onChangeCountry}
-                    readonly={readonly}
-                />
-            </div>
-        </div>
+            <CurrencySelect
+                className={classes.input}
+                value={data?.currency}
+                onChange={onChangeCurrency}
+                readonly={readonly}
+            />
+            <CountrySelect
+                className={classes.input}
+                value={data?.country}
+                onChange={onChangeCountry}
+                readonly={readonly}
+            />
+        </VStack>
     );
 };
 

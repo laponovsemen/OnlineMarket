@@ -28,7 +28,8 @@ module.exports = {
             },
             rules: {
                 "i18next/no-literal-string": "off",
-                "max-len": "off"
+                "max-len": "off",
+
             }
         }
     ],
@@ -42,7 +43,8 @@ module.exports = {
         "react",
         "i18next",
         "react-hooks",
-        "@stylistic/js"
+        "@stylistic/js",
+        "semen-the-sailor-plugin"
     ],
     "rules": {
         "@stylistic/js/indent": ["error", 4],
@@ -66,6 +68,7 @@ module.exports = {
         ],
         "react/no-unresolved": "off",
         "no-undef": "off",
+        "semen-the-sailor-plugin/path-checker": "error",
         "import/prefer-default-export": "off",
         "no-unused-vars": "warn",
         "@typescript-eslint/no-unused-vars": "warn",
@@ -86,7 +89,11 @@ module.exports = {
                 ignoreAttribute:[
                     "data-testid",
                     "to",
-                    "target"
+                    "target",
+                    "align",
+                    "justify",
+                    "direction",
+                    "gap"
                 ]
             }
         ],

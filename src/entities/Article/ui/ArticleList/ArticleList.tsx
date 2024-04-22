@@ -125,7 +125,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
                     registerChild,
                     isScrolling,
                     scrollTop,
-                    scrollLeft,
                     onChildScroll
                 } = props;
                 return(
