@@ -21,6 +21,7 @@ module.exports = {
             },
             "files": [
                 ".eslintrc.{js,cjs}",
+                "**/scripts/**",   // добавлять нужно еще две звезды после папки так как без них линтер работает только на папку
                 "**/src/**/*.{test,stories}.{ts,tsx}"
             ],
             "parserOptions": {
@@ -29,7 +30,7 @@ module.exports = {
             rules: {
                 "i18next/no-literal-string": "off",
                 "max-len": "off",
-
+                "@typescript-eslint/no-var-requires": "off"
             }
         }
     ],
@@ -80,6 +81,7 @@ module.exports = {
         "@typescript-eslint/ban-ts-comment": "warn",
         "react/display-name": "warn",
         "errow-body-style": "off",
+
         "react-hooks/rules-of-hooks": "error", // checks rules of hooks
         "react-hooks/exhaustive-deps": "error", // checks effect dependencies
         "i18next/no-literal-string": [
