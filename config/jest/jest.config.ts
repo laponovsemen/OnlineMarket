@@ -43,7 +43,16 @@ export default {
 
     // The root directory that Jest should scan for tests and modules within
     rootDir: "../../",
-
+    reporters: [
+        "default",
+        ["jest-html-reporters",
+            {
+                "publicPath": "<rootDir>/reports/unit",
+                "filename": "report.html",
+                "openReport": true,
+                "inlineSource": true,
+            }]
+    ],
     // The glob patterns Jest uses to detect test files
     testMatch: [
         // Такая регулярка может работать не на всех операционных системах
