@@ -1,8 +1,8 @@
 import {TestAsyncThunk} from "../../../../../shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
-import {Currency} from "../../../../Currency";
-import {Country} from "../../../../Country/model/types/country";
+import {Currency} from "../../../../../entities/Currency";
+import {Country} from "../../../../../entities/Country/model/types/country";
 import {updateProfileData} from "./updateProfileData";
-import {ValidateProfileError} from "../../types/profile";
+import {ValidateProfileError} from "../../types/editableProfileCardSchema";
 
 // todo валятся импорты если импортировать каунтри из паблик апи Володя помоги
 

@@ -1,9 +1,10 @@
-import {Country} from "../../../../Country";
-import {Currency} from "../../../../Currency";
-import {StateSchema} from "../../../../../app/providers/StoreProvider";
-import {getProfileForm} from "./getProfileForm";
 
-describe("getProfileForm.test" , () => {
+import {StateSchema} from "../../../../../app/providers/StoreProvider";
+import {getProfileData} from "./getProfileData";
+import {Country} from "../../../../../entities/Country";
+import {Currency} from "../../../../../entities/Currency";
+
+describe("getProfileData.test" , () => {
     test("test with correct data", () => {
         const data = {
             username: "volodia",
@@ -17,15 +18,15 @@ describe("getProfileForm.test" , () => {
 
         const state: DeepPartial<StateSchema> = {
             profile: {
-                form: data
+                data
             }
         };
-        expect(getProfileForm(state as StateSchema)).toEqual(data);
+        expect(getProfileData(state as StateSchema)).toEqual(data);
     });
     test("test with empty state", () => {
 
 
         const state: DeepPartial<StateSchema> = {};
-        expect(getProfileForm(state as StateSchema)).toEqual(undefined);
+        expect(getProfileData(state as StateSchema)).toEqual(undefined);
     });
 });

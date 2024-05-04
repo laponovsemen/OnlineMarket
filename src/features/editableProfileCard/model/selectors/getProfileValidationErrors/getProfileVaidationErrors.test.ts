@@ -1,7 +1,7 @@
 import {StateSchema} from "../../../../../app/providers/StoreProvider";
 import {getProfileReadonly} from "../getProfileReadonly/getProfileReadonly";
 import {getProfileValidationErrors} from "./getProfileValidationErrors";
-import {ValidateProfileError} from "../../types/profile";
+import {ValidateProfileError} from "../../types/editableProfileCardSchema";
 
 describe("getProfileReadonly.test" , () => {
     test("test with correct data", () => {

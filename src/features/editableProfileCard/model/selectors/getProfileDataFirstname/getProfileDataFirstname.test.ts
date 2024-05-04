@@ -1,10 +1,9 @@
-
+import {Country} from "../../../../../entities/Country";
+import {Currency} from "../../../../../entities/Currency";
 import {StateSchema} from "../../../../../app/providers/StoreProvider";
-import {getProfileData} from "./getProfileData";
-import {Country} from "../../../../Country";
-import {Currency} from "../../../../Currency";
+import {getProfileDataFirstname} from "./getProfileDataFirstname";
 
-describe("getProfileData.test" , () => {
+describe("getProfileFirstname.test" , () => {
     test("test with correct data", () => {
         const data = {
             username: "volodia",
@@ -21,12 +20,12 @@ describe("getProfileData.test" , () => {
                 data
             }
         };
-        expect(getProfileData(state as StateSchema)).toEqual(data);
+        expect(getProfileDataFirstname(state as StateSchema)).toEqual(data.first);
     });
     test("test with empty state", () => {
 
 
         const state: DeepPartial<StateSchema> = {};
-        expect(getProfileData(state as StateSchema)).toEqual(undefined);
+        expect(getProfileDataFirstname(state as StateSchema)).toEqual(undefined);
     });
 });

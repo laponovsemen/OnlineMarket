@@ -3,7 +3,7 @@ import {USER_LOCALSTORAGE_KEY} from "../const/localStorage";
 
 // Define a service using a base URL and expected endpoints
 export const rtkApi = createApi({
-    reducerPath: "pokemonApi",
+    reducerPath: "rtkApi",
     baseQuery: fetchBaseQuery({
 	    baseUrl: __API__,
 	    prepareHeaders: headers => {

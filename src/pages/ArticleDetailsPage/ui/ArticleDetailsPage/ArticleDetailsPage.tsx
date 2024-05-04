@@ -4,8 +4,6 @@ import {useTranslation} from "react-i18next";
 import React, {memo, useCallback} from "react";
 import {ArticleDetails} from "../../../../entities/Article";
 import {useParams} from "react-router-dom";
-import {Text, TextSize} from "../../../../shared/ui/Text/Text";
-import {CommentList} from "../../../../entities/Comment";
 import {
     DynamicModuleLoader,
     ReducersList
@@ -15,16 +13,14 @@ import {useSelector} from "react-redux";
 import {getArticleCommentsIsLoading} from "../../model/selectors/comments";
 import {useInitialEffect} from "../../../../shared/lib/hooks/useInitialEffect/useInitialEffect";
 import {useAppDispatch} from "../../../../shared/lib/hooks/useAppDispatch/useAppDispatch";
-import {
-    fetchCommentsByArticleId
-} from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
-import AddCommentForm from "../../../../features/addCommentForm/ui/AddCommentForm";
+import {fetchCommentsByArticleId} from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import {addCommentForArticle} from "../../model/services/addCommentForArticle/addCommentForArticle";
 import {Page} from "../../../../widget/Page/Page";
 import {articteDetailsPageReducer} from "../../model/slices";
 import {ArticleDetailsPageHeader} from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
 import {VStack} from "../../../../shared/ui/Stack";
 import {ArticleRecommendationsList} from "../../../../features/articleRecommendationsList";
+import {ArticleDetailsComments} from "../ArticleDetailsComments/ArticleDetailsComments";
 
 
 // todo для того чтобы i18next extract plugin работал нужно создать помимо файлов в названии которых есть неймспейс прокидываемый в юзТранслейшн но и этот файл уже должен содержать пустой джсон обьект
@@ -41,8 +37,6 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const dispatch = useAppDispatch();
     const {t} = useTranslation("article-details");
     const {id} = useParams<{id: string}>(); // шоб взять айди из урла
-    const comments = useSelector(getArticleComments.selectAll);
-    const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
 
 
 
@@ -50,9 +44,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         dispatch(fetchCommentsByArticleId(id));
     });
 
-    const onSendComment = useCallback((text: string) => {
-        dispatch(addCommentForArticle(text));
-    }, [dispatch]);
+
 
     if(!id) {
         return (
@@ -73,20 +65,9 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                     max
                 >
                     <ArticleDetailsPageHeader/>
-                    <ArticleDetails
-                        id={id}
-                    />
+                    <ArticleDetails id={id} />
                     <ArticleRecommendationsList/>
-                    <Text
-                        size={TextSize.L}
-                        className={classes.commentTitle}
-                        title={t("Комментарии")}
-                    />
-                    <AddCommentForm onSendComment={onSendComment}/>
-                    <CommentList
-                        isLoading={commentsIsLoading}
-                        comments={comments}
-                    />
+                    <ArticleDetailsComments id={id} />
                 </VStack>
 
             </Page>

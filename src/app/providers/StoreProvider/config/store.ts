@@ -6,6 +6,7 @@ import {createReducerManager} from "./reducerManager";
 import {$api} from "../../../../shared/api/api";
 import {NavigateOptions, To } from "react-router-dom";
 import {scrollRestorationReducer} from "../../../../features/scrollRestoration";
+import {rtkApi} from "../../../../shared/api/rtkApi";
 
 export function createReduxStore(
     initialState?: StateSchema,
@@ -17,7 +18,8 @@ export function createReduxStore(
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
-        scrollRestoration: scrollRestorationReducer
+        scrollRestoration: scrollRestorationReducer,
+        [rtkApi.reducerPath]: rtkApi.reducer
     };
 
     const reducerManager = createReducerManager(rootReducers);
@@ -34,9 +36,9 @@ export function createReduxStore(
         preloadedState: initialState,
         middleware: getDefaultMiddleware => getDefaultMiddleware({
             thunk: {
-                extraArgument: extraArg
+                extraArgument: extraArg // для того чтобы в thunkApi был аксиос
             }
-        })
+        }).concat(rtkApi.middleware)
     });
 
     // @ts-ignore

@@ -1,22 +1,22 @@
 import {CounterSchema} from "../../../../entities/Counter";
 import {UserSchema} from "../../../../entities/User";
 import {LoginSchema} from "../../../../features/AuthByUserName";
-import {AnyAction, CombinedState, Dispatch, EnhancedStore, Reducer, ReducersMapObject} from "@reduxjs/toolkit";
-import {ProfileSchema} from "../../../../entities/Profile";
-import {AxiosInstance} from "axios";
-import {NavigateOptions, To} from "react-router-dom";
-import {ArticleDetailsSchema} from "../../../../entities/Article";
 import {
-    ArticleDetailsCommentsSchema,
-    ArticleDetailsPageSchema,
-    ArticleDetailsReccomendationsSchema
-} from "../../../../pages/ArticleDetailsPage";
+    AnyAction,
+    CombinedState,
+    EnhancedStore,
+    Reducer,
+    ReducersMapObject
+} from "@reduxjs/toolkit";
+import {AxiosInstance} from "axios";
+import {ArticleDetailsSchema} from "../../../../entities/Article";
+import {ArticleDetailsPageSchema} from "../../../../pages/ArticleDetailsPage";
 import {AddCommentFormSchema} from "../../../../features/addCommentForm";
 import {AppDispatch} from "./store";
 import {ArticlePageSchema} from "../../../../pages/ArticlesPage";
-import {ReducersList} from "../../../../shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import {ScrollRestorationSchema} from "../../../../features/scrollRestoration";
-
+import {rtkApi} from "../../../../shared/api/rtkApi";
+import {ProfileSchema} from "../../../../features/editableProfileCard";
 
 
 export interface StateSchema {
@@ -24,13 +24,17 @@ export interface StateSchema {
 	user: UserSchema
 	scrollRestoration: ScrollRestorationSchema
 
+	[rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
+
+
 	// Асинхронные редьюсеры
 	loginForm? : LoginSchema
 	profile?: ProfileSchema
 	articleDetails? : ArticleDetailsSchema
 	addCommentForm? : AddCommentFormSchema
 	articlesPage? : ArticlePageSchema;
-	articleDetailsPage? : ArticleDetailsPageSchema
+	articleDetailsPage? : ArticleDetailsPageSchema;
+
 }
 
 export type StateSchemaKey = keyof StateSchema

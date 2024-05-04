@@ -1,14 +1,7 @@
-import {Currency} from "../../../Currency/model/types/currency";
-import {Country} from "../../../Country/model/types/country";
+import {Currency} from "../../../Currency";
+import {Country} from "../../../Country";
 
 
-export enum ValidateProfileError {
-	INCORRECT_USER_DATA = "INCORRECT_USER_DATA" ,
-	INCORRECT_AGE = "INCORRECT_AGE" ,
-	INCORRECT_COUNTRY = "INCORRECT_COUNTRY" ,
-	NO_DATA = "NO_DATA",
-	SERVER_ERROR = "SERVER_ERROR"
-}
 export interface Profile {
 	id? : string
 	first?: string,
@@ -22,11 +15,3 @@ export interface Profile {
 
 }
 
-export interface ProfileSchema {
-	data? : Profile;
-	form? : Profile;
-	isLoading: boolean;
-	error?: string;
-	readonly : boolean;
-	validateError?: ValidateProfileError[]
-}

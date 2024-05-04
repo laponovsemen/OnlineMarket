@@ -1,9 +1,8 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {USER_LOCALSTORAGE_KEY} from "../../../../shared/const/localStorage";
-import {Profile, ProfileSchema, ValidateProfileError} from "../types/profile";
+import {Profile} from "../../../../entities/Profile";
 import {fetchProfileData} from "../services/fetchProfileData/fetchProfileData";
 import {updateProfileData} from "../services/updateProfileData/updateProfileData";
-
+import {ProfileSchema, ValidateProfileError} from "../types/editableProfileCardSchema";
 
 
 const initialState: ProfileSchema  = {

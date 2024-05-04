@@ -1,12 +1,9 @@
 import {TestAsyncThunk} from "../../../../../shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
-import {Currency} from "../../../../Currency";
-import {Country} from "../../../../Country/model/types/country";
-import {validateProfileData} from "./validateProfileData";
-import {ValidateProfileError} from "../../types/profile";
-
+import {fetchProfileData} from "./fetchProfileData";
+import {Currency} from "../../../../../entities/Currency";
+import {Country} from "../../../../../entities/Country";
 
 // todo валятся импорты если импортировать каунтри из паблик апи Володя помоги
-
 
 const data = {
     username: "volodia",
@@ -17,7 +14,7 @@ const data = {
     city: "Toronto",
     currency: Currency.USD
 };
-describe("validateProfileData.test" , () => {
+describe("fetchProfileData.test" , () => {
     // let dispatch: Dispatch;
     // let getState: () => StateSchema;
     //
@@ -60,38 +57,31 @@ describe("validateProfileData.test" , () => {
     // });
 
 
-    test("success",  () => {
-        const result = validateProfileData(data);
-        expect(result).toEqual([]);
+    test("access ", async () => {
+        const userValue = {username: "123", id: "1"};
+        // mockedAxios.post.mockReturnValue(
+        //     Promise.resolve({data : userValue})
+        // );
+
+        const thunk = new TestAsyncThunk(fetchProfileData);
+        thunk.api.get.mockReturnValue(Promise.resolve({data : data}));
+        const result = await thunk.callThunk("1");
+
+
+
+        expect(thunk.api.get).toHaveBeenCalled();
+        expect(result.meta.requestStatus).toBe("fulfilled");
+        expect(result.payload).toEqual(data);
     });
 
-    test("without first name and last name", async () => {
-        const result = validateProfileData({...data, first: "", lastname: ""});
-        expect(result).toEqual([
-            ValidateProfileError.INCORRECT_USER_DATA
-        ]);
-    });
+    test("error", async () => {
+        const thunk = new TestAsyncThunk(fetchProfileData);
+        thunk.api.get.mockReturnValue(
+            Promise.resolve({status: 403})
+        );
+        const result = await thunk.callThunk("1");
 
-    test("incorrect age", async () => {
-        const result = validateProfileData({...data, age: undefined});
-        expect(result).toEqual([
-            ValidateProfileError.INCORRECT_AGE
-        ]);
-    });
 
-    test("incorrect country", async () => {
-        const result = validateProfileData({...data, country: undefined});
-        expect(result).toEqual([
-            ValidateProfileError.INCORRECT_COUNTRY
-        ]);
-    });
-
-    test("incorrect all", async () => {
-        const result = validateProfileData({});
-        expect(result).toEqual([
-            ValidateProfileError.INCORRECT_USER_DATA,
-            ValidateProfileError.INCORRECT_AGE,
-            ValidateProfileError.INCORRECT_COUNTRY,
-        ]);
+        expect(result.meta.requestStatus).toBe("rejected");
     });
 });

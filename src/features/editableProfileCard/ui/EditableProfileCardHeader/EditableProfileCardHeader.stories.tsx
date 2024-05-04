@@ -1,11 +1,11 @@
 import type {Meta, StoryObj} from "@storybook/react";
-import { ArticleRecommendationsList } from "./ArticleRecommendationsList";
 
+import {EditableProfileCardHeader} from "./EditableProfileCardHeader";
 import {StoreDecorator} from "../../../../shared/config/storybook/StoreDecorator/StoreDecorator";
 
 const meta = {
-    title: "/ArticleRecommendationsList",
-    component: ArticleRecommendationsList,
+    title: "/EditableProfileCardHeader",
+    component: EditableProfileCardHeader,
     parameters: {
         layout: "centered",
     },
@@ -16,7 +16,7 @@ const meta = {
     decorators: [
         StoreDecorator({})
     ]
-} satisfies Meta<typeof ArticleRecommendationsList>;
+} satisfies Meta<typeof EditableProfileCardHeader>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -25,5 +25,3 @@ export const Light: Story = {
     args: {},
 
 };
-
-
