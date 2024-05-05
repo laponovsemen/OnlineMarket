@@ -1,7 +1,7 @@
 import React, {memo, Suspense, useCallback, useMemo} from "react";
 import {Route, Routes} from "react-router-dom";
 import {AppRouterProps, AppRoutes, routeConfig} from "../../../../shared/config/routeConfig/routeConfig";
-import {PageLoader} from "../../../../widget/PageLoader/ui/PageLoader";
+import {PageLoader} from "../../../../widget/PageLoader";
 import {RequireAuth} from "./RequireAuth";
 
 /*const isAuth = useSelector(getUserAuthData);
@@ -25,7 +25,7 @@ const AppRouter = () => {
                 { route.element}
             </Suspense>
         );
-
+        route.roles;
         return (
             <Route
                 key={route.path}
