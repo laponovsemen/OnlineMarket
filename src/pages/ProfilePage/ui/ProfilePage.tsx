@@ -6,9 +6,6 @@ import {EditableProfileCard} from "../../../features/editableProfileCard";
 import {useParams} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import {Text} from "../../../shared/ui/Text/Text";
-import {
-    EditableProfileCardHeader
-} from "../../../features/editableProfileCard/ui/EditableProfileCardHeader/EditableProfileCardHeader";
 
 
 interface ProfilePageProps {

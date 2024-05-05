@@ -1,20 +1,18 @@
 import classes from "./ArticleDetailsPage.module.scss";
 import {classNames} from "../../../../shared/lib/classNames/classNames";
 import {useTranslation} from "react-i18next";
-import React, {memo, useCallback} from "react";
+import React, {memo} from "react";
 import {ArticleDetails} from "../../../../entities/Article";
 import {useParams} from "react-router-dom";
 import {
     DynamicModuleLoader,
     ReducersList
 } from "../../../../shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import {getArticleComments} from "../../model/slices/articleDetailsCommentsSlice";
-import {useSelector} from "react-redux";
-import {getArticleCommentsIsLoading} from "../../model/selectors/comments";
 import {useInitialEffect} from "../../../../shared/lib/hooks/useInitialEffect/useInitialEffect";
 import {useAppDispatch} from "../../../../shared/lib/hooks/useAppDispatch/useAppDispatch";
-import {fetchCommentsByArticleId} from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
-import {addCommentForArticle} from "../../model/services/addCommentForArticle/addCommentForArticle";
+import {
+    fetchCommentsByArticleId
+} from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import {Page} from "../../../../widget/Page/Page";
 import {articteDetailsPageReducer} from "../../model/slices";
 import {ArticleDetailsPageHeader} from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";

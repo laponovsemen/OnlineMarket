@@ -49,8 +49,8 @@ export default {
             {
                 "publicPath": "<rootDir>/reports/unit",
                 "filename": "report.html",
-                "openReport": true,
-                "inlineSource": true,
+                //"openReport": true,
+                //"inlineSource": true,
             }]
     ],
     // The glob patterns Jest uses to detect test files
