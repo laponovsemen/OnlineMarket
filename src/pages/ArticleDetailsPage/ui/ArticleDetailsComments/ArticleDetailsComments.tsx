@@ -13,6 +13,7 @@ import {
     fetchCommentsByArticleId
 } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import {useInitialEffect} from "../../../../shared/lib/hooks/useInitialEffect/useInitialEffect";
+import {VStack} from "../../../../shared/ui/Stack";
 
 interface ArticleDetailsCommentsProps {
 	className?: string
@@ -39,7 +40,10 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
     });
 
     return (
-        <div>
+        <VStack
+            gap={"16"}
+            max
+        >
             <Text
                 size={TextSize.L}
                 title={t("Комментарии")}
@@ -49,7 +53,7 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
                 isLoading={commentsIsLoading}
                 comments={comments}
             />
-        </div>
+        </VStack>
     );
 });
 
