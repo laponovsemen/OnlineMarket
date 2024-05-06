@@ -3,7 +3,11 @@ import {ThunkConfig} from "../../../../../app/providers/StoreProvider";
 import i18n from "../../../../../shared/config/i18n/i18n";
 import {Article} from "../../types/article";
 
-export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig<string>>(
+export const fetchArticleById = createAsyncThunk<
+    Article,
+    string | undefined,
+    ThunkConfig<string>
+>(
     "article/fetchArticleById",
     async (articleId, thunkAPI) => {
         const {
@@ -13,6 +17,10 @@ export const fetchArticleById = createAsyncThunk<Article, string, ThunkConfig<st
         } = thunkAPI;
 
         try {
+
+            if(!articleId) {
+                throw new Error();
+            }
 
             const response = await extra.api.get<Article>(`/articles/${articleId}`, {
                 params : {

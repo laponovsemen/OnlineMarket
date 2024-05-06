@@ -3,6 +3,7 @@ import {AddCommentFormAsync} from "./ui/AddCommentForm.async";
 
 
 export {
-    AddCommentFormSchema,
     AddCommentFormAsync as AddCommentForm
 };
+export type { AddCommentFormSchema };
+

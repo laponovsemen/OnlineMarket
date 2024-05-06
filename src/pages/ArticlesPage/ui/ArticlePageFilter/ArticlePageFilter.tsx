@@ -16,12 +16,12 @@ import {Select} from "../../../../shared/ui/Select/Select";
 import {Card} from "../../../../shared/ui/Card/Card";
 import {Input} from "../../../../shared/ui/Input/Input";
 import {ArticleSortSelector} from "../../../../entities/Article/ui/ArticleSortSelector/ArticleSortSelector";
-import {ArticleSortField, ArticleType} from "../../../../entities/Article/model/types/article";
 import {SortOrder} from "../../../../shared/types";
 import {fetchArticlesList} from "../../model/services/fetchArticlesList/fetchArticlesList";
 import {useDebounce} from "../../../../shared/lib/hooks/useDebounce/useDebounce";
 import {TabItem, Tabs} from "../../../../shared/ui/Tabs/Tabs";
 import {ArticleTypeTabs} from "../../../../entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs";
+import {ArticleSortField, ArticleType} from "../../../../entities/Article/model/consts/articleConsts";
 
 interface ArticlePageFilterProps {
 	className?: string

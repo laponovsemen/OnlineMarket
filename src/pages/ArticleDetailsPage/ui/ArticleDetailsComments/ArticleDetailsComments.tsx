@@ -1,8 +1,8 @@
 
 import {useTranslation} from "react-i18next";
-import React, {memo, useCallback} from "react";
+import React, {memo, useCallback, Suspense} from "react";
 import {Text, TextSize} from "../../../../shared/ui/Text/Text";
-import AddCommentForm from "../../../../features/addCommentForm/ui/AddCommentForm";
+import {AddCommentForm} from "../../../../features/addCommentForm";
 import {CommentList} from "../../../../entities/Comment";
 import {useSelector} from "react-redux";
 import {getArticleComments} from "../../model/slices/articleDetailsCommentsSlice";
@@ -17,7 +17,7 @@ import {VStack} from "../../../../shared/ui/Stack";
 
 interface ArticleDetailsCommentsProps {
 	className?: string
-    id: string
+    id?: string
 }
 
 export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) => {
@@ -48,7 +48,10 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
                 size={TextSize.L}
                 title={t("Комментарии")}
             />
+            {/*<Suspense fallback={"Идет загрузка"}>*/}
             <AddCommentForm onSendComment={onSendComment}/>
+            {/*</Suspense>*/}
+
             <CommentList
                 isLoading={commentsIsLoading}
                 comments={comments}

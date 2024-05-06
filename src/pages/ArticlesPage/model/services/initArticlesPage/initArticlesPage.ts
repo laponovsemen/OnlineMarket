@@ -3,8 +3,8 @@ import {ThunkConfig} from "../../../../../app/providers/StoreProvider";
 import {getArticlesPageInited} from "../../selectors/articlePageSelectors";
 import {articlesPageActions} from "../../slices/articlesPageSlice";
 import {fetchArticlesList} from "../fetchArticlesList/fetchArticlesList";
-import {ArticleSortField, ArticleType} from "../../../../../entities/Article/model/types/article";
 import {SortOrder} from "../../../../../shared/types";
+import {ArticleSortField, ArticleType} from "../../../../../entities/Article/model/consts/articleConsts";
 
 
 export const initArticlesPage = createAsyncThunk<

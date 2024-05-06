@@ -4,6 +4,7 @@ import { fn } from "@storybook/test";
 import MainPage from "./MainPage";
 import {ThemeDecorator} from "../../../shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import {Theme} from "../../../app/providers/ThemeProvider";
+import {StoreDecorator} from "../../../shared/config/storybook/StoreDecorator/StoreDecorator";
 
 const meta = {
     title: "pages/MainPage",
@@ -15,6 +16,9 @@ const meta = {
     argTypes: {
         //backgroundColor: { control: "color" },
     },
+    decorators:[
+        StoreDecorator({})
+    ],
     args: {
 
     }

@@ -8,14 +8,15 @@ import {
 } from "./model/selectors/getUserRoleSelector/getuserRoleSelector";
 
 
-
 export {
     userReducer,
-    userActions,
-    UserSchema,
-    User,
-    getUserAuthData,
+    userActions, getUserAuthData,
     getUserInited,
     isUserAdmin,
-    isUserManager,
+    isUserManager
 };
+export type {
+    UserSchema,
+    User
+};
+

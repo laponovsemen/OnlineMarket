@@ -44,13 +44,13 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
 
 
-    if(!id) {
-        return (
-            <Page className={classNames(classes.ArticleDetailsPage, {}, [className])}>
-                {t("Статья не найдена")}
-            </Page>
-        );
-    }
+    // if(!id) {
+    //     return (
+    //         <Page className={classNames(classes.ArticleDetailsPage, {}, [className])}>
+    //             {t("Статья не найдена")}
+    //         </Page>
+    //     );
+    // }
 
     return (
         <DynamicModuleLoader

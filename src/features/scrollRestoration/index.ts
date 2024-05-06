@@ -4,9 +4,9 @@ import {scrollRestorationReducer, scrollRestorationSlice} from "./model/slices/s
 
 
 export {
-    ScrollRestorationSchema,
     getScrollRestorationByPath,
     scrollRestorationReducer,
     scrollRestorationSlice
-
 };
+export type { ScrollRestorationSchema };
+

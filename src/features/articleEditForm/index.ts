@@ -1,1 +1,6 @@
-// фарма создания статьи
+// фoрма создания статьи
+
+
+export interface ArticleEditFormSchema  {
+	id: string
+}

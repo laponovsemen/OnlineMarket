@@ -1,5 +1,5 @@
 import { ArticleDetails} from "./ui/ArticleDetails/ArticleDetails";
-import {Article, ArticleView} from "./model/types/article";
+import {Article} from "./model/types/article";
 import {ArticleDetailsSchema} from "./model/types/articleDetailsSchema";
 import {ArticleList} from "./ui/ArticleList/ArticleList";
 import {
@@ -7,14 +7,17 @@ import {
     getArticleDetailsError,
     getArticleDetailsIsLoading
 } from "./model/selectors/articleDetails/articleDetails";
+import {ArticleView} from "./model/consts/articleConsts";
 
 export {
-    ArticleDetails,
-    Article,
-    ArticleDetailsSchema,
-    ArticleView,
+    ArticleDetails, ArticleView,
     ArticleList,
     getArticleDetailsError,
     getArticleDetailsIsLoading,
     getArticleDetailsData
 };
+export type {
+    Article,
+    ArticleDetailsSchema
+};
+

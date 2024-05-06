@@ -24,5 +24,7 @@ export const Light: Story = {
     args: {
         id: "1"
     },
-
+    decorators: [
+        StoreDecorator({})
+    ]
 };

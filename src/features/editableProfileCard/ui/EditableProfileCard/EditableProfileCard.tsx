@@ -12,7 +12,6 @@ import {Currency} from "../../../../entities/Currency";
 import {Country} from "../../../../entities/Country";
 import {classNames} from "../../../../shared/lib/classNames/classNames";
 import {Text, TextTheme} from "../../../../shared/ui/Text/Text";
-import {ValidateProfileError} from "../../model/types/editableProfileCardSchema";
 import {
     DynamicModuleLoader,
     ReducersList
@@ -28,6 +27,7 @@ import {
 import {fetchProfileData} from "../../model/services/fetchProfileData/fetchProfileData";
 import {EditableProfileCardHeader} from "../EditableProfileCardHeader/EditableProfileCardHeader";
 import {VStack} from "../../../../shared/ui/Stack";
+import {ValidateProfileError} from "../../model/consts/consts";
 
 const reducers: ReducersList = {
     profile: profileReducer

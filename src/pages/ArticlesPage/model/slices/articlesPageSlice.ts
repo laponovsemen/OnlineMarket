@@ -4,8 +4,8 @@ import {StateSchema} from "../../../../app/providers/StoreProvider";
 import {ArticlePageSchema} from "../types/articlePageSchema";
 import {fetchArticlesList} from "../services/fetchArticlesList/fetchArticlesList";
 import {ARTICLES_VIEW_LOCALSTORAGE_KEY} from "../../../../shared/const/localStorage";
-import {ArticleSortField, ArticleType} from "../../../../entities/Article/model/types/article";
 import {SortOrder} from "../../../../shared/types";
+import {ArticleSortField, ArticleType} from "../../../../entities/Article/model/consts/articleConsts";
 
 
 const articleAdapter = createEntityAdapter<Article>({

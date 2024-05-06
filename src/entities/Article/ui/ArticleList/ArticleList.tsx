@@ -1,13 +1,14 @@
 import classes from "./ArticleList.module.scss";
 import {useTranslation} from "react-i18next";
 import {HTMLAttributeAnchorTarget, memo} from "react";
-import {Article, ArticleView} from "../../model/types/article";
+import {Article} from "../../model/types/article";
 import {classNames} from "../../../../shared/lib/classNames/classNames";
 import {ArticleListItem} from "../ArticleListItem/ArticleListItem";
 import {ArticleListItemSkeleton} from "../ArticleListItem/ArticleListItemSkeleton";
 import {Text, TextSize} from "../../../../shared/ui/Text/Text";
 import {List, ListRowProps, WindowScroller} from "react-virtualized";
 import {PAGE__ID} from "../../../../widget/Page/Page";
+import {ArticleView} from "../../model/consts/articleConsts";
 
 interface ArticleListProps {
 	className?: string
@@ -113,7 +114,9 @@ export const ArticleList = memo((props: ArticleListProps) => {
         );
     }
 
+
     return (
+        // @ts-ignore
         <WindowScroller
             onScroll={() => console.log("scroll")}
             scrollElement={document.getElementById(PAGE__ID) as Element}
@@ -130,6 +133,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                 } = props;
                 return(
                     <div
+                        // @ts-ignore
                         ref={registerChild}
                         className={
                             classNames(
@@ -139,6 +143,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                     >
                         {virtualized
                             ? (
+                                // @ts-ignore
                                 <List
                                     height={height ?? 700}
                                     rowCount={rowCount}
