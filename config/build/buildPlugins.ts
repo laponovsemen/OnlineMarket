@@ -6,6 +6,7 @@ import {BundleAnalyzerPlugin} from "webpack-bundle-analyzer";
 import ReactRefreshPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import CopyPlugin from "copy-webpack-plugin";
 import CircularDependencyPlugin from "circular-dependency-plugin";
+import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 
 
 // todo dependency cruiser
@@ -33,6 +34,15 @@ export function buildPlugins({paths, isDev, apiUrl, project}: BuildOptions): web
         new CircularDependencyPlugin({
             exclude: /node_modules/,
             failOnError: true,
+        }),
+        new ForkTsCheckerWebpackPlugin({ // для запуска стороннего процеса проверки компиляции тайпскрипта ( типы )
+            typescript: {
+                diagnosticOptions: {
+                    semantic: true,
+                    syntactic: true,
+                },
+                mode: "write-references"
+            }
         })
 
     ];

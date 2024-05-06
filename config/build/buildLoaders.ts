@@ -6,8 +6,12 @@ import {buildBabelLoader} from "./loaders/buildBabelLoader";
 
 export function buildLoaders (options: BuildOptions) : webpack.RuleSetRule[]{
     const {isDev} = options;
-
-    const babelLoader = buildBabelLoader(options);
+    // теперь ошибки тайпскрипта не влияют на скорость сборки -
+    // это вынесено в отдельный процесс
+    // для обработки тс файлов
+    const codeBabelLoader = buildBabelLoader({...options, isTsx: false});
+    // для обработки тсикс файлов
+    const tsxCodeBabelLoader = buildBabelLoader({...options, isTsx: true});
 
     const svgLoader = buildSVGLoaders();
 
@@ -23,17 +27,18 @@ export function buildLoaders (options: BuildOptions) : webpack.RuleSetRule[]{
     const cssLoader = buildCssLoaders(isDev);
 
     // если не используем тайпскрипт - нужен babel-loader
-    const typescriptLoader ={
-        test: /\.tsx?$/,
-        use: "ts-loader",
-        exclude: /node_modules/,
-    };
+    // const typescriptLoader = {
+    //     test: /\.tsx?$/,
+    //     use: "ts-loader",
+    //     exclude: /node_modules/,
+    // };
 
     return [ // одно из самых важных полей в конфиге здесь мы указываем какие лоадеры будем использовать
         fileLoader,
         svgLoader,
-        babelLoader,
-        typescriptLoader,
+        codeBabelLoader,
+        tsxCodeBabelLoader,
+        // typescriptLoader,
         cssLoader
     ];
 }

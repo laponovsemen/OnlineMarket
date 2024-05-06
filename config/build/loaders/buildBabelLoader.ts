@@ -1,9 +1,21 @@
 import {BuildOptions} from "../types/config";
+import babelRemovePropsPlugin from "../../babel/babelRemovePropsPlugin";
+
+// отказываемся от тс лоадера и начинаем юзать бейбл лоадер
+// настраиваеи бейбл лоадер чтобы он выполнял задачи тс лоадера
+interface BuildBabelLoaderProps extends BuildOptions {
+    isTsx? : boolean;
+}
 
 
-export const buildBabelLoader = (options: BuildOptions) => {
+export const buildBabelLoader = (options: BuildBabelLoaderProps) => {
+    const {
+        isTsx,
+        isDev
+    } = options;
+
     return {
-        test: /\.(js|tsx|jsx)$/,
+        test: isTsx ? /\.(tsx|jsx)$/ : /\.(js|ts)$/,
         exclude: /node_modules/,
         use: {
             loader: "babel-loader",
@@ -17,7 +29,22 @@ export const buildBabelLoader = (options: BuildOptions) => {
                             keyAsDefaultValue: true
                         }
                     ],
-                    options.isDev && require.resolve("react-refresh/babel")
+                    [
+                        "@babel/plugin-transform-typescript",
+                        {
+                            isTsx,
+                        }
+                    ],
+                    "@babel/plugin-transform-runtime",
+                    isTsx && [
+                        babelRemovePropsPlugin,
+                        {
+                            props: [
+                                "data-testid"
+                            ]
+                        }
+                    ],
+                    isDev && require.resolve("react-refresh/babel")
                 ].filter(Boolean)
             }
         }
