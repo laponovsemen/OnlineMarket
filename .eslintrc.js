@@ -97,7 +97,8 @@ module.exports = {
                     "justify",
                     "direction",
                     "gap",
-                    "role"
+                    "role",
+                    "border"
                 ]
             }
         ],

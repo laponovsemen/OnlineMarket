@@ -2,10 +2,13 @@ import classes from "./ListBox.module.scss";
 import {useTranslation} from "react-i18next";
 import {Fragment, memo, ReactNode, useState} from "react";
 import {Listbox as HListBox} from "@headlessui/react";
-import {classNames, Mods} from "../../lib/classNames/classNames";
-import {Button} from "../Button/Button";
-import {HStack} from "../Stack";
-import {DropDownDirection} from "../../types/ui";
+import {classNames, Mods} from "../../../../lib/classNames/classNames";
+import {Button} from "../../../Button/Button";
+import {HStack} from "../../../Stack";
+import {DropDownDirection} from "../../../../types/ui";
+import {mapDirectionClass} from "../../styles/consts";
+import popupCls from "./../../styles/popup.module.scss";
+
 
 /*const people = [
     { id: 1, name: "Durward Reynolds", unavailable: false },
@@ -33,12 +36,7 @@ interface ListBoxProps {
     onChange: <T extends string>(value: T) => void
 }
 
-const mapDirectionClass: Record<DropDownDirection, string> = {
-    "bottom left": classes.optionsBottomLeft,
-    "bottom right": classes.optionsBottomRight,
-    "top left": classes.optionsTopLeft,
-    "top right": classes.optionsTopRight,
-};
+
 
 export function ListBox(props: ListBoxProps) {
     const {
@@ -66,7 +64,7 @@ export function ListBox(props: ListBoxProps) {
                 as={"div"}
                 className={
                     classNames(
-                        classes.ListBox,
+                        popupCls.popup,
                         {},
                         [className])}
                 value={value}
@@ -100,9 +98,9 @@ export function ListBox(props: ListBoxProps) {
                                         classNames(
                                             classes.item,
                                             {
-                                                [classes.active] : active,
-                                                [classes.selected] : selected,
-                                                [classes.disabled] : item.disabled,
+                                                [popupCls.active] : active,
+                                                [popupCls.selected] : selected,
+                                                [popupCls.disabled] : item.disabled,
                                             },
                                             [])}
                                 >

@@ -1,0 +1,6 @@
+.notifications {
+	min-height: 150px;
+	max-height: 300px;
+	min-width: 500px; // todo почему работает min-width но не width?
+	overflow-y: auto;
+}

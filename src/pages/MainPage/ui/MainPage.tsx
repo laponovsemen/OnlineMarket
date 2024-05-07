@@ -5,7 +5,7 @@ import {Counter} from "../../../entities/Counter";
 import {Input} from "../../../shared/ui/Input/Input";
 import {Page} from "../../../widget/Page/Page";
 import {HStack} from "../../../shared/ui/Stack";
-import {ListBox} from "../../../shared/ui/ListBox/ListBox";
+import {ListBox} from "../../../shared/ui/Popups/components/ListBox/ListBox";
 
 const MainPage = () => {
     const {t} = useTranslation();

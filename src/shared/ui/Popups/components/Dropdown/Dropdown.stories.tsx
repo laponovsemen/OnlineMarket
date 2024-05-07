@@ -1,10 +1,10 @@
 import type {Meta, StoryObj} from "@storybook/react";
 
 import {Dropdown} from "./Dropdown";
-import {ThemeDecorator} from "../../../shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import {Theme} from "../../../app/providers/ThemeProvider";
-import {StoreDecorator} from "../../../shared/config/storybook/StoreDecorator/StoreDecorator";
-import {Button} from "../Button/Button";
+import {ThemeDecorator} from "../../../../config/storybook/ThemeDecorator/ThemeDecorator";
+import {Theme} from "../../../../../app/providers/ThemeProvider";
+import {StoreDecorator} from "../../../../config/storybook/StoreDecorator/StoreDecorator";
+import {Button} from "../../../Button/Button";
 
 const meta = {
     title: "/Dropdown",

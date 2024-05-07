@@ -1,9 +1,9 @@
 import type {Meta, StoryObj} from "@storybook/react";
 
 import {ListBox} from "./ListBox";
-import {ThemeDecorator} from "../../../shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import {Theme} from "../../../app/providers/ThemeProvider";
-import {StoreDecorator} from "../../../shared/config/storybook/StoreDecorator/StoreDecorator";
+import {ThemeDecorator} from "../../../../config/storybook/ThemeDecorator/ThemeDecorator";
+import {Theme} from "../../../../../app/providers/ThemeProvider";
+import {StoreDecorator} from "../../../../config/storybook/StoreDecorator/StoreDecorator";
 import {action} from "@storybook/addon-actions";
 
 const meta = {
