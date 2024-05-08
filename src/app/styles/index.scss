@@ -10,11 +10,18 @@ body {
 	color: var(--primary-color);
 }
 
-.app {
+.app,
+.app_modal {
 	background: var(--bg-color);
 	min-height: 100vh;
 	width: 100vw;
 }
+
+.app_drawer {
+	min-height: 100vh;
+	width: 100vw;
+}
+
 
 li {
 	list-style-type: none;

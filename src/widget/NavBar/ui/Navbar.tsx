@@ -18,6 +18,7 @@ import {Popover} from "../../../shared/ui/Popups";
 import {NotificationList} from "../../../entities/Notification";
 import {NotificationButton} from "../../../features/notificationButton";
 import {AvatarDropdown} from "../../../features/avatarDropdown";
+import {Drawer} from "../../../shared/ui/Drawer/Drawer";
 
 
 interface NavbarProps {
@@ -39,7 +40,6 @@ export const Navbar = memo(({className}: NavbarProps) => {
     }, []);
 
 
-
     if(authData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
@@ -59,6 +59,7 @@ export const Navbar = memo(({className}: NavbarProps) => {
                     gap={"16"}
                     className={cls.actions}
                 >
+
                     <NotificationButton/>
                     <AvatarDropdown />
                 </HStack>
