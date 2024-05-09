@@ -10,6 +10,7 @@ import cls from "../../../../widget/NavBar/ui/Navbar.module.scss";
 import {Popover} from "../../../../shared/ui/Popups";
 import {Drawer} from "../../../../shared/ui/Drawer/Drawer";
 import {BrowserView, MobileView} from "react-device-detect";
+import {AnimationProvider} from "../../../../shared/lib/components/AnimationProvider";
 
 interface NotificationButtonProps {
 	className?: string
@@ -33,7 +34,7 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
     const onCloseDrawer = useCallback(() => {
         setIsOpen(false);
     }, []);
-
+    console.log(isOpen, " isOpens");
     const trigger = (
         <Button
             theme={ButtonTheme.CLEAR}
@@ -73,12 +74,15 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
             </BrowserView>
             <MobileView>
                 {trigger}
-                <Drawer
-                    isOpen={isOpen}
-                    onClose={onCloseDrawer}
-                >
-                    <NotificationList />
-                </Drawer>;
+                <AnimationProvider>
+                    <Drawer
+                        isOpen={isOpen}
+                        onClose={onCloseDrawer}
+                    >
+                        <NotificationList />
+                    </Drawer>
+                </AnimationProvider>
+
             </MobileView>
 
         </div>

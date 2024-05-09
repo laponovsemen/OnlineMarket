@@ -4,10 +4,7 @@
 	bottom: 0;
 	left: 0;
 	right: 0;
-	opacity: 0;
-	transition: 1s opacity;
-	pointer-events: none;
-	z-index: -1;
+	z-index: 100;
 	display: flex;
 	align-items: flex-end;
 }
@@ -23,7 +20,7 @@
 	min-height: 100px;
 	padding: 20px;
 	z-index: 100;
-	transition: 0.3s transform ease-in-out ;
+	transition: 0.3s transform ease-in-out;
 	transform: translateY(100%);
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -56,4 +53,16 @@
 	.content {
 		transform: translateY(100%);
 	}
+}
+
+.sheet {
+	z-index: var(--modal-z-index);
+	position: fixed;
+	left: 2vw;
+	height: calc(100vh + 100px);
+	width: 96vw;
+	border-radius: 12px 12px 0;
+	background: var(--bg-color);
+	touch-action: none;
+	padding: 15px;
 }
