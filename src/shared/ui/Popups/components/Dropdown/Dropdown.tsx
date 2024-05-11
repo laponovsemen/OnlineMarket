@@ -1,8 +1,8 @@
 import { Menu } from "@headlessui/react";
 import classes from "./Dropdown.module.scss";
-import {classNames} from "../../../../lib/classNames/classNames";
+import {classNames} from "@/shared/lib/classNames/classNames";
 import {Fragment, ReactNode} from "react";
-import {DropDownDirection} from "../../../../types/ui";
+import {DropDownDirection} from "@/shared/types/ui";
 import {AppLink} from "../../../AppLink/AppLink";
 import popupCls from "../../styles/popup.module.scss";
 
@@ -63,7 +63,7 @@ export function Dropdown(props : DropdownProps) {
                         {},
                         menuClasses)}
             >
-                {items?.map(item => {
+                {items?.map((item, index) => {
                     const content =(
                         ({active }: {active: boolean} ) => (
                             <button
@@ -88,7 +88,7 @@ export function Dropdown(props : DropdownProps) {
                                 as={AppLink}
                                 to={item.href}
                                 disabled={item.disabled}
-                                key={item.href}
+                                key={index}
                             >
                                 {content}
                             </Menu.Item>
@@ -99,7 +99,7 @@ export function Dropdown(props : DropdownProps) {
                         <Menu.Item
                             as={Fragment}
                             disabled={item.disabled}
-                            key={item.href}
+                            key={index}
                         >
                             {content}
                         </Menu.Item>

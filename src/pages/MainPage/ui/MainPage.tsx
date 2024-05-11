@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import {useTranslation} from "react-i18next";
-import {BugButton} from "../../../app/providers/ErrorBoundary";
-import {Counter} from "../../../entities/Counter";
-import {Input} from "../../../shared/ui/Input/Input";
-import {Page} from "../../../widget/Page/Page";
-import {HStack} from "../../../shared/ui/Stack";
-import {ListBox} from "../../../shared/ui/Popups/components/ListBox/ListBox";
+import {BugButton} from "@/app/providers/ErrorBoundary";
+import {Input} from "@/shared/ui/Input/Input";
+import {Page} from "@/widget/Page/Page";
+import {HStack} from "@/shared/ui/Stack";
+import {ListBox} from "@/shared/ui/Popups";
+import {StarRating} from "@/shared/ui/StarRating/StarRating";
+import {RatingCard} from "@/entities/Rating";
 
 const MainPage = () => {
     const {t} = useTranslation();
@@ -41,6 +42,16 @@ const MainPage = () => {
             <div>jdsfjsdfj</div>
             <div>jdsfjsdfj</div>
             <div>jdsfjsdfj</div>
+            {/*<StarRating*/}
+            {/*    size={50}*/}
+            {/*/>*/}
+            <RatingCard
+                title={t("Как вам статья?")}
+                feedbackTitle={t("Оставьте отзыв о статье")}
+                hasFeedback
+            />
+
+
         </Page>
     );
 };
