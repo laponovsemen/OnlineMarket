@@ -19,6 +19,7 @@ import {ArticleDetailsPageHeader} from "../ArticleDetailsPageHeader/ArticleDetai
 import {VStack} from "../../../../shared/ui/Stack";
 import {ArticleRecommendationsList} from "../../../../features/articleRecommendationsList";
 import {ArticleDetailsComments} from "../ArticleDetailsComments/ArticleDetailsComments";
+import {ArticleRating} from "@/features/articleRating";
 
 
 // todo для того чтобы i18next extract plugin работал нужно создать помимо файлов в названии которых есть неймспейс прокидываемый в юзТранслейшн но и этот файл уже должен содержать пустой джсон обьект
@@ -52,6 +53,10 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     //     );
     // }
 
+    if(!id) {
+        return null;
+    }
+
     return (
         <DynamicModuleLoader
             reducers={reducers}
@@ -64,6 +69,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                 >
                     <ArticleDetailsPageHeader/>
                     <ArticleDetails id={id} />
+                    <ArticleRating articleId={id}/>
                     <ArticleRecommendationsList/>
                     <ArticleDetailsComments id={id} />
                 </VStack>

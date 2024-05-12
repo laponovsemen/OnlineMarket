@@ -21,7 +21,7 @@ i18n
 // for all options read: https://www.i18next.com/overview/configuration-options
     .init({
         fallbackLng: "ru", // по дефолту русский
-        debug: __IS_DEV__, // была проблема с тем что не __IS_DEV__ is not defined  то есть definePlugin не сработал , решилось перекомпиляцией
+        //debug: false, // __IS_DEV__, // была проблема с тем что не __IS_DEV__ is not defined  то есть definePlugin не сработал , решилось перекомпиляцией
 
         interpolation: {
             escapeValue: false, // not needed for react as it escapes by default
