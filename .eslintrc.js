@@ -69,7 +69,7 @@ module.exports = {
         ],
         "react/no-unresolved": "off",
         "no-undef": "off",
-        "semen-the-sailor-plugin/path-checker": "error",
+        "semen-the-sailor-plugin/path-checker": ["error", {alias: "@"}],
         "import/prefer-default-export": "off",
         "no-unused-vars": "warn",
         "@typescript-eslint/no-unused-vars": "warn",
