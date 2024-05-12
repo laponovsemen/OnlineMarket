@@ -90,6 +90,7 @@
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0",
     "storybook": "^8.0.7",
+    "storybook-addon-mock": "^5.0.0",
     "style-loader": "^3.3.1",
     "stylelint": "^14.5.3",
     "stylelint-config-standard-scss": "^3.0.0",
@@ -127,8 +128,7 @@
     "react-i18next": "^11.15.5",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.1",
-    "react-virtualized": "^9.22.5",
-    "storybook-addon-mock": "^2.4.1"
+    "react-virtualized": "^9.22.5"
   },
   "overrides": {
     "loki": {

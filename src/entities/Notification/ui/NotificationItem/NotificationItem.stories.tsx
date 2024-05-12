@@ -1,10 +1,10 @@
 import type {Meta, StoryObj} from "@storybook/react";
 
 import {NotificationItem} from "./NotificationItem";
-import {StoreDecorator} from "../../../../shared/config/storybook/StoreDecorator/StoreDecorator";
+import {StoreDecorator} from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
 
 const meta = {
-    title: "/NotificationItem",
+    title: "entities/Notification/NotificationItem",
     component: NotificationItem,
     parameters: {
         layout: "centered",

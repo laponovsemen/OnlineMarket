@@ -1,12 +1,12 @@
 import type {Meta, StoryObj} from "@storybook/react";
 
-import {ArticleRating} from "./ArticleRating";
-import {ThemeDecorator} from "../../../shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import {Theme} from "../../../app/providers/ThemeProvider";
-import {StoreDecorator} from "../../../shared/config/storybook/StoreDecorator/StoreDecorator";
+import ArticleRating from "./ArticleRating";
+import {StoreDecorator} from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
+// @ts-ignore
+import withMock from "storybook-addon-mock";
 
 const meta = {
-    title: "/ArticleRating",
+    title: "features/ArticleRating",
     component: ArticleRating,
     parameters: {
         layout: "centered",
@@ -16,14 +16,46 @@ const meta = {
         //backgroundColor: { control: "color" },
     },
     decorators: [
-        StoreDecorator({})
+        withMock,
+        StoreDecorator({
+            user: {
+                authData: {id: "1"}
+            }
+        })
     ]
 } satisfies Meta<typeof ArticleRating>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Light: Story = {
-    args: {},
+export const NormalWithRate: Story = {
+    args: {
+        articleId: "1"
+    },
+    parameters : {
+        mockData: [{
+            url: `${__API__}/article-ratings?userId=1&articleId=1`,
+            method:"GET",
+            status: 200,
+            response : [
+                {
+                    rate: 4,
+                }
+            ]
+        }]
+    }
+};
 
+export const NormalWithoutRate: Story = {
+    args: {
+        articleId: "1"
+    },
+    parameters : {
+        mockData: [{
+            url: `${__API__}/article-ratings?userId=1&articleId=1`,
+            method:"GET",
+            status: 200,
+            response : []
+        }]
+    }
 };

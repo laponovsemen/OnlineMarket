@@ -1,10 +1,10 @@
 import type {Meta, StoryObj} from "@storybook/react";
 
 import {NotificationButton} from "./NotificationButton";
-import {StoreDecorator} from "../../../../shared/config/storybook/StoreDecorator/StoreDecorator";
+import {StoreDecorator} from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
 
 const meta = {
-    title: "/NotificationButton",
+    title: "features/Notification/NotificationButton",
     component: NotificationButton,
     parameters: {
         layout: "centered",
@@ -19,6 +19,7 @@ const meta = {
 } satisfies Meta<typeof NotificationButton>;
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {

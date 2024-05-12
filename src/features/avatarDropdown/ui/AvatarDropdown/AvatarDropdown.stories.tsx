@@ -1,10 +1,10 @@
 import type {Meta, StoryObj} from "@storybook/react";
 
 import {AvatarDropdown} from "./AvatarDropdown";
-import {StoreDecorator} from "../../../../shared/config/storybook/StoreDecorator/StoreDecorator";
+import {StoreDecorator} from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
 
 const meta = {
-    title: "/AvatarDropdown",
+    title: "features/AvatarDropdown",
     component: AvatarDropdown,
     parameters: {
         layout: "centered",
