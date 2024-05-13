@@ -1,7 +1,6 @@
 import type {Meta, StoryObj} from "@storybook/react";
 
 import {Dropdown} from "./Dropdown";
-import {ThemeDecorator} from "../../../../config/storybook/ThemeDecorator/ThemeDecorator";
 import {StoreDecorator} from "../../../../config/storybook/StoreDecorator/StoreDecorator";
 import {Button} from "../../../Button/Button";
 

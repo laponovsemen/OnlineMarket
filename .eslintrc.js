@@ -45,10 +45,12 @@ module.exports = {
         "i18next",
         "react-hooks",
         "@stylistic/js",
-        "semen-the-sailor-plugin"
+        "semen-the-sailor-plugin",
+        "unused-imports"
     ],
     "rules": {
         "@stylistic/js/indent": ["error", 4],
+        "unused-imports/no-unused-imports": "error",
         "linebreak-style": [
             "error",
             "windows"

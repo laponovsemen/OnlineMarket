@@ -1,7 +1,6 @@
 import type {Meta, StoryObj} from "@storybook/react";
 
 import {ListBox} from "./ListBox";
-import {ThemeDecorator} from "../../../../config/storybook/ThemeDecorator/ThemeDecorator";
 import {StoreDecorator} from "../../../../config/storybook/StoreDecorator/StoreDecorator";
 import {action} from "@storybook/addon-actions";
 

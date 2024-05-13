@@ -1,4 +1,4 @@
-import React, {memo, Suspense, useCallback, useMemo} from "react";
+import React, {memo, Suspense, useCallback} from "react";
 import {Route, Routes} from "react-router-dom";
 import {PageLoader} from "@/widget/PageLoader";
 import {RequireAuth} from "./RequireAuth";

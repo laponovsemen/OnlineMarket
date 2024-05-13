@@ -6,7 +6,6 @@ import {useSelector} from "react-redux";
 import {
     ProfileCard,
 } from "../../../../entities/Profile";
-import {useParams} from "react-router-dom";
 import {useInitialEffect} from "../../../../shared/lib/hooks/useInitialEffect/useInitialEffect";
 import {Currency} from "../../../../entities/Currency";
 import {Country} from "../../../../entities/Country";

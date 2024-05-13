@@ -1,5 +1,4 @@
 import {StateSchema} from "../../../../../app/providers/StoreProvider";
-import {getProfileReadonly} from "../getProfileReadonly/getProfileReadonly";
 import {getProfileValidationErrors} from "./getProfileValidationErrors";
 import {ValidateProfileError} from "../../consts/consts";
 

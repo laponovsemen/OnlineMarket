@@ -1,9 +1,9 @@
 import classes from "./Code.module.scss";
-import {memo, ReactNode, useCallback} from "react";
+import {memo, useCallback} from "react";
 import {classNames} from "../../lib/classNames/classNames";
 import {Button, ButtonTheme} from "../Button/Button";
 import CopyIcon from "../../assets/icons/copy-20-20.svg";
-import {Icon} from "../Icon/Icon";
+
 
 
 interface CodeProps {

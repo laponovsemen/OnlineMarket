@@ -1,5 +1,5 @@
 import classes from "./Flex.module.scss";
-import {DetailedHTMLProps, HTMLAttributes, memo, ReactNode} from "react";
+import {DetailedHTMLProps, HTMLAttributes, ReactNode} from "react";
 import {classNames, Mods} from "../../../lib/classNames/classNames";
 
 export type FlexAlign = "start" | "center" | "end"

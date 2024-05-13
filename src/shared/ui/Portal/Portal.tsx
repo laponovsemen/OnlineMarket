@@ -1,6 +1,4 @@
 
-import classes from "./Portal.module.scss";
-import {classNames} from "../../lib/classNames/classNames";
 import {ReactNode} from "react";
 import {createPortal} from "react-dom";
 

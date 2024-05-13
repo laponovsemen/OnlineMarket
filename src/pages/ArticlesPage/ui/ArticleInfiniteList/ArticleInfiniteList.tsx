@@ -6,10 +6,7 @@ import {useSelector} from "react-redux";
 import {getArticles} from "../../model/slices/articlesPageSlice";
 import {
     getArticlesPageError,
-    getArticlesPageHasMore,
-    getArticlesPageInited,
     getArticlesPageIsLoading,
-    getArticlesPageNum,
     getArticlesPageView
 } from "../../model/selectors/articlePageSelectors";
 import {useSearchParams} from "react-router-dom";

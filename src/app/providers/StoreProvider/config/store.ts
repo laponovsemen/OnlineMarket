@@ -4,7 +4,6 @@ import {counterReducer} from "../../../../entities/Counter";
 import {userReducer} from "../../../../entities/User";
 import {createReducerManager} from "./reducerManager";
 import {$api} from "../../../../shared/api/api";
-import {NavigateOptions, To } from "react-router-dom";
 import {scrollRestorationReducer} from "../../../../features/scrollRestoration";
 import {rtkApi} from "../../../../shared/api/rtkApi";
 

@@ -1,4 +1,4 @@
-import {FC, lazy, Suspense} from "react";
+import { lazy, Suspense} from "react";
 import {ArticleRatingProps} from "@/features/articleRating/ui/ArticleRating/ArticleRating";
 import {Skeleton} from "@/shared/ui/Skeleton";
 

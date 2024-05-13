@@ -1,6 +1,6 @@
 import classes from "./Select.module.scss";
-import {classNames, Mods} from "../../lib/classNames/classNames";
-import {ChangeEvent, memo, useMemo} from "react";
+import {classNames} from "../../lib/classNames/classNames";
+import {ChangeEvent, useMemo} from "react";
 
 export interface SelectOption<T extends string> {
     value: T
@@ -43,9 +43,9 @@ export const Select = <T extends string>(props : SelectProps<T>) => {
         });
     }, [options]);
 
-    const mods: Mods = {
-
-    };
+    // const mods: Mods = {
+    //
+    // };
 
     return (
         <div

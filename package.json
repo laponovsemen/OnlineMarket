@@ -75,6 +75,7 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-semen-the-sailor-plugin": "^0.0.6",
     "eslint-plugin-storybook": "^0.8.0",
+    "eslint-plugin-unused-imports": "^3.2.0",
     "file-loader": "^6.2.0",
     "fork-ts-checker-webpack-plugin": "^7.2.13",
     "html-webpack-plugin": "^5.5.0",

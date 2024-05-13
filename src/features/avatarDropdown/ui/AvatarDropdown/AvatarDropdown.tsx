@@ -2,7 +2,6 @@ import classes from "./AvatarDropdown.module.scss";
 import {useTranslation} from "react-i18next";
 import React, {memo, useCallback} from "react";
 import {classNames} from "../../../../shared/lib/classNames/classNames";
-import cls from "../../../../widget/NavBar/ui/Navbar.module.scss";
 import {Avatar} from "../../../../shared/ui/Avatar/Avatar";
 import {Dropdown} from "../../../../shared/ui/Popups";
 import {useDispatch, useSelector} from "react-redux";

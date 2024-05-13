@@ -1,5 +1,5 @@
 import classes from "./Overlay.module.scss";
-import {memo, ReactNode} from "react";
+import {memo} from "react";
 import {classNames} from "../../lib/classNames/classNames";
 
 interface OverlayProps {

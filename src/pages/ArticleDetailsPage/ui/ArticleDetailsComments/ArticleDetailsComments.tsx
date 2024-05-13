@@ -1,6 +1,6 @@
 
 import {useTranslation} from "react-i18next";
-import React, {memo, useCallback, Suspense} from "react";
+import React, {memo, useCallback} from "react";
 import {Text, TextSize} from "../../../../shared/ui/Text/Text";
 import {AddCommentForm} from "../../../../features/addCommentForm";
 import {CommentList} from "../../../../entities/Comment";

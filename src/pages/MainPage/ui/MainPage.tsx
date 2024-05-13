@@ -5,7 +5,6 @@ import {Input} from "@/shared/ui/Input";
 import {Page} from "@/widget/Page/ui/Page";
 import {HStack} from "@/shared/ui/Stack";
 import {ListBox} from "@/shared/ui/Popups";
-import {StarRating} from "@/shared/ui/StarRating";
 import {RatingCard} from "@/entities/Rating";
 
 const MainPage = () => {

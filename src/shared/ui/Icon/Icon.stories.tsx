@@ -1,7 +1,6 @@
 import type {Meta, StoryObj} from "@storybook/react";
 import SVGIcon from "../../assets/icons/eye-20-20.svg";
 import {Icon} from "./Icon";
-import {ThemeDecorator} from "../../../shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import {StoreDecorator} from "../../../shared/config/storybook/StoreDecorator/StoreDecorator";
 
 const meta = {

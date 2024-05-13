@@ -1,6 +1,5 @@
 import classes from "./Popover.module.scss";
-import {useTranslation} from "react-i18next";
-import {memo, ReactNode} from "react";
+import { ReactNode} from "react";
 import {Popover as HPopover} from "@headlessui/react";
 import {DropDownDirection} from "../../../../types/ui";
 import {mapDirectionClass} from "../../styles/consts";
