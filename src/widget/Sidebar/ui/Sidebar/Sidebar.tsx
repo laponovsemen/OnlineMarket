@@ -1,8 +1,8 @@
 import classes from "./Sidebar.module.scss";
 import {classNames} from "../../../../shared/lib/classNames/classNames";
 import React, {memo, useMemo, useState} from "react";
-import {ThemeSwitcher} from "../../../ThemeSwitcher";
-import {LangSwitcher} from "../../../LangSwitcher/ui/LangSwitcher";
+import {ThemeSwitcher} from "../../../../features/ThemeSwitcher";
+import {LangSwitcher} from "../../../../features/LangSwitcher/ui/LangSwitcher";
 import {Button, ButtonSize, ButtonTheme} from "../../../../shared/ui/Button/Button";
 import {useTranslation} from "react-i18next";
 import {SidebarItem} from "../SidebarItem/SidebarItem";
@@ -17,7 +17,7 @@ interface SidebarProps {
 
 export const Sidebar = memo(({className} : SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
-    const {t} = useTranslation();
+    //const {t} = useTranslation();
     const sidebarItemsList = useSelector(getSidebarItems);
 
     const onToggle = () => {

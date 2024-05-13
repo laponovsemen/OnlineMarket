@@ -14,12 +14,13 @@ export {
     ArticleList,
     getArticleDetailsError,
     getArticleDetailsIsLoading,
-    getArticleDetailsData
+    getArticleDetailsData,
+    ArticleView,
 };
 export type {
     Article,
     ArticleDetailsSchema,
-    ArticleView,
+
     ArticleBlockType
 
 };

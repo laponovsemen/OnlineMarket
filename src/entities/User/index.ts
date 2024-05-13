@@ -9,16 +9,17 @@ import {
 } from "./model/selectors/getUserRoleSelector/getuserRoleSelector";
 
 
+
 export {
     userReducer,
     userActions, getUserAuthData,
     getUserInited,
     isUserAdmin,
-    isUserManager
+    isUserManager,
+    UserRole
 };
 export type {
     UserSchema,
     User,
-    UserRole,
 };
 

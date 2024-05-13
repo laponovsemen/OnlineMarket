@@ -1,9 +1,8 @@
 import React, {memo, Suspense, useCallback, useMemo} from "react";
 import {Route, Routes} from "react-router-dom";
-import {PageLoader} from "../../../../widget/PageLoader";
+import {PageLoader} from "@/widget/PageLoader";
 import {RequireAuth} from "./RequireAuth";
-import {routeConfig} from "@/app/providers/router/config/routeConfig";
-import {AppRoutes} from "@/shared/const/router";
+import {routeConfig} from "../config/routeConfig";
 import {AppRouterProps} from "@/shared/types/router";
 
 /*const isAuth = useSelector(getUserAuthData);

@@ -53,3 +53,4 @@ root.render(
 // </ErrorBoundary>
 // </StoreProvider>
 // </BrowserRouter>
+export {Theme} from "@/shared/const/theme";

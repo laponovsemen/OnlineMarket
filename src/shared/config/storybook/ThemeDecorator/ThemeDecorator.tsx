@@ -1,10 +1,15 @@
-import {Theme} from "../../../../app/providers/ThemeProvider";
+import {Theme} from "@/shared/const/theme";
+// eslint-disable-next-line semen-the-sailor-plugin/layer-imports
+import {ThemeProvider} from "@/app/providers/ThemeProvider";
 
 
 export const ThemeDecorator = (theme: Theme) => (story : () => any) => {
     return (
-        <div className={`app ${theme}`}>
-            {story()}
-        </div>
+        <ThemeProvider initialTheme={theme}>
+            <div className={`app ${theme}`}>
+                {story()}
+            </div>
+        </ThemeProvider>
+
     );
 };

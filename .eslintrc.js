@@ -75,11 +75,9 @@ module.exports = {
         "@typescript-eslint/no-unused-vars": "warn",
         "react/require-default-props": "off",
         "react/react-in-jsx-scope": "off",
-        "react/jsx-props-no-spreading": "warn",
         "no-underscore-dangle": "off",
         "@typescript-eslint/no-explicit-any": "warn",
         "@typescript-eslint/ban-ts-comment": "warn",
-        "react/display-name": "warn",
         "errow-body-style": "off",
 
         "react-hooks/rules-of-hooks": "error", // checks rules of hooks
@@ -102,7 +100,9 @@ module.exports = {
                 ]
             }
         ],
+        "react/display-name" : "off",
         "max-len": ["error", {"ignoreComments": true, code: 100}],
+        "react/jsx-props-no-spreading": "off",
 
         // self-made-plugins
         "semen-the-sailor-plugin/path-checker": ["error", {alias: "@"}],
@@ -111,6 +111,16 @@ module.exports = {
             {
                 alias: "@",
                 testFilesPatterns: ["**/*.test.ts", "**/*.story.*", "**/StoreDecorator.tsx"]
+            }
+        ],
+        "semen-the-sailor-plugin/layer-imports": [
+            "error",
+            {
+                alias: "@",
+                ignoreImportPatterns: [
+                    "**/StoreDecorator",
+                    "**/testing"
+                ]
             }
         ],
 
