@@ -17,6 +17,9 @@ import {
 } from "../../../shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import {HStack} from "../../../shared/ui/Stack";
 
+
+
+
 export interface AddCommentFormProps {
 	className?: string
     onSendComment : (text: string) => void

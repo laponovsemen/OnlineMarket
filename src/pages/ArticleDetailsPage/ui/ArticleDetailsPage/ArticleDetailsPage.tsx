@@ -13,7 +13,7 @@ import {useAppDispatch} from "../../../../shared/lib/hooks/useAppDispatch/useApp
 import {
     fetchCommentsByArticleId
 } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
-import {Page} from "../../../../widget/Page/Page";
+import {Page} from "../../../../widget/Page/ui/Page";
 import {articteDetailsPageReducer} from "../../model/slices";
 import {ArticleDetailsPageHeader} from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
 import {VStack} from "../../../../shared/ui/Stack";

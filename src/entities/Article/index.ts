@@ -7,10 +7,10 @@ import {
     getArticleDetailsError,
     getArticleDetailsIsLoading
 } from "./model/selectors/articleDetails/articleDetails";
-import {ArticleView} from "./model/consts/articleConsts";
+import {ArticleBlockType, ArticleView} from "./model/consts/articleConsts";
 
 export {
-    ArticleDetails, ArticleView,
+    ArticleDetails,
     ArticleList,
     getArticleDetailsError,
     getArticleDetailsIsLoading,
@@ -18,6 +18,9 @@ export {
 };
 export type {
     Article,
-    ArticleDetailsSchema
+    ArticleDetailsSchema,
+    ArticleView,
+    ArticleBlockType
+
 };
 

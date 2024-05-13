@@ -1,15 +1,15 @@
 import classes from "./Page.module.scss";
 import {memo, MutableRefObject, ReactNode, useRef, UIEvent} from "react";
-import {classNames} from "../../shared/lib/classNames/classNames";
-import {useInitialEffect} from "../../shared/lib/hooks/useInitialEffect/useInitialEffect";
-import {useInfiniteScroll} from "../../shared/lib/hooks/useInfiniteScroll/useInfiniteScroll";
-import {useAppDispatch} from "../../shared/lib/hooks/useAppDispatch/useAppDispatch";
-import {scrollRestorationActions} from "../../features/scrollRestoration/model/slices/scrollRestorationSlice";
+import {classNames} from "../../../shared/lib/classNames/classNames";
+import {useInitialEffect} from "../../../shared/lib/hooks/useInitialEffect/useInitialEffect";
+import {useInfiniteScroll} from "../../../shared/lib/hooks/useInfiniteScroll/useInfiniteScroll";
+import {useAppDispatch} from "../../../shared/lib/hooks/useAppDispatch/useAppDispatch";
+import {scrollRestorationActions} from "../../../features/scrollRestoration/model/slices/scrollRestorationSlice";
 import {useLocation} from "react-router-dom";
 import {useSelector} from "react-redux";
-import {getScrollRestorationByPath} from "../../features/scrollRestoration";
-import {StateSchema} from "../../app/providers/StoreProvider";
-import {useThrottle} from "../../shared/lib/hooks/useThrottle/useThrottle";
+import {getScrollRestorationByPath} from "../../../features/scrollRestoration";
+import {StateSchema} from "../../../app/providers/StoreProvider";
+import {useThrottle} from "../../../shared/lib/hooks/useThrottle/useThrottle";
 
 interface PageProps {
 	className?: string

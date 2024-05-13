@@ -2,7 +2,7 @@ import classes from "./ArticleEditPage.module.scss";
 import {useTranslation} from "react-i18next";
 import {memo} from "react";
 import {classNames} from "../../../../shared/lib/classNames/classNames";
-import {Page} from "../../../../widget/Page/Page";
+import {Page} from "../../../../widget/Page/ui/Page";
 import {useParams} from "react-router-dom";
 
 interface ArticleEditPageProps {

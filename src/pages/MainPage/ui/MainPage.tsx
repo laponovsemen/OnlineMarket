@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {useTranslation} from "react-i18next";
 import {BugButton} from "@/app/providers/ErrorBoundary";
 import {Input} from "@/shared/ui/Input/Input";
-import {Page} from "@/widget/Page/Page";
+import {Page} from "@/widget/Page/ui/Page";
 import {HStack} from "@/shared/ui/Stack";
 import {ListBox} from "@/shared/ui/Popups";
 import {StarRating} from "@/shared/ui/StarRating/StarRating";

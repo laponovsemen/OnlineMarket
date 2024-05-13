@@ -7,7 +7,7 @@ import {
 } from "../../../../shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import {articlesPageReducer} from "../../model/slices/articlesPageSlice";
 import {useAppDispatch} from "../../../../shared/lib/hooks/useAppDispatch/useAppDispatch";
-import {Page} from "../../../../widget/Page/Page";
+import {Page} from "../../../../widget/Page/ui/Page";
 import {
     fetchNextArticlesPage
 } from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";

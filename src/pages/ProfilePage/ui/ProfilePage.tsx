@@ -1,6 +1,6 @@
 import classes from "./ProfilePage.module.scss";
 import {classNames} from "../../../shared/lib/classNames/classNames";
-import {Page} from "../../../widget/Page/Page";
+import {Page} from "@/widget/Page";
 import {VStack} from "../../../shared/ui/Stack";
 import {EditableProfileCard} from "../../../features/editableProfileCard";
 import {useParams} from "react-router-dom";

@@ -2,7 +2,7 @@ import classes from "./ForbiddenPage.module.scss";
 import {useTranslation} from "react-i18next";
 import {memo} from "react";
 import {classNames} from "../../../shared/lib/classNames/classNames";
-import {Page} from "../../../widget/Page/Page";
+import {Page} from "../../../widget/Page/ui/Page";
 
 interface ForbiddenPageProps {
 	className?: string
