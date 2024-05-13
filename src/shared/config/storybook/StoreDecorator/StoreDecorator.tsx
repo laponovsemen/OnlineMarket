@@ -1,12 +1,12 @@
-import {StateSchema, StoreProvider} from "../../../../app/providers/StoreProvider";
+import {StateSchema, StoreProvider} from "@/app/providers/StoreProvider";
 
-//Todo
-import {loginReducer} from "../../../../features/AuthByUserName";
+
+import {loginReducer} from "@/features/AuthByUserName/testing";
 import {ReducersList} from "../../../lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import {articleDetailsReducer} from "../../../../entities/Article/model/slice/articleDetailsSlice";
-import {addCommentFormReducer} from "@/features/addCommentForm/model/slices/addCommentFormSlice";
-import {articteDetailsPageReducer} from "../../../../pages/ArticleDetailsPage/model/slices";
-import {profileReducer} from "../../../../features/editableProfileCard/model/slice/profileSlice";
+import {articleDetailsReducer} from "@/entities/Article/testing";
+import {addCommentFormReducer} from "@/features/addCommentForm/testing";
+import {articteDetailsPageReducer} from "@/pages/ArticleDetailsPage/testing";
+import {profileReducer} from "@/features/editableProfileCard/testing";
 
 
 const defaultAsybcReducers: ReducersList = {  //DeepPartial<ReducersMapObject<StateSchema>>

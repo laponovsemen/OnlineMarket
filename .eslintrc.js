@@ -69,8 +69,7 @@ module.exports = {
         ],
         "react/no-unresolved": "off",
         "no-undef": "off",
-        "semen-the-sailor-plugin/path-checker": ["error", {alias: "@"}],
-        "semen-the-sailor-plugin/public-api-imports": ["error", {alias: "@"}],
+
         "import/prefer-default-export": "off",
         "no-unused-vars": "warn",
         "@typescript-eslint/no-unused-vars": "warn",
@@ -103,7 +102,20 @@ module.exports = {
                 ]
             }
         ],
-        "max-len": ["error", {"ignoreComments": true, code: 100}]
+        "max-len": ["error", {"ignoreComments": true, code: 100}],
+
+        // self-made-plugins
+        "semen-the-sailor-plugin/path-checker": ["error", {alias: "@"}],
+        "semen-the-sailor-plugin/public-api-imports": [
+            "error",
+            {
+                alias: "@",
+                testFilesPatterns: ["**/*.test.ts", "**/*.story.*", "**/StoreDecorator.tsx"]
+            }
+        ],
+
+
+
     },
     globals: {
         __IS_DEV__: true,
