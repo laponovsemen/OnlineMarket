@@ -23,7 +23,8 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
             rules: buildLoaders(options),
         },
         resolve: buildResolvers(options),
-        devtool: isDev ? "inline-source-map" : undefined, // создание сорс карт или же сорс мапов для отлавливания ошибок в дев режиме
+        devtool: isDev ? "eval-cheap-module-source-map" : undefined, // создание сорс карт или же сорс мапов для отлавливания ошибок в дев режиме
+        // раньше был "inline-source-map"
         devServer: isDev ? buildDevServer(options): undefined, // запуск дев сервера только в дев режиме
     };
 }

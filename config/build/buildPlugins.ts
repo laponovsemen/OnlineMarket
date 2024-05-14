@@ -10,27 +10,22 @@ import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 
 
 // todo dependency cruiser
-export function buildPlugins({paths, isDev, apiUrl, project}: BuildOptions): webpack.WebpackPluginInstance[] {
+export function buildPlugins({paths, isDev, apiUrl, project}: BuildOptions)
+    : webpack.WebpackPluginInstance[] {
+    const isProd = !isDev;
+
     const plugins = [ // порядок плагинов не важен в отличие от лоадеров
         new HTMLWebpackPlugin({
             template: paths.html // для использования нашего собственного хтмл фала как шаблона вместо дефолтного пустого который сам создает вебпак
         }), // для подключения хтмл файлов к сборке
         new webpack.ProgressPlugin(), // для показания прогресса билда
-        new MiniCssExtractPlugin({
-            filename: "css/[name].[contenthash:8].css",
-            chunkFilename: "css/[name].[contenthash:8].css",
 
-        }), // для раздельной компиляции сисс фалой и джс
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(apiUrl),
             __PROJECT__ : JSON.stringify(project)
         }),
-        new CopyPlugin({
-            patterns: [
-                {from: paths.locales, to: paths.buildLocales}
-            ]
-        }),
+
         new CircularDependencyPlugin({
             exclude: /node_modules/,
             failOnError: true,
@@ -54,5 +49,20 @@ export function buildPlugins({paths, isDev, apiUrl, project}: BuildOptions): web
         }));
     }
 
+    if(isProd) {
+        plugins.push(new MiniCssExtractPlugin({
+            filename: "css/[name].[contenthash:8].css",
+            chunkFilename: "css/[name].[contenthash:8].css",
+
+        })); // для раздельной компиляции сисс фалой и джс)
+
+        plugins.push(new CopyPlugin({
+            patterns: [
+                {from: paths.locales, to: paths.buildLocales}
+            ]
+        })); // для переноса переводов из папки паблик в папку билд    }
+
+
+    }
     return plugins;
 }
