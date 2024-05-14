@@ -2,7 +2,9 @@ import {Navigate, useLocation} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {getUserAuthData} from "../../../../entities/User";
 import { useMemo } from "react";
-import {getUserRoles} from "../../../../entities/User/model/selectors/getUserRoleSelector/getuserRoleSelector";
+import {
+    getUserRoles
+} from "../../../../entities/User/model/selectors/getUserRoleSelector/getuserRoleSelector";
 import {UserRole} from "../../../../entities/User/model/consts/userConsts";
 import {getRouteForbidden, getRouteMain} from "@/shared/const/router";
 
