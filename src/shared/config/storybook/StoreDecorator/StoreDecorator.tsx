@@ -12,7 +12,7 @@ import {articteDetailsPageReducer} from "@/pages/ArticleDetailsPage/testing";
 import {profileReducer} from "@/features/editableProfileCard/testing";
 
 
-const defaultAsybcReducers: ReducersList = {  //DeepPartial<ReducersMapObject<StateSchema>>
+const defaultAsyncReducers: ReducersList = {  //DeepPartial<ReducersMapObject<StateSchema>>
     loginForm: loginReducer,
     profile: profileReducer,
     articleDetails: articleDetailsReducer,
@@ -28,7 +28,7 @@ export const StoreDecorator = (
     return (
         <StoreProvider
             initialState={state}
-            asyncReducers={{...defaultAsybcReducers, ...asyncReducers}}
+            asyncReducers={{...defaultAsyncReducers, ...asyncReducers}}
         >
             {story()}
         </StoreProvider>

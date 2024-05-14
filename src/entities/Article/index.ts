@@ -16,12 +16,13 @@ export {
     getArticleDetailsIsLoading,
     getArticleDetailsData,
     ArticleView,
+    ArticleBlockType
+
 };
 export type {
     Article,
     ArticleDetailsSchema,
 
-    ArticleBlockType
 
 };
 

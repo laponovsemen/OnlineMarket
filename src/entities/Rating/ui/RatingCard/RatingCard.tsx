@@ -9,9 +9,9 @@ import {StarRating} from "@/shared/ui/StarRating";
 import {Modal} from "@/shared/ui/Modal";
 import {Input} from "@/shared/ui/Input";
 import {Button, ButtonSize, ButtonTheme} from "@/shared/ui/Button";
-import {useTheme} from "@/app/providers/ThemeProvider";
 import {BrowserView, MobileView} from "react-device-detect";
 import {Drawer} from "@/shared/ui/Drawer";
+import {useTheme} from "@/shared/lib/hooks/useTheme/useTheme";
 
 interface RatingCardProps {
 	className?: string

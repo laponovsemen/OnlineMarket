@@ -1,18 +1,18 @@
 import classes from "./ArticleListItem.module.scss";
 import {useTranslation} from "react-i18next";
 import {HTMLAttributeAnchorTarget, memo} from "react";
-import {classNames} from "../../../../shared/lib/classNames/classNames";
+import {classNames} from "@/shared/lib/classNames/classNames";
 import {Article, ArticleTextBlock} from "../../model/types/article";
-import {Text} from "../../../../shared/ui/Text/Text";
-import {Icon} from "../../../../shared/ui/Icon/Icon";
+import {Text} from "@/shared/ui/Text";
+import {Icon} from "@/shared/ui/Icon";
 import EyeIcon from "../../../../shared/assets/icons/eye-20-20.svg";
-import {Card, CardTheme} from "../../../../shared/ui/Card/Card";
-import {Avatar} from "../../../../shared/ui/Avatar/Avatar";
-import {Button, ButtonTheme} from "../../../../shared/ui/Button/Button";
+import {Card, CardTheme} from "@/shared/ui/Card";
+import {Avatar} from "@/shared/ui/Avatar";
+import {Button, ButtonTheme} from "@/shared/ui/Button";
 import {ArticleTextBlockComponent} from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
-import {AppLink} from "../../../../shared/ui/AppLink/AppLink";
-import {ArticleBlockType, ArticleView} from "../../model/consts/articleConsts";
-import {RoutePath} from "@/shared/const/router";
+import {AppLink} from "@/shared/ui/AppLink";
+import {ArticleBlockType, ArticleView} from "./../../model/consts/articleConsts";
+import {getRouteArticleDetails} from "@/shared/const/router";
 
 interface ArticleListItemProps {
 	className?: string
@@ -74,7 +74,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     <div className={classes.footer}>
                         <AppLink
                             target={target}
-                            to={RoutePath.article_details + article.id}
+                            to={getRouteArticleDetails(article.id)}
                         >
                             <Button
 
@@ -95,7 +95,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         return (
             <AppLink
                 target={target}
-                to={RoutePath.article_details + article.id}
+                to={getRouteArticleDetails(article.id)}
                 className={
                     classNames(
                         classes.ArticleListItem,

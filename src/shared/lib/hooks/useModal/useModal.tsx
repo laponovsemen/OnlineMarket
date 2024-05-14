@@ -1,5 +1,4 @@
 import React, {MutableRefObject, useCallback, useEffect, useRef, useState} from "react";
-import {useTheme} from "@/shared/lib/hooks/useTheme/useTheme";
 
 
 interface UseModalProps {
@@ -25,7 +24,6 @@ export function useModal(props : UseModalProps) {
     const [isClosing, setIsClosing] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
     const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
-    const { theme } = useTheme();
 
     useEffect(() => {
         if(isOpen){

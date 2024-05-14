@@ -4,7 +4,7 @@ import {getUserAuthData} from "../../../../entities/User";
 import { useMemo } from "react";
 import {getUserRoles} from "../../../../entities/User/model/selectors/getUserRoleSelector/getuserRoleSelector";
 import {UserRole} from "../../../../entities/User/model/consts/userConsts";
-import {RoutePath} from "@/shared/const/router";
+import {getRouteForbidden, getRouteMain} from "@/shared/const/router";
 
 interface RequireAuthProps {
     children: JSX.Element;
@@ -32,7 +32,7 @@ export const RequireAuth = ({children, roles}: RequireAuthProps) => {
 	    // along to that page after they login, which is a nicer user expirience
 	    // that dropping them off on the same home page
         return <Navigate
-            to={RoutePath.main}
+            to={getRouteMain()}
             state={{from: location}}
             replace
         />;
@@ -40,7 +40,7 @@ export const RequireAuth = ({children, roles}: RequireAuthProps) => {
 
     if(!hasRequiredRoles){
         return <Navigate
-            to={RoutePath.forbidden}
+            to={getRouteForbidden()}
             state={{from: location}}
             replace
         />;

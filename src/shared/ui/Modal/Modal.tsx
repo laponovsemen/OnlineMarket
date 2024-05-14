@@ -2,9 +2,9 @@ import classes from "./Modal.module.scss";
 import {classNames, Mods} from "../../lib/classNames/classNames";
 import React, {ReactNode} from "react";
 import {Portal} from "../Portal/Portal";
-import {useTheme} from "../../../app/providers/ThemeProvider";
 import {Overlay} from "../Overlay/Overlay";
 import {useModal} from "../../lib/hooks/useModal/useModal";
+import {useTheme} from "@/shared/lib/hooks/useTheme/useTheme";
 
 interface ModalProps {
     className? :string
