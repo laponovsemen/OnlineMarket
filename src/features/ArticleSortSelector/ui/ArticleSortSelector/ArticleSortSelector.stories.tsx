@@ -1,10 +1,10 @@
 import type {Meta, StoryObj} from "@storybook/react";
 
 import {ArticleSortSelector} from "./ArticleSortSelector";
-import {StoreDecorator} from "../../../../shared/config/storybook/StoreDecorator/StoreDecorator";
+import {StoreDecorator} from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
 
 const meta = {
-    title: "/ArticleSortSelector",
+    title: "features/ArticleSortSelector",
     component: ArticleSortSelector,
     parameters: {
         layout: "centered",

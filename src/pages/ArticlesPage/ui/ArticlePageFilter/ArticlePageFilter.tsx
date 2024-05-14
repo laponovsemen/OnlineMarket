@@ -1,7 +1,7 @@
 import classes from "./ArticlePageFilter.module.scss";
 import {useTranslation} from "react-i18next";
 import {memo, useCallback} from "react";
-import {ArticleViewSelector} from "../../../../entities/Article/ui/ArticleViewSelector/ArticleViewSelector";
+import {ArticleViewSelector} from "../../../../features/ArticleViewSelector/ui/ArticleViewSelector/ArticleViewSelector";
 import {classNames} from "../../../../shared/lib/classNames/classNames";
 import {ArticleView} from "../../../../entities/Article";
 import {articlesPageActions} from "../../model/slices/articlesPageSlice";
@@ -14,11 +14,11 @@ import {
 } from "../../model/selectors/articlePageSelectors";
 import {Card} from "../../../../shared/ui/Card/Card";
 import {Input} from "../../../../shared/ui/Input/Input";
-import {ArticleSortSelector} from "../../../../entities/Article/ui/ArticleSortSelector/ArticleSortSelector";
+import {ArticleSortSelector} from "../../../../features/ArticleSortSelector/ui/ArticleSortSelector/ArticleSortSelector";
 import {SortOrder} from "../../../../shared/types";
 import {fetchArticlesList} from "../../model/services/fetchArticlesList/fetchArticlesList";
 import {useDebounce} from "../../../../shared/lib/hooks/useDebounce/useDebounce";
-import {ArticleTypeTabs} from "../../../../entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs";
+import {ArticleTypeTabs} from "../../../../features/ArticleTypeTabs/ui/ArticleTypeTabs/ArticleTypeTabs";
 import {ArticleSortField, ArticleType} from "../../../../entities/Article/model/consts/articleConsts";
 
 interface ArticlePageFilterProps {

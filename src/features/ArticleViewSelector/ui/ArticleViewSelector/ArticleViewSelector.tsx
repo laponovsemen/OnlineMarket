@@ -1,10 +1,10 @@
 import classes from "./ArticleViewSelector.module.scss";
 import {classNames} from "../../../../shared/lib/classNames/classNames";
-import listViewBIG from "./../../../../shared/assets/icons/listViewBIG.svg";
-import listViewSMALL from "./../../../../shared/assets/icons/listViewSMALL.svg";
+import listViewBIG from "../../../../shared/assets/icons/listViewBIG.svg";
+import listViewSMALL from "../../../../shared/assets/icons/listViewSMALL.svg";
 import {Button, ButtonTheme} from "../../../../shared/ui/Button/Button";
 import {Icon} from "../../../../shared/ui/Icon/Icon";
-import {ArticleView} from "../../model/consts/articleConsts";
+import {ArticleView} from "../../../../entities/Article/model/consts/articleConsts";
 
 interface ArticleViewSelectorProps {
     className? :string

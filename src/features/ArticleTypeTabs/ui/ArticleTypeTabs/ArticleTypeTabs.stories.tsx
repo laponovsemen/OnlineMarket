@@ -3,10 +3,10 @@ import type {Meta, StoryObj} from "@storybook/react";
 import {ArticleTypeTabs} from "./ArticleTypeTabs";
 import {StoreDecorator} from "../../../../shared/config/storybook/StoreDecorator/StoreDecorator";
 import {action} from "@storybook/addon-actions";
-import {ArticleType} from "../../model/consts/articleConsts";
+import {ArticleType} from "../../../../entities/Article/model/consts/articleConsts";
 
 const meta = {
-    title: "entities/ArticleTypeTabs",
+    title: "features/ArticleTypeTabs",
     component: ArticleTypeTabs,
     parameters: {
         layout: "centered",
