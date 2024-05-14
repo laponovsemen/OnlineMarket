@@ -1,4 +1,4 @@
-// фoрма изменения статьи
+// фoрма создания статьи
 
 
 export interface ArticleEditFormSchema  {

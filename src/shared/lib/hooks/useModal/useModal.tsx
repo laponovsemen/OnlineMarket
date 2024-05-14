@@ -1,5 +1,5 @@
 import React, {MutableRefObject, useCallback, useEffect, useRef, useState} from "react";
-import {useTheme} from "../../../../app/providers/ThemeProvider";
+import {useTheme} from "@/shared/lib/hooks/useTheme/useTheme";
 
 
 interface UseModalProps {
@@ -9,6 +9,10 @@ interface UseModalProps {
 	animationDelay: number;
 }
 
+/**
+ * Переиспользуемй хук для модальных компонентов (drawer/modal)
+ * @param props
+ */
 export function useModal(props : UseModalProps) {
     const {
         animationDelay,
