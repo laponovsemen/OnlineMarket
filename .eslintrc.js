@@ -22,7 +22,8 @@ module.exports = {
             "files": [
                 ".eslintrc.{js,cjs}",
                 "**/scripts/**",   // добавлять нужно еще две звезды после папки так как без них линтер работает только на папку
-                "**/src/**/*.{test,stories}.{ts,tsx}"
+                "**/src/**/*.{test,stories}.{ts,tsx}",
+                "**/config/**/*.ts"
             ],
             "parserOptions": {
                 "sourceType": "script"
@@ -30,7 +31,8 @@ module.exports = {
             rules: {
                 "i18next/no-literal-string": "off",
                 "max-len": "off",
-                "@typescript-eslint/no-var-requires": "off"
+                "@typescript-eslint/no-var-requires": "off",
+                "semen-the-sailor-plugin/path-checker": "off"
             }
         }
     ],
