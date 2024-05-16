@@ -22,5 +22,6 @@ const recommendationsApi = rtkApi.injectEndpoints({
 	    }),
     })
 });
+// eslint-disable-next-line max-len
 export const useArticleRecommendationsList = recommendationsApi.useGetArticleRecommendationsListQuery;
 export const useCreateRecommendation = recommendationsApi.useCreateArticleRecommendationMutation;

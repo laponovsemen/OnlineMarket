@@ -1,6 +1,8 @@
 import {ReactNode, useEffect} from "react";
 import {useDispatch, useStore} from "react-redux";
+// eslint-disable-next-line semen-the-sailor-plugin/layer-imports
 import {ReduxStoreWithManager, StateSchema} from "@/app/providers/StoreProvider";
+// eslint-disable-next-line semen-the-sailor-plugin/layer-imports
 import {StateSchemaKey} from "@/app/providers/StoreProvider";
 import {Reducer} from "@reduxjs/toolkit";
 

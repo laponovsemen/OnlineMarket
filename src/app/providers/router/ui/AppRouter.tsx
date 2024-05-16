@@ -26,7 +26,7 @@ const AppRouter = () => {
                 { route.element}
             </Suspense>
         );
-        route.roles;
+        //route.roles;
         return (
             <Route
                 key={route.path}

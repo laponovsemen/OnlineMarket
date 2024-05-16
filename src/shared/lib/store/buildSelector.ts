@@ -1,3 +1,4 @@
+// eslint-disable-next-line semen-the-sailor-plugin/layer-imports
 import {
     StateSchema
 } from "@/app/providers/StoreProvider";
@@ -11,7 +12,7 @@ export function buildSelector<T>(selector: Selector<T>) : Result<T>{
     const useSelectorHook = () => {
         return useSelector(selector);
     };
-    
+
     // 02 20
 
     return [useSelectorHook, selector];

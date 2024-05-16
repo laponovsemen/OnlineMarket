@@ -1,25 +1,25 @@
 import classes from "./ArticlePageFilter.module.scss";
 import {useTranslation} from "react-i18next";
 import {memo, useCallback} from "react";
-import {ArticleViewSelector} from "../../../../features/ArticleViewSelector/ui/ArticleViewSelector/ArticleViewSelector";
-import {classNames} from "../../../../shared/lib/classNames/classNames";
-import {ArticleView} from "../../../../entities/Article";
+import {ArticleViewSelector} from "@/features/ArticleViewSelector";
+import {classNames} from "@/shared/lib/classNames/classNames";
+import {ArticleView} from "@/entities/Article";
 import {articlesPageActions} from "../../model/slices/articlesPageSlice";
-import {useAppDispatch} from "../../../../shared/lib/hooks/useAppDispatch/useAppDispatch";
+import {useAppDispatch} from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import {useSelector} from "react-redux";
 import {
     getArticlesPageOrder, getArticlesPageSearch,
     getArticlesPageSort, getArticlesPageType,
     getArticlesPageView
 } from "../../model/selectors/articlePageSelectors";
-import {Card} from "../../../../shared/ui/Card/Card";
-import {Input} from "../../../../shared/ui/Input/Input";
-import {ArticleSortSelector} from "../../../../features/ArticleSortSelector/ui/ArticleSortSelector/ArticleSortSelector";
-import {SortOrder} from "../../../../shared/types";
+import {Card} from "@/shared/ui/Card";
+import {Input} from "@/shared/ui/Input";
+import {ArticleSortSelector} from "@/features/ArticleSortSelector";
 import {fetchArticlesList} from "../../model/services/fetchArticlesList/fetchArticlesList";
-import {useDebounce} from "../../../../shared/lib/hooks/useDebounce/useDebounce";
-import {ArticleTypeTabs} from "../../../../features/ArticleTypeTabs/ui/ArticleTypeTabs/ArticleTypeTabs";
-import {ArticleSortField, ArticleType} from "../../../../entities/Article/model/consts/articleConsts";
+import {useDebounce} from "@/shared/lib/hooks/useDebounce/useDebounce";
+import {ArticleTypeTabs} from "@/features/ArticleTypeTabs";
+import {ArticleSortField, ArticleType} from "@/entities/Article";
+import {SortOrder} from "@/shared/types/sort";
 
 interface ArticlePageFilterProps {
 	className?: string

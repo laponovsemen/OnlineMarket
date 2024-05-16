@@ -7,7 +7,12 @@ import {
     getArticleDetailsError,
     getArticleDetailsIsLoading
 } from "./model/selectors/articleDetails/articleDetails";
-import {ArticleBlockType, ArticleView} from "./model/consts/articleConsts";
+import {
+    ArticleBlockType,
+    ArticleView,
+    ArticleType,
+    ArticleSortField
+} from "./model/consts/articleConsts";
 
 export {
     ArticleDetails,
@@ -16,7 +21,9 @@ export {
     getArticleDetailsIsLoading,
     getArticleDetailsData,
     ArticleView,
-    ArticleBlockType
+    ArticleBlockType,
+    ArticleSortField,
+    ArticleType
 
 };
 export type {

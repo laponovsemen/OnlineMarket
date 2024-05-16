@@ -14,11 +14,20 @@ export const rtkApi = createApi({
             return headers;
         }
     }),
-    endpoints: (builder) => ({
+    endpoints: () => ({
 
     }),
 });
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const {  } = rtkApi;
+export const {
+    reducerPath,
+    endpoints,
+    injectEndpoints,
+    enhanceEndpoints,
+    reducer,
+    internalActions,
+    middleware,
+    util
+} = rtkApi;

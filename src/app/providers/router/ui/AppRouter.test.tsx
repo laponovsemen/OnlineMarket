@@ -51,10 +51,10 @@ describe("app/router/AppRouter", () => {
         componentRender(<AppRouter/>, {
             route: getRouteAdmin(),
             initialState: {
-                user: {
-                    _inited: true,
-                    authData: {}
-                }
+                // user: {
+                //     _inited: true,
+                //     authData: {}
+                // }
             }
         });
 
@@ -73,7 +73,7 @@ describe("app/router/AppRouter", () => {
             }
         });
 
-        const page = await screen.findByTestId("AdminPage");
+        const page = await screen.findByTestId("AdminPanelPage");
         expect(page).toBeInTheDocument();
     });
 });

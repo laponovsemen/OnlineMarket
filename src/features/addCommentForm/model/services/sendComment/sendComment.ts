@@ -4,7 +4,7 @@ import i18n from "./../../../../../shared/config/i18n/i18n";
 import {ThunkConfig} from "../../../../../app/providers/StoreProvider";
 import {Comment} from "../../../../../entities/Comment";
 import {getAddCommentFormText} from "../../selectors/addCommentFormSelectors";
-import {getArticleDetailsData} from "../../../../../entities/Article/model/selectors/articleDetails/articleDetails";
+import {getArticleDetailsData} from "@/entities/Article";
 import {addCommentFormActions} from "../../slices/addCommentFormSlice";
 
 

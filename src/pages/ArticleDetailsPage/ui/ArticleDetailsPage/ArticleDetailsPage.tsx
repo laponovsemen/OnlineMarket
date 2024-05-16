@@ -10,7 +10,9 @@ import {
 } from "../../../../shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import {useInitialEffect} from "../../../../shared/lib/hooks/useInitialEffect/useInitialEffect";
 import {useAppDispatch} from "../../../../shared/lib/hooks/useAppDispatch/useAppDispatch";
-import {fetchCommentsByArticleId} from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
+import {
+    fetchCommentsByArticleId
+} from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
 import {Page} from "../../../../widget/Page/ui/Page";
 import {articteDetailsPageReducer} from "../../model/slices";
 import {ArticleDetailsPageHeader} from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";

@@ -99,7 +99,9 @@ module.exports = {
                     "gap",
                     "role",
                     "border",
-                    "defaultValue"
+                    "defaultValue",
+                    "alt"
+
                 ]
             }
         ],

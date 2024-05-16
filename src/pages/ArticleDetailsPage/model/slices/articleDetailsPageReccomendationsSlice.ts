@@ -5,7 +5,9 @@ import {
 import {StateSchema} from "../../../../app/providers/StoreProvider";
 import {ArticleDetailsReccomendationsSchema} from "../types/ArticleDetailsReccomendationsSchema";
 import {Article} from "../../../../entities/Article";
-import {fetchArticleRecommendations} from "../services/fetchArticleRecommendations/fetchArticleRecommendations";
+import {
+    fetchArticleRecommendations
+} from "../services/fetchArticleRecommendations/fetchArticleRecommendations";
 type Book = { bookId: string; title: string }
 
 const recommendationsAdapter = createEntityAdapter<Article>({
@@ -61,8 +63,12 @@ const articleDetailsPageReccomendationsSlice = createSlice({
 });
 
 
-export const {reducer: articleDetailsPageReccomendationsReducer} = articleDetailsPageReccomendationsSlice;
-export const {actions: articleDetailsPageReccomendationsActions} = articleDetailsPageReccomendationsSlice;
+export const {
+    reducer: articleDetailsPageReccomendationsReducer
+} = articleDetailsPageReccomendationsSlice;
+export const {
+    actions: articleDetailsPageReccomendationsActions
+} = articleDetailsPageReccomendationsSlice;
 
 
 /*

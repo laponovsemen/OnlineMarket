@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {useTranslation} from "react-i18next";
+// eslint-disable-next-line semen-the-sailor-plugin/layer-imports
 import {BugButton} from "@/app/providers/ErrorBoundary";
 import {Input} from "@/shared/ui/Input";
 import {Page} from "@/widget/Page/ui/Page";
@@ -22,14 +23,12 @@ const MainPage = () => {
                 onChange={setValue}
             />
 
-            <div>jdsfjsdfj</div>
-            <div>jdsfjsdfj</div>
-            <div>jdsfjsdfj</div>
             <HStack>
-                <div>jdsfjsdfj</div>
                 <ListBox
                     defaultValue={"Выберите значение"}
-                    onChange={(value: string) => {}}
+                    onChange={(value: string) => {
+                        console.log(value);
+                    }}
                     value={""}
                     items={[
                         {value: "1", content: "some content 1"},
@@ -39,10 +38,7 @@ const MainPage = () => {
                     ]}
                 />
             </HStack>
-            <div>jdsfjsdfj</div>
-            <div>jdsfjsdfj</div>
-            <div>jdsfjsdfj</div>
-            <div>jdsfjsdfj</div>
+
             {/*<StarRating*/}
             {/*    size={50}*/}
             {/*/>*/}

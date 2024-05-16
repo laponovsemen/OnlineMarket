@@ -2,6 +2,7 @@ import type {Meta, StoryObj} from "@storybook/react";
 
 import {ArticleList} from "./ArticleList";
 import {StoreDecorator} from "../../../../shared/config/storybook/StoreDecorator/StoreDecorator";
+import {ArticleView} from "./../../model/consts/articleConsts";
 
 const meta = {
     title: "/ArticleList",
@@ -21,7 +22,12 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-/*export const Light: Story = {
-    args: {},
+export const Light: Story = {
+    args: {
+        isLoading: true,
+        target: "",
+        view: ArticleView.SMALL,
+        articles: []
+    },
 
-};*/
+};
