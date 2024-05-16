@@ -11,7 +11,9 @@ const MainPage = () => {
     const {t} = useTranslation();
     const [value, setValue] = useState("");
     return (
-        <Page>
+        <Page
+            data-testid={"MainPage"}
+        >
             <BugButton/>
             {t("Главная страница")}
             <Input

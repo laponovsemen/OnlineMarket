@@ -98,7 +98,8 @@ module.exports = {
                     "direction",
                     "gap",
                     "role",
-                    "border"
+                    "border",
+                    "defaultValue"
                 ]
             }
         ],

@@ -1,11 +1,11 @@
 import classes from "./ProfilePage.module.scss";
-import {classNames} from "../../../shared/lib/classNames/classNames";
+import {classNames} from "@/shared/lib/classNames/classNames";
 import {Page} from "@/widget/Page";
-import {VStack} from "../../../shared/ui/Stack";
-import {EditableProfileCard} from "../../../features/editableProfileCard";
+import {VStack} from "@/shared/ui/Stack";
+import {EditableProfileCard} from "@/features/editableProfileCard";
 import {useParams} from "react-router-dom";
 import {useTranslation} from "react-i18next";
-import {Text} from "../../../shared/ui/Text/Text";
+import {Text} from "@/shared/ui/Text";
 
 
 interface ProfilePageProps {
@@ -22,7 +22,14 @@ const ProfilePage = ({className} : ProfilePageProps) => {
     }
 
     return (
-        <Page className={classNames(classes.ProfilePage, {} , [className])}>
+        <Page
+            data-testid={"ProfilePage"}
+            className={
+                classNames(
+                    classes.ProfilePage,
+                    {} ,
+                    [className])}
+        >
 
             {/*для каждого поля формы свой отдельный
                 онченджхендлер это нормально так как нужны
@@ -32,11 +39,8 @@ const ProfilePage = ({className} : ProfilePageProps) => {
                 max
                 gap={"16"}
             >
-
                 <EditableProfileCard id={id}/>
             </VStack>
-
-
         </Page>
     );
 };
