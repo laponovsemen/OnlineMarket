@@ -7,5 +7,6 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
         historyApiFallback: true, // для того чтобы когда мы находимся на каком-нибудь <Route/> при перезагрузке страницы не падала 404 ошибка
         hot: true,
 
+
     };
 }
