@@ -17,7 +17,7 @@ const config: StorybookConfig = {
         "@chromatic-com/storybook",
         "@storybook/addon-interactions",
         "@storybook/addon-styling-webpack",
-        "@storybook-addon-mock/register",
+        "@storybook-addon-mock",
         "@storybook/addon-themes"
     ],
     framework: {

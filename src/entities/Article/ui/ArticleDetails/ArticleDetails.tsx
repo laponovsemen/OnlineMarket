@@ -14,7 +14,7 @@ import {
     getArticleDetailsData,
     getArticleDetailsError,
     getArticleDetailsIsLoading
-} from "../..";
+} from "../../model/selectors/articleDetails/articleDetails";
 import {Text, TextAlign, TextSize, TextTheme} from "@/shared/ui/Text";
 import {Skeleton} from "@/shared/ui/Skeleton";
 import {Avatar} from "@/shared/ui/Avatar";
