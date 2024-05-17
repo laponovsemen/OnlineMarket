@@ -56,7 +56,7 @@
       "module": "CommonJS"
     }
   },
-
+  //"exclude": ["./cypress/**"],
   "includes": [
     "./.eslintrc.js",
     "./src/app/types/global.d.ts",

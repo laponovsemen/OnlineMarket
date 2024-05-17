@@ -43,7 +43,7 @@ export function buildPlugins({paths, isDev, apiUrl, project}: BuildOptions)
     ];
     if(isDev){
         plugins.push(new ReactRefreshPlugin());
-        plugins.push(new webpack.HotModuleReplacementPlugin()); // для обновления изменений в проекте без перезагрузки страницы в браузере;
+        //plugins.push(new webpack.HotModuleReplacementPlugin()); // для обновления изменений в проекте без перезагрузки страницы в браузере;
         plugins.push(new BundleAnalyzerPlugin({
             openAnalyzer: false
         }));
