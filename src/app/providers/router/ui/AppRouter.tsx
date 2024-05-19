@@ -26,6 +26,7 @@ const AppRouter = () => {
                 { route.element}
             </Suspense>
         );
+        console.error(route.path)
         //route.roles;
         return (
             <Route

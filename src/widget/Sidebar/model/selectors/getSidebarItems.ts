@@ -31,7 +31,7 @@ export const getSidebarItems = createSelector(
 	    ];
         if(userData) {
             sidebarItemsList.push({
-                path: getRouteProfile(userData.id),
+                path: getRouteProfile(userData.id), // todo здесь появляется айди у ссылки
                 Icon: ProfileIcon,
                 text: "Профиль",
                 authOnly: true

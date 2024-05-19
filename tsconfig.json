@@ -56,7 +56,14 @@
       "module": "CommonJS"
     }
   },
-  //"exclude": ["./cypress/**"],
+  "exclude": [
+    "./cypress/**",
+    "./cypress.config.ts",
+    //other exclusions that may help https://github.com/cypress-io/cypress/issues/22059#issuecomment-1428298264
+    "node_modules",
+    "cypress",
+    "**/*.cy.tsx"
+  ],
   "includes": [
     "./.eslintrc.js",
     "./src/app/types/global.d.ts",

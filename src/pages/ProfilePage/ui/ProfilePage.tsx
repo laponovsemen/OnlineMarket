@@ -16,6 +16,7 @@ const ProfilePage = ({className} : ProfilePageProps) => {
 
     const {id} = useParams<{id:string}>();
     const {t} = useTranslation("profile");
+    console.error("hui", id)
 
     if(!id) {
         return <Text text={t("Профиль не найден")}/>;
