@@ -1,4 +1,4 @@
 export {
     articleDetailsActions,
-    articleDetailsReducer
+    articleDetailsReducer,
 } from "./model/slice/articleDetailsSlice";

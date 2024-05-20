@@ -1,11 +1,10 @@
 ## Фича изменения профиля пользователя
+
 Описание:
 описываем сущность
 
 #### Public api
 
-- Components
+-   Components
 
-
-- types 
-
+-   types

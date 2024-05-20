@@ -27,6 +27,7 @@
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook",
     "prepare": "husky install",
+    "prettier": "npx prettier --write **/*.{ts,tsx}",
     "generate:slice": "node ./scripts/createSlice/index.js",
     "postinstall": "rmdir /s /q .\\node_modules\\.cache"
   },
@@ -75,6 +76,7 @@
     "cypress": "^11.2.0",
     "eslint": "^8.10.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-i18next": "^5.1.2",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-react": "^7.29.2",
@@ -92,6 +94,7 @@
     "lint-staged": "^13.0.3",
     "loki": "^0.35.0",
     "mini-css-extract-plugin": "^2.5.3",
+    "prettier": "3.2.5",
     "react-refresh": "^0.12.0",
     "reg-cli": "^0.17.6",
     "regenerator-runtime": "^0.13.9",
@@ -115,7 +118,7 @@
   },
   "keywords": [],
   "lint-staged": {
-    "**/*.{ts,tsx}": "eslint",
+    "**/*.{ts,tsx}": ["prettier", "eslint"],
     "**/*.scss": "stylelint"
   },
   "author": "",

@@ -1,7 +1,5 @@
-import {lazy} from "react";
-
+import { lazy } from "react";
 
 // lazy loading, code-splitting, async chunks
 
-
-export const AboutPageAsync = lazy(()  => import("./AboutPage"));
+export const AboutPageAsync = lazy(() => import("./AboutPage"));

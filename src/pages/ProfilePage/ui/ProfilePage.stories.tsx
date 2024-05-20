@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import  ProfilePage from "./ProfilePage";
-import {ThemeDecorator} from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import {StoreDecorator} from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
-import {Country} from "@/entities/Country";
-import {Currency} from "@/entities/Currency";
-import {Theme} from "@/shared/const/theme";
+import ProfilePage from "./ProfilePage";
+import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
+import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
+import { Country } from "@/entities/Country";
+import { Currency } from "@/entities/Currency";
+import { Theme } from "@/shared/const/theme";
 
 const meta = {
     title: "pages/ProfilePage",
@@ -17,22 +17,22 @@ const meta = {
     argTypes: {
         //backgroundColor: { control: "color" },
     },
-    args: {
-
-    },
-    decorators: [StoreDecorator({
-        profile: {
-            form :{
-                username: "volodia",
-                age: 99,
-                country: Country.UKRAINE,
-                lastname: "poltoratskiy",
-                first: "bahaha",
-                city: "Toronto",
-                currency: Currency.USD
-            }
-        }
-    })]
+    args: {},
+    decorators: [
+        StoreDecorator({
+            profile: {
+                form: {
+                    username: "volodia",
+                    age: 99,
+                    country: Country.UKRAINE,
+                    lastname: "poltoratskiy",
+                    first: "bahaha",
+                    city: "Toronto",
+                    currency: Currency.USD,
+                },
+            },
+        }),
+    ],
 } satisfies Meta<typeof ProfilePage>;
 
 export default meta;
@@ -40,12 +40,9 @@ type Story = StoryObj<typeof meta>;
 
 export const Normal: Story = {
     args: {},
-    decorators: [
-    ]
+    decorators: [],
 };
 export const Dark: Story = {
     args: {},
-    decorators: [
-        ThemeDecorator(Theme.DARK),
-    ]
+    decorators: [ThemeDecorator(Theme.DARK)],
 };

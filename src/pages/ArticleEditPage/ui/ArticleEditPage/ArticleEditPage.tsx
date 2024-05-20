@@ -1,23 +1,20 @@
 import classes from "./ArticleEditPage.module.scss";
-import {useTranslation} from "react-i18next";
-import {memo} from "react";
-import {classNames} from "../../../../shared/lib/classNames/classNames";
-import {Page} from "../../../../widget/Page/ui/Page";
-import {useParams} from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { memo } from "react";
+import { classNames } from "../../../../shared/lib/classNames/classNames";
+import { Page } from "../../../../widget/Page/ui/Page";
+import { useParams } from "react-router-dom";
 
 interface ArticleEditPageProps {
-	className?: string
+    className?: string;
 }
 
 const ArticleEditPage = memo((props: ArticleEditPageProps) => {
+    const { className } = props;
 
-    const {
-        className
-    } = props;
+    const { t } = useTranslation();
 
-    const {t} = useTranslation();
-
-    const {id} = useParams<{id: string}>();
+    const { id } = useParams<{ id: string }>();
     const isEdit = Boolean(id);
 
     return (
@@ -29,6 +26,4 @@ const ArticleEditPage = memo((props: ArticleEditPageProps) => {
     );
 });
 
-
 export default ArticleEditPage;
-

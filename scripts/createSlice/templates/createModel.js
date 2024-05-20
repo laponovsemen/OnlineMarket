@@ -4,7 +4,8 @@ const reduxSliceTemplate = require("./reduxSliceTemplate");
 const schemaTypeTemplate = require("./schemaTypeTemplate");
 
 module.exports = async (layer, sliceName) => {
-    const resolveModelPath = (...segments) => resolveRoot("src", layer,sliceName, "model", ...segments); //указываем путь до папки модел
+    const resolveModelPath = (...segments) =>
+        resolveRoot("src", layer, sliceName, "model", ...segments); //указываем путь до папки модел
 
     const createModelStructure = async () => {
         try {
@@ -16,7 +17,10 @@ module.exports = async (layer, sliceName) => {
 
             // создаем папки для модели
         } catch (e) {
-            console.log(`Не удалось создать model сегмент для слайса ${sliceName}`, e);
+            console.log(
+                `Не удалось создать model сегмент для слайса ${sliceName}`,
+                e,
+            );
         }
     };
     const createReduxSlice = async () => {
@@ -44,5 +48,4 @@ module.exports = async (layer, sliceName) => {
     await createModelStructure();
     await createReduxSlice();
     await createSchemaType();
-
 };

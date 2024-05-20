@@ -1,11 +1,9 @@
-import {Currency} from "../../../../../entities/Currency";
-import {Country} from "../../../../../entities/Country/model/types/country";
-import {validateProfileData} from "./validateProfileData";
-import {ValidateProfileError} from "../../consts/consts";
-
+import { Currency } from "../../../../../entities/Currency";
+import { Country } from "../../../../../entities/Country/model/types/country";
+import { validateProfileData } from "./validateProfileData";
+import { ValidateProfileError } from "../../consts/consts";
 
 // todo валятся импорты если импортировать каунтри из паблик апи Володя помоги
-
 
 const data = {
     username: "volodia",
@@ -14,9 +12,9 @@ const data = {
     lastname: "poltoratskiy",
     first: "bahaha",
     city: "Toronto",
-    currency: Currency.USD
+    currency: Currency.USD,
 };
-describe("validateProfileData.test" , () => {
+describe("validateProfileData.test", () => {
     // let dispatch: Dispatch;
     // let getState: () => StateSchema;
     //
@@ -58,31 +56,28 @@ describe("validateProfileData.test" , () => {
     //     expect(result.payload).toBe("error");
     // });
 
-
-    test("success",  () => {
+    test("success", () => {
         const result = validateProfileData(data);
         expect(result).toEqual([]);
     });
 
     test("without first name and last name", async () => {
-        const result = validateProfileData({...data, first: "", lastname: ""});
-        expect(result).toEqual([
-            ValidateProfileError.INCORRECT_USER_DATA
-        ]);
+        const result = validateProfileData({
+            ...data,
+            first: "",
+            lastname: "",
+        });
+        expect(result).toEqual([ValidateProfileError.INCORRECT_USER_DATA]);
     });
 
     test("incorrect age", async () => {
-        const result = validateProfileData({...data, age: undefined});
-        expect(result).toEqual([
-            ValidateProfileError.INCORRECT_AGE
-        ]);
+        const result = validateProfileData({ ...data, age: undefined });
+        expect(result).toEqual([ValidateProfileError.INCORRECT_AGE]);
     });
 
     test("incorrect country", async () => {
-        const result = validateProfileData({...data, country: undefined});
-        expect(result).toEqual([
-            ValidateProfileError.INCORRECT_COUNTRY
-        ]);
+        const result = validateProfileData({ ...data, country: undefined });
+        expect(result).toEqual([ValidateProfileError.INCORRECT_COUNTRY]);
     });
 
     test("incorrect all", async () => {

@@ -1,7 +1,7 @@
-import type {Meta, StoryObj} from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 
-import {Drawer} from "./Drawer";
-import {StoreDecorator} from "../../../shared/config/storybook/StoreDecorator/StoreDecorator";
+import { Drawer } from "./Drawer";
+import { StoreDecorator } from "../../../shared/config/storybook/StoreDecorator/StoreDecorator";
 
 const meta = {
     title: "/Drawer",
@@ -13,9 +13,7 @@ const meta = {
     argTypes: {
         //backgroundColor: { control: "color" },
     },
-    decorators: [
-        StoreDecorator({})
-    ]
+    decorators: [StoreDecorator({})],
 } satisfies Meta<typeof Drawer>;
 
 export default meta;
@@ -23,8 +21,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
     args: {
-        children: <div/>
-
+        children: <div />,
     },
-
 };

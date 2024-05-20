@@ -1,7 +1,7 @@
-import type {Meta, StoryObj} from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 
-import {Overlay} from "./Overlay";
-import {StoreDecorator} from "../../../shared/config/storybook/StoreDecorator/StoreDecorator";
+import { Overlay } from "./Overlay";
+import { StoreDecorator } from "../../../shared/config/storybook/StoreDecorator/StoreDecorator";
 
 const meta = {
     title: "/Overlay",
@@ -13,9 +13,7 @@ const meta = {
     argTypes: {
         //backgroundColor: { control: "color" },
     },
-    decorators: [
-        StoreDecorator({})
-    ]
+    decorators: [StoreDecorator({})],
 } satisfies Meta<typeof Overlay>;
 
 export default meta;
@@ -23,5 +21,4 @@ type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
     args: {},
-
 };

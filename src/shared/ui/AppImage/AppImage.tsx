@@ -1,15 +1,20 @@
-import {useTranslation} from "react-i18next";
-import {ImgHTMLAttributes, memo, ReactElement, useLayoutEffect, useState} from "react";
-import {classNames} from "@/shared/lib/classNames/classNames";
+import { useTranslation } from "react-i18next";
+import {
+    ImgHTMLAttributes,
+    memo,
+    ReactElement,
+    useLayoutEffect,
+    useState,
+} from "react";
+import { classNames } from "@/shared/lib/classNames/classNames";
 
 interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
-	className?: string;
+    className?: string;
     fallback?: ReactElement;
-    errorFallback?: ReactElement
+    errorFallback?: ReactElement;
 }
 
 export const AppImage = memo((props: AppImageProps) => {
-
     const {
         className,
         src,
@@ -19,7 +24,7 @@ export const AppImage = memo((props: AppImageProps) => {
         ...otherProps
     } = props;
 
-    const {t} = useTranslation();
+    const { t } = useTranslation();
 
     const [isLoading, setIsLoading] = useState(true);
     const [hasError, setHasError] = useState(false);
@@ -36,24 +41,16 @@ export const AppImage = memo((props: AppImageProps) => {
         };
     }, [src]);
 
-    if(isLoading && fallback) return fallback;
+    if (isLoading && fallback) return fallback;
 
-    if(hasError && errorFallback) return errorFallback;
+    if (hasError && errorFallback) return errorFallback;
 
     return (
         <img
-            className={
-                classNames(
-                    "",
-                    {},
-                    [className])
-            }
+            className={classNames("", {}, [className])}
             src={src}
             alt={alt}
             {...otherProps}
         />
-
-
     );
 });
-

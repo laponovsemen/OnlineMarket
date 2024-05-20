@@ -1,1 +1,1 @@
-export {articteDetailsPageReducer} from "./model/slices";
+export { articteDetailsPageReducer } from "./model/slices";

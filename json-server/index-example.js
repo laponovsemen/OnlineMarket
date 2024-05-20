@@ -3,8 +3,6 @@ const server = jsonServer.create();
 const router = jsonServer.router("db.json");
 const middlewares = jsonServer.defaults();
 
-
-
 // Нужно для небольшой задержки , чтобы запрос проходил
 // не мгновенно , имитация реального апи
 server.use(async (req, res, next) => {
@@ -16,8 +14,8 @@ server.use(async (req, res, next) => {
 
 // Проверяем авторизован ли пользователь
 server.use(async (req, res, next) => {
-    if(!req.headers.authorization) {
-        return res.status(403).json({message: "AUTH ERROR"});
+    if (!req.headers.authorization) {
+        return res.status(403).json({ message: "AUTH ERROR" });
     }
     next();
 });

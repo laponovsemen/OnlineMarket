@@ -1,8 +1,8 @@
-import type {Meta, StoryObj} from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 
-import {ArticleList} from "./ArticleList";
-import {StoreDecorator} from "../../../../shared/config/storybook/StoreDecorator/StoreDecorator";
-import {ArticleView} from "./../../model/consts/articleConsts";
+import { ArticleList } from "./ArticleList";
+import { StoreDecorator } from "../../../../shared/config/storybook/StoreDecorator/StoreDecorator";
+import { ArticleView } from "./../../model/consts/articleConsts";
 
 const meta = {
     title: "/ArticleList",
@@ -14,9 +14,7 @@ const meta = {
     argTypes: {
         //backgroundColor: { control: "color" },
     },
-    decorators: [
-        StoreDecorator({})
-    ]
+    decorators: [StoreDecorator({})],
 } satisfies Meta<typeof ArticleList>;
 
 export default meta;
@@ -27,7 +25,6 @@ export const Light: Story = {
         isLoading: true,
         target: "",
         view: ArticleView.SMALL,
-        articles: []
+        articles: [],
     },
-
 };

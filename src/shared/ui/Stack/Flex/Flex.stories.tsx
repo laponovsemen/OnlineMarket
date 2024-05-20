@@ -1,7 +1,7 @@
-import type {Meta, StoryObj} from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 
-import {Flex} from "./Flex";
-import {StoreDecorator} from "../../../config/storybook/StoreDecorator/StoreDecorator";
+import { Flex } from "./Flex";
+import { StoreDecorator } from "../../../config/storybook/StoreDecorator/StoreDecorator";
 
 const meta = {
     title: "shared/Flex",
@@ -13,9 +13,7 @@ const meta = {
     argTypes: {
         //backgroundColor: { control: "color" },
     },
-    decorators: [
-        StoreDecorator({})
-    ]
+    decorators: [StoreDecorator({})],
 } satisfies Meta<typeof Flex>;
 
 export default meta;
@@ -30,7 +28,7 @@ export const Row: Story = {
                 <div>third</div>
                 <div>fourth</div>
             </>
-        )
+        ),
     },
 };
 
@@ -44,7 +42,7 @@ export const Column: Story = {
                 <div>third</div>
                 <div>fourth</div>
             </>
-        )
+        ),
     },
 };
 
@@ -58,7 +56,7 @@ export const Gap4: Story = {
                 <div>third</div>
                 <div>fourth</div>
             </>
-        )
+        ),
     },
 };
 export const Gap8: Story = {
@@ -71,7 +69,7 @@ export const Gap8: Story = {
                 <div>third</div>
                 <div>fourth</div>
             </>
-        )
+        ),
     },
 };
 export const Gap16: Story = {
@@ -84,7 +82,7 @@ export const Gap16: Story = {
                 <div>third</div>
                 <div>fourth</div>
             </>
-        )
+        ),
     },
 };
 export const Gap32: Story = {
@@ -97,6 +95,6 @@ export const Gap32: Story = {
                 <div>third</div>
                 <div>fourth</div>
             </>
-        )
+        ),
     },
 };

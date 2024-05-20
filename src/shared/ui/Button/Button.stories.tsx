@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
-import {Button, ButtonSize, ButtonTheme} from "./Button";
-import {ThemeDecorator} from "../../config/storybook/ThemeDecorator/ThemeDecorator";
-import {Theme} from "@/shared/const/theme";
+import { Button, ButtonSize, ButtonTheme } from "./Button";
+import { ThemeDecorator } from "../../config/storybook/ThemeDecorator/ThemeDecorator";
+import { Theme } from "@/shared/const/theme";
 
 const meta = {
     title: "shared/Button",
@@ -23,57 +23,57 @@ type Story = StoryObj<typeof meta>;
 export const Clear: Story = {
     args: {
         theme: ButtonTheme.CLEAR,
-        children: "Text"
+        children: "Text",
     },
 };
 
 export const ClearInverted: Story = {
     args: {
         theme: ButtonTheme.CLEAR_INVERTED,
-        children: "Text"
+        children: "Text",
     },
 };
 
 export const Primary: Story = {
     args: {
-        children: "Text"
+        children: "Text",
     },
 };
 
 export const BackgroundTheme: Story = {
     args: {
         theme: ButtonTheme.BACKGROUND,
-        children: "Text"
+        children: "Text",
     },
 };
 
 export const BackgroundThemeDark: Story = {
     args: {
         theme: ButtonTheme.BACKGROUND,
-        children: "Text"
+        children: "Text",
     },
-    decorators: [ThemeDecorator(Theme.DARK)]
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const InvertedBackgroundTheme: Story = {
     args: {
         theme: ButtonTheme.BACKGROUND_INVERTED,
-        children: "Text"
+        children: "Text",
     },
 };
 
 export const InvertedBackgroundThemeDark: Story = {
     args: {
         theme: ButtonTheme.BACKGROUND_INVERTED,
-        children: "Text"
+        children: "Text",
     },
-    decorators: [ThemeDecorator(Theme.DARK)]
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const Outline: Story = {
     args: {
         theme: ButtonTheme.OUTLINE,
-        children: "Text"
+        children: "Text",
     },
 };
 
@@ -81,7 +81,7 @@ export const OutlineSizeM: Story = {
     args: {
         theme: ButtonTheme.OUTLINE,
         children: "Text",
-        size: ButtonSize.M
+        size: ButtonSize.M,
     },
 };
 
@@ -89,28 +89,29 @@ export const OutlineSizeL: Story = {
     args: {
         theme: ButtonTheme.OUTLINE,
         children: "Text",
-        size: ButtonSize.L    },
+        size: ButtonSize.L,
+    },
 };
 export const OutlineSizeXL: Story = {
     args: {
         theme: ButtonTheme.OUTLINE,
         children: "Text",
-        size: ButtonSize.XL
+        size: ButtonSize.XL,
     },
 };
 export const OutlineDark: Story = {
     args: {
         theme: ButtonTheme.OUTLINE,
-        children: "Text"
+        children: "Text",
     },
-    decorators : [ThemeDecorator(Theme.DARK)]
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const Square: Story = {
     args: {
         theme: ButtonTheme.BACKGROUND,
         children: ">",
-        square: true
+        square: true,
     },
 };
 
@@ -119,7 +120,7 @@ export const SquareSizeM: Story = {
         theme: ButtonTheme.BACKGROUND_INVERTED,
         children: ">",
         square: true,
-        size: ButtonSize.M
+        size: ButtonSize.M,
     },
 };
 
@@ -128,7 +129,7 @@ export const SquareSizeL: Story = {
         theme: ButtonTheme.BACKGROUND_INVERTED,
         children: ">",
         square: true,
-        size: ButtonSize.L
+        size: ButtonSize.L,
     },
 };
 
@@ -137,7 +138,7 @@ export const SquareSizeXL: Story = {
         theme: ButtonTheme.BACKGROUND_INVERTED,
         children: ">",
         square: true,
-        size: ButtonSize.XL
+        size: ButtonSize.XL,
     },
 };
 
@@ -145,7 +146,7 @@ export const Disabled: Story = {
     args: {
         theme: ButtonTheme.OUTLINE,
         children: ">",
-        disabled: true
+        disabled: true,
     },
 };
 
@@ -153,7 +154,7 @@ export const SquareDark: Story = {
     args: {
         theme: ButtonTheme.BACKGROUND,
         children: ">",
-        square: true
+        square: true,
     },
-    decorators : [ThemeDecorator(Theme.DARK)]
+    decorators: [ThemeDecorator(Theme.DARK)],
 };

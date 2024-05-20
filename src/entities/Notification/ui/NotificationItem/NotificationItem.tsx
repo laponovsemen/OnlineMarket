@@ -1,33 +1,25 @@
 import classes from "./NotificationItem.module.scss";
-import {useTranslation} from "react-i18next";
-import {memo} from "react";
-import {classNames} from "../../../../shared/lib/classNames/classNames";
-import {Notification} from "../../model/types/notification";
-import {Card, CardTheme} from "../../../../shared/ui/Card/Card";
-import {Text} from "../../../../shared/ui/Text/Text";
+import { useTranslation } from "react-i18next";
+import { memo } from "react";
+import { classNames } from "../../../../shared/lib/classNames/classNames";
+import { Notification } from "../../model/types/notification";
+import { Card, CardTheme } from "../../../../shared/ui/Card/Card";
+import { Text } from "../../../../shared/ui/Text/Text";
 
 interface NotificationItemProps {
-	className?: string
-    item: Notification
+    className?: string;
+    item: Notification;
 }
 
 export const NotificationItem = memo((props: NotificationItemProps) => {
+    const { className, item } = props;
 
-    const {
-        className,
-        item,
-    } = props;
-
-    const {t} = useTranslation();
+    const { t } = useTranslation();
 
     const content = (
         <Card
             theme={CardTheme.OUTLINED}
-            className={
-                classNames(
-                    classes.NotificationItem,
-                    {},
-                    [className])}
+            className={classNames(classes.NotificationItem, {}, [className])}
         >
             <Text
                 title={item.title}
@@ -36,20 +28,18 @@ export const NotificationItem = memo((props: NotificationItemProps) => {
         </Card>
     );
 
-    if(item.href) {
+    if (item.href) {
         return (
             <a
                 className={classes.link}
                 target={"_blank"}
-                href={item.href} rel="noreferrer"
+                href={item.href}
+                rel="noreferrer"
             >
                 {content}
             </a>
         );
     }
 
-    return (
-        content
-    );
+    return content;
 });
-

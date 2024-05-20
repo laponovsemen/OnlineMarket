@@ -1,8 +1,8 @@
-import type {Meta, StoryObj} from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 
-import {ArticleSortSelector} from "./ArticleSortSelector";
-import {StoreDecorator} from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
-import {ArticleSortField} from "@/entities/Article";
+import { ArticleSortSelector } from "./ArticleSortSelector";
+import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
+import { ArticleSortField } from "@/entities/Article";
 
 const meta = {
     title: "features/ArticleSortSelector",
@@ -14,9 +14,7 @@ const meta = {
     argTypes: {
         //backgroundColor: { control: "color" },
     },
-    decorators: [
-        StoreDecorator({})
-    ]
+    decorators: [StoreDecorator({})],
 } satisfies Meta<typeof ArticleSortSelector>;
 
 export default meta;
@@ -28,7 +26,6 @@ export const Light: Story = {
         onChangeOrder: () => {},
         onChangeSort: () => {},
         order: "asc",
-        sort: ArticleSortField.CREATED
+        sort: ArticleSortField.CREATED,
     },
-
 };

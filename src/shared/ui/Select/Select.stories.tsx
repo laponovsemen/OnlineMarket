@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import {Select} from "./Select";
+import { Select } from "./Select";
 const meta = {
     title: "shared/Select",
     component: Select,
@@ -10,19 +10,18 @@ const meta = {
     argTypes: {
         //backgroundColor: { control: "color" },
     },
-
 } satisfies Meta<typeof Select>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-    args : {
+    args: {
         label: "Укажите значения",
         options: [
-            {value: "111", content:"First point"},
-            {value: "222", content:"Second point"},
-            {value: "333", content:"Third point"},
-        ]
-    }
+            { value: "111", content: "First point" },
+            { value: "222", content: "Second point" },
+            { value: "333", content: "Third point" },
+        ],
+    },
 };

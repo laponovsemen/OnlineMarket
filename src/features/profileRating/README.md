@@ -1,13 +1,10 @@
 ## Фича рейтинга профиля
 
-
 Описание:
 описываем сущность
 
 #### Public api
 
-- Components
+-   Components
 
-
-- types 
-
+-   types

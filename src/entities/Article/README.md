@@ -5,7 +5,7 @@
 
 #### Public api
 
-- Components
+-   Components
 
 `ArticleDetails` - компонент с информацией о статье
 `ArticleList` - Компонент со списком статей
@@ -13,6 +13,6 @@
 `ArticleSortSelector` - Компонент с выбором сортировки списка статьи
 `ArticleTypeTabs` - Компонент с выбором типа статьи
 
-- types 
+-   types
 
 `Article` - Тип, описывающий статью

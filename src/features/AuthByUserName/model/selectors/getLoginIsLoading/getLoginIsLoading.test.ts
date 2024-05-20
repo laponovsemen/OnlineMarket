@@ -1,12 +1,12 @@
-import {StateSchema} from "../../../../../app/providers/StoreProvider";
-import {getLoginIsLoading} from "./getLoginIsLoading";
+import { StateSchema } from "../../../../../app/providers/StoreProvider";
+import { getLoginIsLoading } from "./getLoginIsLoading";
 
-describe("getLoginError.test" , () => {
+describe("getLoginError.test", () => {
     test("should return error", () => {
         const state: DeepPartial<StateSchema> = {
             loginForm: {
-                isLoading: true
-            }
+                isLoading: true,
+            },
         };
         expect(getLoginIsLoading(state as StateSchema)).toEqual(true);
     });

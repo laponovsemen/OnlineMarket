@@ -1,8 +1,8 @@
-import type {Meta, StoryObj} from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 
-import {Dropdown} from "./Dropdown";
-import {StoreDecorator} from "../../../../config/storybook/StoreDecorator/StoreDecorator";
-import {Button} from "../../../Button/Button";
+import { Dropdown } from "./Dropdown";
+import { StoreDecorator } from "../../../../config/storybook/StoreDecorator/StoreDecorator";
+import { Button } from "../../../Button/Button";
 
 const meta = {
     title: "/Dropdown",
@@ -14,9 +14,7 @@ const meta = {
     argTypes: {
         //backgroundColor: { control: "color" },
     },
-    decorators: [
-        StoreDecorator({})
-    ]
+    decorators: [StoreDecorator({})],
 } satisfies Meta<typeof Dropdown>;
 
 export default meta;
@@ -27,15 +25,14 @@ export const Normal: Story = {
         trigger: <Button>Open!</Button>,
         items: [
             {
-                content: "first"
+                content: "first",
             },
             {
-                content: "second"
+                content: "second",
             },
             {
-                content: "third"
+                content: "third",
             },
-        ]
+        ],
     },
-
 };

@@ -1,7 +1,7 @@
 ## Storybook
 
 В проекте для каждого компонента описываются стори-кейсы.
-Запросы на сервер мокаются с помощью *storybook-addon-mock*.
+Запросы на сервер мокаются с помощью _storybook-addon-mock_.
 
 Файл со сторикейсами содержит рядом с компонентом с расширением .stories.tsx
 
@@ -11,13 +11,12 @@
 
 подробнее о [Storybook](https://storybook.js.org/)
 
-
 ```typescript
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
-import {Button, ButtonSize, ButtonTheme} from "./Button";
-import {ThemeDecorator} from "../../config/storybook/ThemeDecorator/ThemeDecorator";
-import {Theme} from "@/shared/const/theme";
+import { Button, ButtonSize, ButtonTheme } from "./Button";
+import { ThemeDecorator } from "../../config/storybook/ThemeDecorator/ThemeDecorator";
+import { Theme } from "@/shared/const/theme";
 
 const meta = {
     title: "shared/Button",
@@ -38,57 +37,57 @@ type Story = StoryObj<typeof meta>;
 export const Clear: Story = {
     args: {
         theme: ButtonTheme.CLEAR,
-        children: "Text"
+        children: "Text",
     },
 };
 
 export const ClearInverted: Story = {
     args: {
         theme: ButtonTheme.CLEAR_INVERTED,
-        children: "Text"
+        children: "Text",
     },
 };
 
 export const Primary: Story = {
     args: {
-        children: "Text"
+        children: "Text",
     },
 };
 
 export const BackgroundTheme: Story = {
     args: {
         theme: ButtonTheme.BACKGROUND,
-        children: "Text"
+        children: "Text",
     },
 };
 
 export const BackgroundThemeDark: Story = {
     args: {
         theme: ButtonTheme.BACKGROUND,
-        children: "Text"
+        children: "Text",
     },
-    decorators: [ThemeDecorator(Theme.DARK)]
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const InvertedBackgroundTheme: Story = {
     args: {
         theme: ButtonTheme.BACKGROUND_INVERTED,
-        children: "Text"
+        children: "Text",
     },
 };
 
 export const InvertedBackgroundThemeDark: Story = {
     args: {
         theme: ButtonTheme.BACKGROUND_INVERTED,
-        children: "Text"
+        children: "Text",
     },
-    decorators: [ThemeDecorator(Theme.DARK)]
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const Outline: Story = {
     args: {
         theme: ButtonTheme.OUTLINE,
-        children: "Text"
+        children: "Text",
     },
 };
 ```

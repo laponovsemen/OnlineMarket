@@ -1,28 +1,24 @@
 import classes from "./NotificationButton.module.scss";
-import React, {memo, useCallback, useState} from "react";
-import {classNames} from "../../../../shared/lib/classNames/classNames";
-import {Button, ButtonTheme} from "../../../../shared/ui/Button/Button";
-import {Icon} from "../../../../shared/ui/Icon/Icon";
+import React, { memo, useCallback, useState } from "react";
+import { classNames } from "../../../../shared/lib/classNames/classNames";
+import { Button, ButtonTheme } from "../../../../shared/ui/Button/Button";
+import { Icon } from "../../../../shared/ui/Icon/Icon";
 import NotificationIcon from "../../../../shared/assets/icons/notification-20-20.svg";
-import {NotificationList} from "../../../../entities/Notification";
+import { NotificationList } from "../../../../entities/Notification";
 import cls from "../../../../widget/NavBar/ui/Navbar.module.scss";
-import {Popover} from "../../../../shared/ui/Popups";
-import {Drawer} from "../../../../shared/ui/Drawer/Drawer";
-import {BrowserView, MobileView} from "react-device-detect";
+import { Popover } from "../../../../shared/ui/Popups";
+import { Drawer } from "../../../../shared/ui/Drawer/Drawer";
+import { BrowserView, MobileView } from "react-device-detect";
 
 interface NotificationButtonProps {
-	className?: string
+    className?: string;
 }
-
 
 /**
  * опционально также можно делить мобайл и боузер вью на чанки для того чтобы подгружалось только
  */
 export const NotificationButton = memo((props: NotificationButtonProps) => {
-
-    const {
-        className
-    } = props;
+    const { className } = props;
     const [isOpen, setIsOpen] = useState(false);
 
     const onOpenDrawer = useCallback(() => {
@@ -45,28 +41,18 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
         </Button>
     );
 
-
     return (
         <div>
             <BrowserView>
                 <Popover
-                    className={
-                        classNames(
-                            classes.NotificationButton,
-                            {},
-                            [className])
-                    }
+                    className={classNames(classes.NotificationButton, {}, [
+                        className,
+                    ])}
                     direction={"bottom left"}
                     trigger={trigger}
                 >
                     <NotificationList
-                        className={
-                            classNames(
-                                cls.notifications,
-                                {},
-                                []
-                            )
-                        }
+                        className={classNames(cls.notifications, {}, [])}
                     />
                 </Popover>
             </BrowserView>
@@ -79,9 +65,6 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
                     <NotificationList />
                 </Drawer>
             </MobileView>
-
         </div>
-
     );
 });
-

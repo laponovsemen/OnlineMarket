@@ -1,4 +1,4 @@
-import {PluginItem} from "@babel/core";
+import { PluginItem } from "@babel/core";
 
 /**
  * создание плагина для выпиливания дата-тестайди
@@ -17,8 +17,7 @@ import {PluginItem} from "@babel/core";
  *             }
  */
 
-
-export default function() : PluginItem {
+export default function (): PluginItem {
     return {
         visitor: {
             Program(path, state) {
@@ -30,9 +29,9 @@ export default function() : PluginItem {
                         if (forbidden.includes(nodeName)) {
                             current.parentPath.remove();
                         }
-                    }
+                    },
                 });
-            }
-        }
+            },
+        },
     };
 }

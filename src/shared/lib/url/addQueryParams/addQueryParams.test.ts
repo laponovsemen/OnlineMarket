@@ -1,24 +1,23 @@
-import {getQueryParams} from "./addQueryParams";
+import { getQueryParams } from "./addQueryParams";
 
-
-describe("addQueryParams.test" , () => {
+describe("addQueryParams.test", () => {
     test("test with one param", () => {
         const params = getQueryParams({
-	        test: "value"
+            test: "value",
         });
         expect(params).toEqual("?test=value");
     });
     test("test with one param", () => {
         const params = getQueryParams({
             test: "value",
-	        second: "2"
+            second: "2",
         });
         expect(params).toEqual("?test=value&second=2");
     });
     test("test with one param", () => {
         const params = getQueryParams({
             test: "value",
-	        second: undefined
+            second: undefined,
         });
         expect(params).toEqual("?test=value");
     });

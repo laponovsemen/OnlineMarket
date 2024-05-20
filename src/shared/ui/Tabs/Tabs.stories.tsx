@@ -1,8 +1,8 @@
-import type {Meta, StoryObj} from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 
-import {Tabs} from "./Tabs";
-import {StoreDecorator} from "../../../shared/config/storybook/StoreDecorator/StoreDecorator";
-import {action} from "@storybook/addon-actions";
+import { Tabs } from "./Tabs";
+import { StoreDecorator } from "../../../shared/config/storybook/StoreDecorator/StoreDecorator";
+import { action } from "@storybook/addon-actions";
 
 const meta = {
     title: "/Tabs",
@@ -14,9 +14,7 @@ const meta = {
     argTypes: {
         //backgroundColor: { control: "color" },
     },
-    decorators: [
-        StoreDecorator({})
-    ]
+    decorators: [StoreDecorator({})],
 } satisfies Meta<typeof Tabs>;
 
 export default meta;
@@ -27,19 +25,18 @@ export const Light: Story = {
         tabs: [
             {
                 value: "tab 1",
-                content: "tab 1"
+                content: "tab 1",
             },
             {
                 value: "tab 2",
-                content: "tab 2"
+                content: "tab 2",
             },
             {
                 value: "tab 3",
-                content: "tab 3"
+                content: "tab 3",
             },
         ],
         value: "tab 2",
         onTabClick: action("onTabClick"),
     },
-
 };

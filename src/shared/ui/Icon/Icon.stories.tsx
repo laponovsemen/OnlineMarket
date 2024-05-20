@@ -1,7 +1,7 @@
-import type {Meta, StoryObj} from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import SVGIcon from "../../assets/icons/eye-20-20.svg";
-import {Icon} from "./Icon";
-import {StoreDecorator} from "../../../shared/config/storybook/StoreDecorator/StoreDecorator";
+import { Icon } from "./Icon";
+import { StoreDecorator } from "../../../shared/config/storybook/StoreDecorator/StoreDecorator";
 
 const meta = {
     title: "/Icon",
@@ -13,9 +13,7 @@ const meta = {
     argTypes: {
         //backgroundColor: { control: "color" },
     },
-    decorators: [
-        StoreDecorator({})
-    ]
+    decorators: [StoreDecorator({})],
 } satisfies Meta<typeof Icon>;
 
 export default meta;
@@ -23,7 +21,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
     args: {
-        Svg: SVGIcon
+        Svg: SVGIcon,
     },
-
 };

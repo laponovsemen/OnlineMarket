@@ -1,7 +1,7 @@
-import type {Meta, StoryObj} from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 
-import {NotificationItem} from "./NotificationItem";
-import {StoreDecorator} from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
+import { NotificationItem } from "./NotificationItem";
+import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
 
 const meta = {
     title: "entities/Notification/NotificationItem",
@@ -13,9 +13,7 @@ const meta = {
     argTypes: {
         //backgroundColor: { control: "color" },
     },
-    decorators: [
-        StoreDecorator({})
-    ]
+    decorators: [StoreDecorator({})],
 } satisfies Meta<typeof NotificationItem>;
 
 export default meta;
@@ -27,7 +25,6 @@ export const Light: Story = {
             title: "title",
             description: " desc",
             id: "1",
-        }
+        },
     },
-
 };

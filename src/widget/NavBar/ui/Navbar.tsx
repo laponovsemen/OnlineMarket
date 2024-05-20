@@ -1,25 +1,24 @@
-import React, {memo, useCallback, useState} from "react";
-import {classNames} from "@/shared/lib/classNames/classNames";
+import React, { memo, useCallback, useState } from "react";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./Navbar.module.scss";
-import {useTranslation} from "react-i18next";
-import {Button, ButtonTheme} from "@/shared/ui/Button";
-import {LoginModal} from "@/features/AuthByUserName";
-import {useSelector} from "react-redux";
-import {getUserAuthData} from "@/entities/User";
-import {Text, TextTheme} from "@/shared/ui/Text";
-import {AppLink, AppLinkTheme} from "@/shared/ui/AppLink";
-import {HStack} from "@/shared/ui/Stack";
-import {NotificationButton} from "@/features/notificationButton";
-import {AvatarDropdown} from "@/features/avatarDropdown";
-import {getRouteArticleCreate} from "@/shared/const/router";
-
+import { useTranslation } from "react-i18next";
+import { Button, ButtonTheme } from "@/shared/ui/Button";
+import { LoginModal } from "@/features/AuthByUserName";
+import { useSelector } from "react-redux";
+import { getUserAuthData } from "@/entities/User";
+import { Text, TextTheme } from "@/shared/ui/Text";
+import { AppLink, AppLinkTheme } from "@/shared/ui/AppLink";
+import { HStack } from "@/shared/ui/Stack";
+import { NotificationButton } from "@/features/notificationButton";
+import { AvatarDropdown } from "@/features/avatarDropdown";
+import { getRouteArticleCreate } from "@/shared/const/router";
 
 interface NavbarProps {
-	className? :string
+    className?: string;
 }
 
-export const Navbar = memo(({className}: NavbarProps) => {
-    const {t} = useTranslation();
+export const Navbar = memo(({ className }: NavbarProps) => {
+    const { t } = useTranslation();
 
     const [isAuthModal, setIsAuthModal] = useState(false);
 
@@ -32,8 +31,7 @@ export const Navbar = memo(({className}: NavbarProps) => {
         setIsAuthModal(true);
     }, []);
 
-
-    if(authData) {
+    if (authData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
                 <Text
@@ -52,14 +50,12 @@ export const Navbar = memo(({className}: NavbarProps) => {
                     gap={"16"}
                     className={cls.actions}
                 >
-
-                    <NotificationButton/>
+                    <NotificationButton />
                     <AvatarDropdown />
                 </HStack>
             </header>
         );
     }
-
 
     return (
         <header className={classNames(cls.Navbar, {}, [className])}>
@@ -79,12 +75,12 @@ export const Navbar = memo(({className}: NavbarProps) => {
                  eslint-disable-next-line i18next/no-literal-string,max-len
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque blanditiis cupiditate eaque error illo nisi optio provident quam repudiandae similique, ullam voluptatibus. Dignissimos laborum necessitatibus nostrum quos totam voluptate.
             </Modal>*/}
-            {isAuthModal && <LoginModal
-                isOpen={isAuthModal}
-                onClose={onCloseModal}
-            />}
+            {isAuthModal && (
+                <LoginModal
+                    isOpen={isAuthModal}
+                    onClose={onCloseModal}
+                />
+            )}
         </header>
     );
 });
-
-

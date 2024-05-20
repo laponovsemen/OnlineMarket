@@ -1,7 +1,7 @@
-import {TestAsyncThunk} from "../../../../../shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
-import {fetchProfileData} from "./fetchProfileData";
-import {Currency} from "../../../../../entities/Currency";
-import {Country} from "../../../../../entities/Country";
+import { TestAsyncThunk } from "../../../../../shared/lib/tests/TestAsyncThunk/TestAsyncThunk";
+import { fetchProfileData } from "./fetchProfileData";
+import { Currency } from "../../../../../entities/Currency";
+import { Country } from "../../../../../entities/Country";
 
 // todo валятся импорты если импортировать каунтри из паблик апи Володя помоги
 
@@ -12,9 +12,9 @@ const data = {
     lastname: "poltoratskiy",
     first: "bahaha",
     city: "Toronto",
-    currency: Currency.USD
+    currency: Currency.USD,
 };
-describe("fetchProfileData.test" , () => {
+describe("fetchProfileData.test", () => {
     // let dispatch: Dispatch;
     // let getState: () => StateSchema;
     //
@@ -56,18 +56,15 @@ describe("fetchProfileData.test" , () => {
     //     expect(result.payload).toBe("error");
     // });
 
-
     test("access ", async () => {
-        const userValue = {username: "123", id: "1"};
+        const userValue = { username: "123", id: "1" };
         // mockedAxios.post.mockReturnValue(
         //     Promise.resolve({data : userValue})
         // );
 
         const thunk = new TestAsyncThunk(fetchProfileData);
-        thunk.api.get.mockReturnValue(Promise.resolve({data : data}));
+        thunk.api.get.mockReturnValue(Promise.resolve({ data: data }));
         const result = await thunk.callThunk("1");
-
-
 
         expect(thunk.api.get).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe("fulfilled");
@@ -76,11 +73,8 @@ describe("fetchProfileData.test" , () => {
 
     test("error", async () => {
         const thunk = new TestAsyncThunk(fetchProfileData);
-        thunk.api.get.mockReturnValue(
-            Promise.resolve({status: 403})
-        );
+        thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
         const result = await thunk.callThunk("1");
-
 
         expect(result.meta.requestStatus).toBe("rejected");
     });

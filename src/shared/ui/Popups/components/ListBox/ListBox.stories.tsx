@@ -1,8 +1,8 @@
-import type {Meta, StoryObj} from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 
-import {ListBox} from "./ListBox";
-import {StoreDecorator} from "../../../../config/storybook/StoreDecorator/StoreDecorator";
-import {action} from "@storybook/addon-actions";
+import { ListBox } from "./ListBox";
+import { StoreDecorator } from "../../../../config/storybook/StoreDecorator/StoreDecorator";
+import { action } from "@storybook/addon-actions";
 
 const meta = {
     title: "shared/ListBox",
@@ -16,8 +16,12 @@ const meta = {
     },
     decorators: [
         StoreDecorator({}),
-        Story => <div style={{padding: 100}}><Story/></div>
-    ]
+        (Story) => (
+            <div style={{ padding: 100 }}>
+                <Story />
+            </div>
+        ),
+    ],
 } satisfies Meta<typeof ListBox>;
 
 export default meta;
@@ -26,10 +30,10 @@ type Story = StoryObj<typeof meta>;
 export const Normal: Story = {
     args: {
         items: [
-            {content: "ksdfjkasdkla", value: "123"},
-            {content: "ksdf", value: "1234"},
+            { content: "ksdfjkasdkla", value: "123" },
+            { content: "ksdf", value: "1234" },
         ],
-        onChange: action("onChangeAction")
+        onChange: action("onChangeAction"),
     },
 };
 
@@ -39,10 +43,10 @@ export const TopLeft: Story = {
         value: "OPEN",
 
         items: [
-            {content: "ksdfjkasdkla", value: "123"},
-            {content: "ksdf", value: "1234"},
+            { content: "ksdfjkasdkla", value: "123" },
+            { content: "ksdf", value: "1234" },
         ],
-        onChange: action("onChangeAction")
+        onChange: action("onChangeAction"),
     },
 };
 
@@ -52,10 +56,10 @@ export const TopRight: Story = {
         value: "OPEN",
 
         items: [
-            {content: "ksdfjkasdkla", value: "123"},
-            {content: "ksdf", value: "1234"},
+            { content: "ksdfjkasdkla", value: "123" },
+            { content: "ksdf", value: "1234" },
         ],
-        onChange: action("onChangeAction")
+        onChange: action("onChangeAction"),
     },
 };
 
@@ -65,10 +69,10 @@ export const BottomLeft: Story = {
         value: "OPEN",
 
         items: [
-            {content: "ksdfjkasdkla", value: "123"},
-            {content: "ksdf", value: "1234"},
+            { content: "ksdfjkasdkla", value: "123" },
+            { content: "ksdf", value: "1234" },
         ],
-        onChange: action("onChangeAction")
+        onChange: action("onChangeAction"),
     },
 };
 
@@ -77,9 +81,9 @@ export const BottomRight: Story = {
         direction: "bottom right",
         value: "OPEN",
         items: [
-            {content: "ksdfjkasdkla", value: "123"},
-            {content: "ksdf", value: "1234"},
+            { content: "ksdfjkasdkla", value: "123" },
+            { content: "ksdf", value: "1234" },
         ],
-        onChange: action("onChangeAction")
+        onChange: action("onChangeAction"),
     },
 };

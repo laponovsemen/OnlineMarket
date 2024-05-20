@@ -1,14 +1,13 @@
 import {
     createEntityAdapter,
-    createSlice, PayloadAction,
+    createSlice,
+    PayloadAction,
 } from "@reduxjs/toolkit";
-import {Comment} from "../../../../entities/Comment";
-import {StateSchema} from "../../../../app/providers/StoreProvider";
-import {ArticleDetailsCommentsSchema} from "../types/ArticleDetailsCommentsSchema";
-import {
-    fetchCommentsByArticleId
-} from "../services/fetchCommentsByArticleId/fetchCommentsByArticleId";
-type Book = { bookId: string; title: string }
+import { Comment } from "../../../../entities/Comment";
+import { StateSchema } from "../../../../app/providers/StoreProvider";
+import { ArticleDetailsCommentsSchema } from "../types/ArticleDetailsCommentsSchema";
+import { fetchCommentsByArticleId } from "../services/fetchCommentsByArticleId/fetchCommentsByArticleId";
+type Book = { bookId: string; title: string };
 
 const commentsAdapter = createEntityAdapter<Comment>({
     // Assume IDs are stored in a field other than `book.id`
@@ -18,18 +17,20 @@ const commentsAdapter = createEntityAdapter<Comment>({
 });
 
 export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
-    (state) => (
-        state.articleDetailsPage?.comments || commentsAdapter.getInitialState()
-    ));
+    (state) =>
+        state.articleDetailsPage?.comments || commentsAdapter.getInitialState(),
+);
 
 const articleDetailsCommentsSlice = createSlice({
     name: "articleDetailsCommentsSlice",
-    initialState: commentsAdapter.getInitialState<ArticleDetailsCommentsSchema>({
-        isLoading: false,
-        ids: [],
-        error: undefined,
-        entities: {}
-    }),
+    initialState: commentsAdapter.getInitialState<ArticleDetailsCommentsSchema>(
+        {
+            isLoading: false,
+            ids: [],
+            error: undefined,
+            entities: {},
+        },
+    ),
     reducers: {
         // Can pass adapter functions directly as case reducers.  Because we're passing this
         // as a value, `createSlice` will auto-generate the `bookAdded` action type / creator
@@ -45,27 +46,27 @@ const articleDetailsCommentsSlice = createSlice({
                 state.error = undefined;
                 state.isLoading = true;
             })
-            .addCase(fetchCommentsByArticleId.fulfilled, (
-                state,
-                action: PayloadAction<Comment[]>
-            ) => {
-                state.isLoading = false;
-                commentsAdapter.setAll(state, action.payload);
-            })
-            .addCase(fetchCommentsByArticleId.rejected, (
-                state,
-                action : PayloadAction<string | undefined>) => {
-                state.error = action.payload;
-                state.isLoading = false;
-            });
-
-    }
+            .addCase(
+                fetchCommentsByArticleId.fulfilled,
+                (state, action: PayloadAction<Comment[]>) => {
+                    state.isLoading = false;
+                    commentsAdapter.setAll(state, action.payload);
+                },
+            )
+            .addCase(
+                fetchCommentsByArticleId.rejected,
+                (state, action: PayloadAction<string | undefined>) => {
+                    state.error = action.payload;
+                    state.isLoading = false;
+                },
+            );
+    },
 });
 
-
-export const {reducer: articleDetailsCommentsReducer} = articleDetailsCommentsSlice;
-export const {actions: articleDetailsCommentsActions} = articleDetailsCommentsSlice;
-
+export const { reducer: articleDetailsCommentsReducer } =
+    articleDetailsCommentsSlice;
+export const { actions: articleDetailsCommentsActions } =
+    articleDetailsCommentsSlice;
 
 /*
 type RootState = ReturnType<typeof store.getState>

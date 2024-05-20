@@ -1,10 +1,9 @@
+import type { Meta, StoryObj } from "@storybook/react";
 
-import type {Meta, StoryObj} from "@storybook/react";
+import { StoreDecorator } from "../../../../shared/config/storybook/StoreDecorator/StoreDecorator";
+import { EditableProfileCard } from "./EditableProfileCard";
 
-import {StoreDecorator} from "../../../../shared/config/storybook/StoreDecorator/StoreDecorator";
-import {EditableProfileCard} from "./EditableProfileCard";
-
-const meta =  {
+const meta = {
     title: "features/EditableProfileCard",
     component: EditableProfileCard,
     parameters: {
@@ -12,9 +11,7 @@ const meta =  {
     },
     tags: ["autodocs"],
 
-    decorators: [
-        StoreDecorator({})
-    ]
+    decorators: [StoreDecorator({})],
 } satisfies Meta<typeof EditableProfileCard>;
 
 export default meta;
@@ -22,9 +19,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
     args: {
-        id: "1"
+        id: "1",
     },
-    decorators: [
-        StoreDecorator({})
-    ]
+    decorators: [StoreDecorator({})],
 };

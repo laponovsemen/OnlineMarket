@@ -1,17 +1,15 @@
-import {ScrollRestorationSchema} from "./model/types/scrollRestorationSchema";
-import {getScrollRestorationByPath} from "./model/selectors/scrollRestoration";
+import { ScrollRestorationSchema } from "./model/types/scrollRestorationSchema";
+import { getScrollRestorationByPath } from "./model/selectors/scrollRestoration";
 import {
     scrollRestorationReducer,
     scrollRestorationSlice,
-    scrollRestorationActions
+    scrollRestorationActions,
 } from "./model/slices/scrollRestorationSlice";
-
 
 export {
     getScrollRestorationByPath,
     scrollRestorationReducer,
     scrollRestorationActions,
-    scrollRestorationSlice
+    scrollRestorationSlice,
 };
 export type { ScrollRestorationSchema };
-

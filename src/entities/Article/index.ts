@@ -1,17 +1,17 @@
-import { ArticleDetails} from "./ui/ArticleDetails/ArticleDetails";
-import {Article} from "./model/types/article";
-import {ArticleDetailsSchema} from "./model/types/articleDetailsSchema";
-import {ArticleList} from "./ui/ArticleList/ArticleList";
+import { ArticleDetails } from "./ui/ArticleDetails/ArticleDetails";
+import { Article } from "./model/types/article";
+import { ArticleDetailsSchema } from "./model/types/articleDetailsSchema";
+import { ArticleList } from "./ui/ArticleList/ArticleList";
 import {
     getArticleDetailsData,
     getArticleDetailsError,
-    getArticleDetailsIsLoading
+    getArticleDetailsIsLoading,
 } from "./model/selectors/articleDetails/articleDetails";
 import {
     ArticleBlockType,
     ArticleView,
     ArticleType,
-    ArticleSortField
+    ArticleSortField,
 } from "./model/consts/articleConsts";
 
 export {
@@ -23,13 +23,6 @@ export {
     ArticleView,
     ArticleBlockType,
     ArticleSortField,
-    ArticleType
-
+    ArticleType,
 };
-export type {
-    Article,
-    ArticleDetailsSchema,
-
-
-};
-
+export type { Article, ArticleDetailsSchema };

@@ -1,39 +1,40 @@
 import classes from "./Sidebar.module.scss";
-import {classNames} from "../../../../shared/lib/classNames/classNames";
-import React, {memo, useMemo, useState} from "react";
-import {ThemeSwitcher} from "../../../../features/ThemeSwitcher";
-import {LangSwitcher} from "../../../../features/LangSwitcher/ui/LangSwitcher";
-import {Button, ButtonSize, ButtonTheme} from "../../../../shared/ui/Button/Button";
-import {SidebarItem} from "../SidebarItem/SidebarItem";
-import {useSelector} from "react-redux";
-import {getSidebarItems} from "../../model/selectors/getSidebarItems";
-import {VStack} from "../../../../shared/ui/Stack/VStack/VStack";
+import { classNames } from "../../../../shared/lib/classNames/classNames";
+import React, { memo, useMemo, useState } from "react";
+import { ThemeSwitcher } from "../../../../features/ThemeSwitcher";
+import { LangSwitcher } from "../../../../features/LangSwitcher/ui/LangSwitcher";
+import {
+    Button,
+    ButtonSize,
+    ButtonTheme,
+} from "../../../../shared/ui/Button/Button";
+import { SidebarItem } from "../SidebarItem/SidebarItem";
+import { useSelector } from "react-redux";
+import { getSidebarItems } from "../../model/selectors/getSidebarItems";
+import { VStack } from "../../../../shared/ui/Stack/VStack/VStack";
 
 //18 00
 interface SidebarProps {
-    className? :string
+    className?: string;
 }
 
-export const Sidebar = memo(({className} : SidebarProps) => {
+export const Sidebar = memo(({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
     //const {t} = useTranslation();
     const sidebarItemsList = useSelector(getSidebarItems);
 
     const onToggle = () => {
-        setCollapsed(prev => !prev);
+        setCollapsed((prev) => !prev);
     };
 
     const itemsList = useMemo(() => {
-        return (
-            sidebarItemsList.map(item => (
-                <SidebarItem
-                    key={item.path}
-                    item={item}
-                    collapsed={collapsed}
-
-                />
-            ))
-        );
+        return sidebarItemsList.map((item) => (
+            <SidebarItem
+                key={item.path}
+                item={item}
+                collapsed={collapsed}
+            />
+        ));
     }, [collapsed, sidebarItemsList]);
 
     return (
@@ -41,9 +42,10 @@ export const Sidebar = memo(({className} : SidebarProps) => {
             data-testid={"sidebar"}
             className={classNames(
                 classes.Sidebar,
-                {[classes.collapsed]: collapsed} ,
-                [className])
-            }>
+                { [classes.collapsed]: collapsed },
+                [className],
+            )}
+        >
             <Button
                 data-testid="sidebar-toggle"
                 onClick={onToggle}
@@ -60,17 +62,14 @@ export const Sidebar = memo(({className} : SidebarProps) => {
                 className={classes.items}
             >
                 {itemsList}
-
             </VStack>
             <div className={classes.switchers}>
-                <ThemeSwitcher/>
+                <ThemeSwitcher />
                 <LangSwitcher
                     className={classes.lang}
                     short={collapsed}
                 />
             </div>
-
         </aside>
     );
 });
-

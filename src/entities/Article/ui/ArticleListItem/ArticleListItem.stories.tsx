@@ -1,9 +1,9 @@
-import type {Meta, StoryObj} from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 
-import {ArticleListItem} from "./ArticleListItem";
-import {StoreDecorator} from "../../../../shared/config/storybook/StoreDecorator/StoreDecorator";
+import { ArticleListItem } from "./ArticleListItem";
+import { StoreDecorator } from "../../../../shared/config/storybook/StoreDecorator/StoreDecorator";
 // eslint-disable-next-line semen-the-sailor-plugin/path-checker
-import {ArticleType, ArticleView} from "@/entities/Article";
+import { ArticleType, ArticleView } from "@/entities/Article";
 
 const meta = {
     title: "entities/ArticleListItem",
@@ -15,9 +15,7 @@ const meta = {
     argTypes: {
         //backgroundColor: { control: "color" },
     },
-    decorators: [
-        StoreDecorator({})
-    ]
+    decorators: [StoreDecorator({})],
 } satisfies Meta<typeof ArticleListItem>;
 
 export default meta;
@@ -36,13 +34,12 @@ export const Light: Story = {
                 id: "1",
                 username: "username",
                 avatar: "",
-                roles: []
+                roles: [],
             },
             img: "",
             blocks: [],
             createdAt: new Date().toISOString(),
-            subtitle: "subtitle"
-        }
+            subtitle: "subtitle",
+        },
     },
-
 };

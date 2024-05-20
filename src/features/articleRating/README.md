@@ -5,8 +5,6 @@
 
 #### Public api
 
-- Components
+-   Components
 
-
-- types 
-
+-   types

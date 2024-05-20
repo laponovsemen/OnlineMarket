@@ -1,29 +1,22 @@
 import classes from "./ForbiddenPage.module.scss";
-import {useTranslation} from "react-i18next";
-import {memo} from "react";
-import {classNames} from "../../../shared/lib/classNames/classNames";
-import {Page} from "../../../widget/Page/ui/Page";
+import { useTranslation } from "react-i18next";
+import { memo } from "react";
+import { classNames } from "../../../shared/lib/classNames/classNames";
+import { Page } from "../../../widget/Page/ui/Page";
 
 interface ForbiddenPageProps {
-	className?: string
+    className?: string;
 }
 
 const ForbiddenPage = memo((props: ForbiddenPageProps) => {
+    const { className } = props;
 
-    const {
-        className
-    } = props;
-
-    const {t} = useTranslation();
+    const { t } = useTranslation();
 
     return (
         <Page
             data-testid={"ForbiddenPage"}
-            className={
-                classNames(
-                    classes.ForbiddenPage,
-                    {},
-                    [className])}
+            className={classNames(classes.ForbiddenPage, {}, [className])}
         >
             {t("У вас нет доступа к этой странице")}
         </Page>

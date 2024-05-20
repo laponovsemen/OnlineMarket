@@ -1,8 +1,8 @@
 import MainPage from "@/pages/MainPage/ui/MainPage";
-import {selectByTestId} from "../../helpers/selectByTestId";
+import { selectByTestId } from "../../helpers/selectByTestId";
 
 describe("Роутинг", () => {
-// todo е2е тесты должны проверять глобальную работу приложения в связке с бекендом - полная интеграция
+    // todo е2е тесты должны проверять глобальную работу приложения в связке с бекендом - полная интеграция
     describe("Пользователь НЕ авторизован", () => {
         it("Переход на главную страницу", () => {
             // cy.mount()
@@ -21,14 +21,12 @@ describe("Роутинг", () => {
             cy.visit("dlkfsldf");
             cy.get(selectByTestId("NotFoundPage")).should("exist");
         });
-    })
-
-
+    });
 
     describe("Пользователь  авторизован", () => {
         beforeEach(() => {
-            cy.login("admin", "123")
-        })
+            cy.login("admin", "123");
+        });
 
         it("Переход открывает страницу профиля", () => {
             // cy.mount()
@@ -41,10 +39,7 @@ describe("Роутинг", () => {
             cy.visit("/articles");
             cy.get(selectByTestId("ArticlesPage")).should("exist");
         });
-    })
-
-
-
+    });
 });
 
 export {};

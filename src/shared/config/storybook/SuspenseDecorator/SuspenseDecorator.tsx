@@ -1,9 +1,5 @@
-import {Suspense} from "react";
+import { Suspense } from "react";
 
 export const SuspenseDecorator = (story: () => any) => {
-    return (
-        <Suspense>
-            {story()}
-        </Suspense>
-    );
+    return <Suspense>{story()}</Suspense>;
 };

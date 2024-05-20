@@ -1,5 +1,3 @@
-
-
 const createTemplate = require("./templates/createTemplate");
 
 const layer = process.argv[2];
@@ -7,17 +5,13 @@ const sliceName = process.argv[3];
 
 process.argv.forEach((value, index) => console.log(value, index));
 
-const layers = [
-    "features",
-    "entities",
-    "pages"
-];
+const layers = ["features", "entities", "pages"];
 
-if(!layer || !layers.includes(layer)) {
+if (!layer || !layers.includes(layer)) {
     throw new Error(`Укажите слой ${layers.join(" или ")}`);
 }
 
-if(!sliceName) {
+if (!sliceName) {
     throw new Error("Укажите название слайса");
 }
 

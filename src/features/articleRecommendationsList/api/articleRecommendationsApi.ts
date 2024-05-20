@@ -1,5 +1,5 @@
-import {rtkApi} from "../../../shared/api/rtkApi";
-import {Article} from "../../../entities/Article";
+import { rtkApi } from "../../../shared/api/rtkApi";
+import { Article } from "../../../entities/Article";
 
 const recommendationsApi = rtkApi.injectEndpoints({
     endpoints: (build) => ({
@@ -7,21 +7,23 @@ const recommendationsApi = rtkApi.injectEndpoints({
             query: (limit) => ({
                 url: "/articles",
                 params: {
-                    _limit: limit
-                }
-            })
+                    _limit: limit,
+                },
+            }),
         }),
-	    createArticleRecommendation: build.mutation({
-		    query: (limit) => ({
-			    url: "/articles",
-			    params: {
-				    _limit: limit
-			    },
-			    method: "PUT"
-		    })
-	    }),
-    })
+        createArticleRecommendation: build.mutation({
+            query: (limit) => ({
+                url: "/articles",
+                params: {
+                    _limit: limit,
+                },
+                method: "PUT",
+            }),
+        }),
+    }),
 });
 // eslint-disable-next-line max-len
-export const useArticleRecommendationsList = recommendationsApi.useGetArticleRecommendationsListQuery;
-export const useCreateRecommendation = recommendationsApi.useCreateArticleRecommendationMutation;
+export const useArticleRecommendationsList =
+    recommendationsApi.useGetArticleRecommendationsListQuery;
+export const useCreateRecommendation =
+    recommendationsApi.useCreateArticleRecommendationMutation;

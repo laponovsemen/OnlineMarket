@@ -1,10 +1,9 @@
-import {profileActions, profileReducer} from "./profileSlice";
-import {Country} from "../../../../entities/Country/model/types/country";
-import {Currency} from "../../../../entities/Currency";
-import {updateProfileData} from "../services/updateProfileData/updateProfileData";
-import {ProfileSchema} from "../types/editableProfileCardSchema";
-import {ValidateProfileError} from "../consts/consts";
-
+import { profileActions, profileReducer } from "./profileSlice";
+import { Country } from "../../../../entities/Country/model/types/country";
+import { Currency } from "../../../../entities/Currency";
+import { updateProfileData } from "../services/updateProfileData/updateProfileData";
+import { ProfileSchema } from "../types/editableProfileCardSchema";
+import { ValidateProfileError } from "../consts/consts";
 
 const data = {
     username: "volodia",
@@ -13,85 +12,85 @@ const data = {
     lastname: "poltoratskiy",
     first: "bahaha",
     city: "Toronto",
-    currency: Currency.USD
+    currency: Currency.USD,
 };
 
-describe("profileSlice.test" , () => {
+describe("profileSlice.test", () => {
     test("test set readonly", () => {
-        const state: DeepPartial<ProfileSchema> = {readonly: false};
+        const state: DeepPartial<ProfileSchema> = { readonly: false };
 
-        expect(profileReducer(
-			state as ProfileSchema,
-			profileActions.setReadonly(true)
-        )).toEqual({readonly: true});
+        expect(
+            profileReducer(
+                state as ProfileSchema,
+                profileActions.setReadonly(true),
+            ),
+        ).toEqual({ readonly: true });
     });
 
     test("test cancel edit", () => {
         const state: DeepPartial<ProfileSchema> = {
             data,
-            form : {username: ""}
+            form: { username: "" },
         };
 
-        expect(profileReducer(
-			state as ProfileSchema,
-			profileActions.cancelEdit()
-        )).toEqual({
+        expect(
+            profileReducer(state as ProfileSchema, profileActions.cancelEdit()),
+        ).toEqual({
             readonly: true,
             validateErrors: undefined,
             data,
-            form : data
+            form: data,
         });
     });
 
     test("test update profile", () => {
         const state: DeepPartial<ProfileSchema> = {
-
-            form : {username: ""}
+            form: { username: "" },
         };
 
-        expect(profileReducer(
-			state as ProfileSchema,
-			profileActions.updateProfile({
-			    username: "123456"
-			})
-        )).toEqual({
-            form: {username: "123456"}
+        expect(
+            profileReducer(
+                state as ProfileSchema,
+                profileActions.updateProfile({
+                    username: "123456",
+                }),
+            ),
+        ).toEqual({
+            form: { username: "123456" },
         });
     });
 
     test("test update profile service pending", () => {
-
         const state: DeepPartial<ProfileSchema> = {
             isLoading: false,
-            validateError: [ValidateProfileError.SERVER_ERROR]
-
+            validateError: [ValidateProfileError.SERVER_ERROR],
         };
 
-        expect(profileReducer(
-            state as ProfileSchema,
-            updateProfileData.pending
-        )).toEqual({
+        expect(
+            profileReducer(state as ProfileSchema, updateProfileData.pending),
+        ).toEqual({
             isLoading: true,
-            validateError: undefined
+            validateError: undefined,
         });
     });
 
     test("test update profile service fulfilled", () => {
-
         const state: DeepPartial<ProfileSchema> = {
             isLoading: true,
-            validateError: [ValidateProfileError.SERVER_ERROR]
+            validateError: [ValidateProfileError.SERVER_ERROR],
         };
 
-        expect(profileReducer(
-            state as ProfileSchema,
-            updateProfileData.fulfilled(data, "")
-        )).toEqual({
+        expect(
+            profileReducer(
+                state as ProfileSchema,
+                updateProfileData.fulfilled(data, ""),
+            ),
+        ).toEqual({
             isLoading: false,
             validateError: undefined,
             readonly: true,
             form: data,
-            data
+            data,
         });
     });
 });

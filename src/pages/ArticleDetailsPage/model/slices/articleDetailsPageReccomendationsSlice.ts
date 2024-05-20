@@ -1,14 +1,13 @@
 import {
     createEntityAdapter,
-    createSlice, PayloadAction,
+    createSlice,
+    PayloadAction,
 } from "@reduxjs/toolkit";
-import {StateSchema} from "../../../../app/providers/StoreProvider";
-import {ArticleDetailsReccomendationsSchema} from "../types/ArticleDetailsReccomendationsSchema";
-import {Article} from "../../../../entities/Article";
-import {
-    fetchArticleRecommendations
-} from "../services/fetchArticleRecommendations/fetchArticleRecommendations";
-type Book = { bookId: string; title: string }
+import { StateSchema } from "../../../../app/providers/StoreProvider";
+import { ArticleDetailsReccomendationsSchema } from "../types/ArticleDetailsReccomendationsSchema";
+import { Article } from "../../../../entities/Article";
+import { fetchArticleRecommendations } from "../services/fetchArticleRecommendations/fetchArticleRecommendations";
+type Book = { bookId: string; title: string };
 
 const recommendationsAdapter = createEntityAdapter<Article>({
     // Assume IDs are stored in a field other than `book.id`
@@ -17,19 +16,24 @@ const recommendationsAdapter = createEntityAdapter<Article>({
     //sortComparer: (a, b) => a.title.localeCompare(b.title),
 });
 
-export const getArticleReccomendations = recommendationsAdapter.getSelectors<StateSchema>(
-    (state) => (
-        state.articleDetailsPage?.recommendations || recommendationsAdapter.getInitialState()
-    ));
+export const getArticleReccomendations =
+    recommendationsAdapter.getSelectors<StateSchema>(
+        (state) =>
+            state.articleDetailsPage?.recommendations ||
+            recommendationsAdapter.getInitialState(),
+    );
 
 const articleDetailsPageReccomendationsSlice = createSlice({
     name: "articleDetailsCommentsSlice",
-    initialState: recommendationsAdapter.getInitialState<ArticleDetailsReccomendationsSchema>({
-        isLoading: false,
-        ids: [],
-        error: undefined,
-        entities: {}
-    }),
+    initialState:
+        recommendationsAdapter.getInitialState<ArticleDetailsReccomendationsSchema>(
+            {
+                isLoading: false,
+                ids: [],
+                error: undefined,
+                entities: {},
+            },
+        ),
     reducers: {
         // Can pass adapter functions directly as case reducers.  Because we're passing this
         // as a value, `createSlice` will auto-generate the `bookAdded` action type / creator
@@ -45,31 +49,24 @@ const articleDetailsPageReccomendationsSlice = createSlice({
                 state.error = undefined;
                 state.isLoading = true;
             })
-            .addCase(fetchArticleRecommendations.fulfilled, (
-                state,
-                action
-            ) => {
+            .addCase(fetchArticleRecommendations.fulfilled, (state, action) => {
                 state.isLoading = false;
                 recommendationsAdapter.setAll(state, action.payload);
             })
-            .addCase(fetchArticleRecommendations.rejected, (
-                state,
-                action : PayloadAction<string | undefined>) => {
-                state.error = action.payload;
-                state.isLoading = false;
-            });
-
-    }
+            .addCase(
+                fetchArticleRecommendations.rejected,
+                (state, action: PayloadAction<string | undefined>) => {
+                    state.error = action.payload;
+                    state.isLoading = false;
+                },
+            );
+    },
 });
 
-
-export const {
-    reducer: articleDetailsPageReccomendationsReducer
-} = articleDetailsPageReccomendationsSlice;
-export const {
-    actions: articleDetailsPageReccomendationsActions
-} = articleDetailsPageReccomendationsSlice;
-
+export const { reducer: articleDetailsPageReccomendationsReducer } =
+    articleDetailsPageReccomendationsSlice;
+export const { actions: articleDetailsPageReccomendationsActions } =
+    articleDetailsPageReccomendationsSlice;
 
 /*
 type RootState = ReturnType<typeof store.getState>

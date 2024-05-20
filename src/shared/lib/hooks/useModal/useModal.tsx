@@ -1,38 +1,39 @@
-import React, {MutableRefObject, useCallback, useEffect, useRef, useState} from "react";
-
+import React, {
+    MutableRefObject,
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
+} from "react";
 
 interface UseModalProps {
-	onClose?: () => void;
-	isOpen? : boolean;
-	lazy? : boolean;
-	animationDelay: number;
+    onClose?: () => void;
+    isOpen?: boolean;
+    lazy?: boolean;
+    animationDelay: number;
 }
 
 /**
  * Переиспользуемй хук для модальных компонентов (drawer/modal)
  * @param props
  */
-export function useModal(props : UseModalProps) {
-    const {
-        animationDelay,
-        onClose,
-        isOpen,
-        lazy
-    } = props;
-
+export function useModal(props: UseModalProps) {
+    const { animationDelay, onClose, isOpen, lazy } = props;
 
     const [isClosing, setIsClosing] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
-    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
+    const timerRef = useRef() as MutableRefObject<
+        ReturnType<typeof setTimeout>
+    >;
 
     useEffect(() => {
-        if(isOpen){
+        if (isOpen) {
             setIsMounted(true);
         }
     }, [isOpen]);
 
     const close = useCallback(() => {
-        if(onClose) {
+        if (onClose) {
             setIsClosing(true);
             timerRef.current = setTimeout(() => {
                 onClose();
@@ -41,14 +42,16 @@ export function useModal(props : UseModalProps) {
         }
     }, [animationDelay, onClose]);
 
-    const onKeyDown = useCallback((e: KeyboardEvent) => {
-        if(e.key === "Escape") {
-            close();
-        }
-
-    }, [close]);
+    const onKeyDown = useCallback(
+        (e: KeyboardEvent) => {
+            if (e.key === "Escape") {
+                close();
+            }
+        },
+        [close],
+    );
     useEffect(() => {
-        if(isOpen) {
+        if (isOpen) {
             window.addEventListener("keydown", onKeyDown);
         }
         return () => {
@@ -62,7 +65,7 @@ export function useModal(props : UseModalProps) {
 
     return {
         isClosing,
-	    isMounted,
-	    close
+        isMounted,
+        close,
     };
 }

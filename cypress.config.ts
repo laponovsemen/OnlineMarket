@@ -5,17 +5,15 @@ export default defineConfig({
         setupNodeEvents(on, config) {
             // implement node event listeners here
         },
-        env: {
-
-        },
+        env: {},
         baseUrl: "http://localhost:3000",
-        specPattern: "cypress/e2e/**/*.cy.{js,jsx,ts,tsx}"
+        specPattern: "cypress/e2e/**/*.cy.{js,jsx,ts,tsx}",
     },
 
-    "component": {
-        "devServer": {
-            "framework": "react",
-            "bundler": "webpack"
-        }
-    }
+    component: {
+        devServer: {
+            framework: "react",
+            bundler: "webpack",
+        },
+    },
 });

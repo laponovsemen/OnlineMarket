@@ -1,49 +1,42 @@
 import classes from "./ArticleDetailsPage.module.scss";
-import {classNames} from "../../../../shared/lib/classNames/classNames";
-import {useTranslation} from "react-i18next";
-import React, {memo} from "react";
-import {ArticleDetails} from "../../../../entities/Article";
-import {useParams} from "react-router-dom";
+import { classNames } from "../../../../shared/lib/classNames/classNames";
+import { useTranslation } from "react-i18next";
+import React, { memo } from "react";
+import { ArticleDetails } from "../../../../entities/Article";
+import { useParams } from "react-router-dom";
 import {
     DynamicModuleLoader,
-    ReducersList
+    ReducersList,
 } from "../../../../shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import {useInitialEffect} from "../../../../shared/lib/hooks/useInitialEffect/useInitialEffect";
-import {useAppDispatch} from "../../../../shared/lib/hooks/useAppDispatch/useAppDispatch";
-import {
-    fetchCommentsByArticleId
-} from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
-import {Page} from "../../../../widget/Page/ui/Page";
-import {articteDetailsPageReducer} from "../../model/slices";
-import {ArticleDetailsPageHeader} from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
-import {VStack} from "../../../../shared/ui/Stack";
-import {ArticleRecommendationsList} from "../../../../features/articleRecommendationsList";
-import {ArticleDetailsComments} from "../ArticleDetailsComments/ArticleDetailsComments";
-import {ArticleRating} from "@/features/articleRating";
-
+import { useInitialEffect } from "../../../../shared/lib/hooks/useInitialEffect/useInitialEffect";
+import { useAppDispatch } from "../../../../shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { fetchCommentsByArticleId } from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId";
+import { Page } from "../../../../widget/Page/ui/Page";
+import { articteDetailsPageReducer } from "../../model/slices";
+import { ArticleDetailsPageHeader } from "../ArticleDetailsPageHeader/ArticleDetailsPageHeader";
+import { VStack } from "../../../../shared/ui/Stack";
+import { ArticleRecommendationsList } from "../../../../features/articleRecommendationsList";
+import { ArticleDetailsComments } from "../ArticleDetailsComments/ArticleDetailsComments";
+import { ArticleRating } from "@/features/articleRating";
 
 // todo для того чтобы i18next extract plugin работал нужно создать помимо файлов в названии которых есть неймспейс прокидываемый в юзТранслейшн но и этот файл уже должен содержать пустой джсон обьект
 interface ArticleDetailsPageProps {
-	className?: string
+    className?: string;
 }
 
-const reducers : ReducersList = {
-    articleDetailsPage: articteDetailsPageReducer
+const reducers: ReducersList = {
+    articleDetailsPage: articteDetailsPageReducer,
 };
 
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
-    const {className} = props;
+    const { className } = props;
     const dispatch = useAppDispatch();
-    const {t} = useTranslation("article-details");
-    const {id} = useParams<{id: string}>(); // шоб взять айди из урла
-
-
+    const { t } = useTranslation("article-details");
+    const { id } = useParams<{ id: string }>(); // шоб взять айди из урла
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
     });
-
-
 
     // if(!id) {
     //     return (
@@ -53,7 +46,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     //     );
     // }
 
-    if(!id) {
+    if (!id) {
         return null;
     }
 
@@ -62,18 +55,21 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
             reducers={reducers}
             removeAfterUnmount // чтобы после ухода со страницы участок стейта также удалялся
         >
-            <Page className={classNames(classes.ArticleDetailsPage, {}, [className])}>
+            <Page
+                className={classNames(classes.ArticleDetailsPage, {}, [
+                    className,
+                ])}
+            >
                 <VStack
                     gap={"16"}
                     max
                 >
-                    <ArticleDetailsPageHeader/>
+                    <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
-                    <ArticleRating articleId={id}/>
-                    <ArticleRecommendationsList/>
+                    <ArticleRating articleId={id} />
+                    <ArticleRecommendationsList />
                     <ArticleDetailsComments id={id} />
                 </VStack>
-
             </Page>
         </DynamicModuleLoader>
     );

@@ -1,14 +1,13 @@
 import React from "react";
-import {Button} from "@/shared/ui/Button";
-import { useCounterActions} from "../model/slice/counterSlice";
-import {useTranslation} from "react-i18next";
-import {useCounterValue} from "../model/selectors/getCounterValue/getCounterValue";
+import { Button } from "@/shared/ui/Button";
+import { useCounterActions } from "../model/slice/counterSlice";
+import { useTranslation } from "react-i18next";
+import { useCounterValue } from "../model/selectors/getCounterValue/getCounterValue";
 
 export const Counter = () => {
     const counterValue = useCounterValue();
-    const {t} = useTranslation();
-    const {decrement, increment, addFive} = useCounterActions();
-
+    const { t } = useTranslation();
+    const { decrement, increment, addFive } = useCounterActions();
 
     const handleIncrement = () => {
         increment();
@@ -21,9 +20,8 @@ export const Counter = () => {
         addFive(5);
     };
 
-
     return (
-        <div >
+        <div>
             <h1 data-testid={"value-title"}>{counterValue}</h1>
             <Button
                 onClick={handleIncrement}
@@ -36,16 +34,13 @@ export const Counter = () => {
                 data-testid={"decrement-btn"}
             >
                 {t("decrement")}
-
             </Button>
             <Button
                 onClick={handleAddFive}
                 data-testid={"decrement-btn"}
             >
                 {t("add five")}
-
             </Button>
         </div>
     );
 };
-

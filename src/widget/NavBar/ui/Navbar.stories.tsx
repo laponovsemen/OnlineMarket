@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import {Navbar} from "./Navbar";
-import {ThemeDecorator} from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
-import {StoreDecorator} from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
-import {Theme} from "@/shared/const/theme";
+import { Navbar } from "./Navbar";
+import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator";
+import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator";
+import { Theme } from "@/shared/const/theme";
 
 const meta = {
     title: "widgets/Navbar",
@@ -15,11 +15,7 @@ const meta = {
     argTypes: {
         //backgroundColor: { control: "color" },
     },
-    decorators: [
-        StoreDecorator({
-
-        })
-    ]
+    decorators: [StoreDecorator({})],
 } satisfies Meta<typeof Navbar>;
 
 export default meta;
@@ -27,7 +23,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
     args: {},
-
 };
 
 export const LightWithAuthorized: Story = {
@@ -35,15 +30,15 @@ export const LightWithAuthorized: Story = {
     decorators: [
         StoreDecorator({
             user: {
-                authData: {}
-            }
-        })
-    ]
+                authData: {},
+            },
+        }),
+    ],
 };
 
 export const Dark: Story = {
     args: {},
-    decorators: [ThemeDecorator(Theme.DARK)]
+    decorators: [ThemeDecorator(Theme.DARK)],
 };
 
 export const DarkWithAuthorized: Story = {
@@ -52,8 +47,8 @@ export const DarkWithAuthorized: Story = {
         ThemeDecorator(Theme.DARK),
         StoreDecorator({
             user: {
-                authData: {}
-            }
-        })
-    ]
+                authData: {},
+            },
+        }),
+    ],
 };

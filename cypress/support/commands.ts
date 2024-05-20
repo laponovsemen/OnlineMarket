@@ -1,4 +1,4 @@
-import {USER_LOCALSTORAGE_KEY} from "@/shared/const/localStorage";
+import { USER_LOCALSTORAGE_KEY } from "@/shared/const/localStorage";
 import * as commonCommands from "./commands/login";
 import * as profileCommands from "./commands/profile";
 import * as articleCommands from "./commands/article";
@@ -24,7 +24,5 @@ Cypress.Commands.addAll(ratingCommands);
 // 		createFixture(fixtureName, req.body)
 // 	}
 // });
-
-
 
 export {};

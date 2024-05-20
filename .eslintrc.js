@@ -2,75 +2,73 @@ module.exports = {
     //  была проблема с нарушением импорта стилей и отсутствием глобальных переменных,
     //  решилось сп помощью ручного добавления файла глобальной
     //  декларации в тсконфиг в поле "includes"
-    "env": {
-        "browser": true,
-        "es2021": true,
-        "jest": true
+
+    // линтинг - статический анализ кода на соответствие каким-то правилам
+    // правило могут быть сколь угодно  сложными
+    // prettier - форматтер , наводит красоту
+    env: {
+        browser: true,
+        es2021: true,
+        jest: true,
     },
-    "extends": [
+    extends: [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended",
         "plugin:i18next/recommended",
-        "plugin:storybook/recommended"
+        "plugin:storybook/recommended",
+        "prettier",
     ],
-    "overrides": [
+    overrides: [
         {
-            "env": {
-                "node": true
+            env: {
+                node: true,
             },
-            "files": [
+            files: [
                 ".eslintrc.{js,cjs}",
-                "**/scripts/**",   // добавлять нужно еще две звезды после папки так как без них линтер работает только на папку
+                "**/scripts/**", // добавлять нужно еще две звезды после папки так как без них линтер работает только на папку
                 "**/src/**/*.{test,stories}.{ts,tsx}",
-                "**/config/**/*.ts"
+                "**/config/**/*.ts",
             ],
-            "parserOptions": {
-                "sourceType": "script"
+            parserOptions: {
+                sourceType: "script",
             },
             rules: {
                 "i18next/no-literal-string": "off",
                 "max-len": "off",
                 "@typescript-eslint/no-var-requires": "off",
-                "semen-the-sailor-plugin/path-checker": "off"
-            }
-        }
+                "semen-the-sailor-plugin/path-checker": "off",
+            },
+        },
     ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaVersion": "latest",
-        "sourceType": "module"
+    parser: "@typescript-eslint/parser",
+    parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
     },
-    "plugins": [
+    plugins: [
         "@typescript-eslint",
         "react",
         "i18next",
         "react-hooks",
         "@stylistic/js",
         "semen-the-sailor-plugin",
-        "unused-imports"
+        "unused-imports",
     ],
-    "rules": {
-        "@stylistic/js/indent": ["error", 4],
+    rules: {
+        // правила всегда  важнее расширений extends поэтому от ненужных правил избавляемся
+        //"@stylistic/js/indent": ["error", 4],
         "unused-imports/no-unused-imports": "error",
-        "linebreak-style": [
-            "error",
-            "windows"
-        ],
-        "quotes": [
-            "error",
-            "double"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
-        "no-mixed-spaces-and-tabs": 0,
-        "react/jsx-indent": [2, 4],
-        "react/jsx-filename-extension": [
-            2,
-            { extensions: [".js", ".jsx", ".tsx"]}
-        ],
+        "linebreak-style": ["error", "unix"],
+        quotes: ["error", "double"],
+        semi: ["error", "always"],
+        //"no-mixed-spaces-and-tabs": 0,
+        // "react/jsx-indent": [2, 4],
+        // "react/jsx-filename-extension": [
+        //     2,
+        //     { extensions: [".js", ".jsx", ".tsx"]}
+        // ],
+
         "react/no-unresolved": "off",
         "no-undef": "off",
 
@@ -90,7 +88,7 @@ module.exports = {
             "error",
             {
                 markupOnly: true,
-                ignoreAttribute:[
+                ignoreAttribute: [
                     "as",
                     "data-testid",
                     "to",
@@ -102,42 +100,39 @@ module.exports = {
                     "role",
                     "border",
                     "defaultValue",
-                    "alt"
-
-                ]
-            }
+                    "alt",
+                ],
+            },
         ],
-        "react/display-name" : "off",
-        "max-len": ["error", {"ignoreComments": true, code: 100}],
+        "react/display-name": "off",
+        "max-len": ["error", { ignoreComments: true, code: 100 }],
         "react/jsx-props-no-spreading": "off",
+        "react/jsx-max-props-per-line": ["error", {maximum: 3}],
 
         // self-made-plugins
-        "semen-the-sailor-plugin/path-checker": ["error", {alias: "@"}],
+        "semen-the-sailor-plugin/path-checker": ["error", { alias: "@" }],
         "semen-the-sailor-plugin/public-api-imports": [
             "error",
             {
                 alias: "@",
-                testFilesPatterns: ["**/*.test.ts", "**/*.story.*", "**/StoreDecorator.tsx"]
-            }
+                testFilesPatterns: [
+                    "**/*.test.ts",
+                    "**/*.story.*",
+                    "**/StoreDecorator.tsx",
+                ],
+            },
         ],
         "semen-the-sailor-plugin/layer-imports": [
             "error",
             {
                 alias: "@",
-                ignoreImportPatterns: [
-                    "**/StoreDecorator",
-                    "**/testing"
-                ]
-            }
+                ignoreImportPatterns: ["**/StoreDecorator", "**/testing"],
+            },
         ],
-
-
-
     },
     globals: {
         __IS_DEV__: true,
         __API__: true,
-        __PROJECT__: true
+        __PROJECT__: true,
     },
-
 };
