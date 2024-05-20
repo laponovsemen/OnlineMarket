@@ -28,7 +28,7 @@
     "storybook:build": "storybook build -c ./config/storybook",
     "prepare": "husky install",
     "prettier": "npx prettier --write **/*.{ts,tsx}",
-    "generate:slice": "node ./scripts/createSlice/index.js",
+    "generate:slice": "node ./scripts/createSlice/index.js"
 
   },
   "resolutions": {
