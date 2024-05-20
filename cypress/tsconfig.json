@@ -7,5 +7,5 @@
       "isolatedModules": false
   },
     "extends": "../tsconfig.json",
-    "includes": ["./**/*.ts"]
+    "includes": ["./**/*.ts", "./**/*.tsx"]
 }
