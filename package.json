@@ -29,7 +29,7 @@
     "prepare": "husky install",
     "prettier": "npx prettier --write **/*.{ts,tsx}",
     "generate:slice": "node ./scripts/createSlice/index.js",
-    "postinstall": "rmdir /s /q .\\node_modules\\.cache"
+
   },
   "resolutions": {
     "react-error-overlay": "6.0.9"

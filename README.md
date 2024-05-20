@@ -247,3 +247,35 @@ export const Outline: Story = {
 -   [profileRating](/src/features/profileRating)
 -   [scrollRestoration](/src/features/scrollRestoration)
 -   [ThemeSwitcher](/src/features/ThemeSwitcher)
+
+----
+
+подключение к удаленному облачному серверу https://onecloudplanet.com/
+1 создаем облачный инстанс где выделяем CPU и RAM а также количество гигабайт памяти устройства
+2 дожидаемся создания инстанса
+3 подключится можно через встроенный терминал на сайте но подключение будет произдводится через встроенную консоль Windows PowerShell
+4 подключаем плавающий IP для возможности удаленного подключения к серверу
+5 подключаемся к серверу с помощью команды ssh root@2.59.221.107 (ssh <login>@<floating_ip_adress>) root дефолтный логин на облачном сервере 
+6 вводим пароль от аккаунта
+7 если выводит ошибку о том что команды ssh не существует следует установить ssh client
+8 обновляем apt командой sudo apt update чтобы мы могли установить правильные версии пакетов 
+9 устанавливаем гит на удаленной машине командой sudo apt install git-all
+10 публичный проект клонируется как обычно через git clone https://github.com/laponovsemen/OnlineMarket.git
+11 для приватного репо нам нужно сначала сгенерировать приватный ssh ключ командой sudo ssh-keygen
+12 по умолчанию создает ключ в папке /root/.ssh/id_rsa 
+13 далее указываем определенную фразу (пароль для ключа)
+14 необходимо сделать конфиг для гитхаба и сохранить приватный ключ в репо на гитхабе
+15 после этого клонируем через ssh репу
+устанавливаем nvm с помощью команды(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash)
+ссылка на доку https://github.com/nvm-sh/nvm
+активируем nvm командой export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+16 проверяем версию nvm с помощью команды nvm -v
+17 устанавливаем ноду с помощью команды nvm install 20.12.2   nvm install <node_version_in_project_during_development>
+18 запускаем приложение командой npm run start:dev
+19 далее переходим по ip адресу для проверки работоспособности
+20 "postinstall": "rmdir /s /q .\\node_modules\\.cache"  скрипт не работает из-за убунту
+
+---
+
+Установка nginx
